@@ -95,3 +95,70 @@ export interface Plan {
   regular: number;
   spot: number;
 }
+
+// Interfaces for type safety
+export interface IAbstract {
+  _id?: string;
+  email: string;
+  whatsappNumber?: string;
+  name?: string;
+  affiliation?: string;
+  coAuthor?: string;
+  designation?: string;
+  title?: string;
+  subject?: string;
+  abstractFileUrl?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  pincode?: string;
+  qrCodeUrl?: string;
+  temporyAbstractCode?: string;
+  AbstractCode?: string;
+  rejectionComment?: string;
+  Status?: string;
+  registrationCompleted?: boolean;
+  registrationCode?: string;
+  articleType?: string;
+  presentationType?: "Oral" | "E-Poster" | null;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface IRegistration {
+  _id?: string;
+  groupCode?: string;
+  email: string;
+  whatsappNumber?: string;
+  Salutations?: "Mr." | "Ms." | "Mrs." | "Dr." | "Prof.";
+  name: string;
+  affiliation?: string;
+  designation?: string;
+  imageUrl?: string;
+  gender?: "Male" | "Female" | "Other";
+  dob?: Date;
+  AadharNumber?: number;
+  address?: string;
+  city?: string;
+  state?: string;
+  pincode?: string;
+  country?: string;
+  institute?: string;
+  qrCodeUrl?: string;
+  registrationType?: string;
+  abstractSubmitted?: boolean;
+  abstractId?: string;
+  paymentStatus?: "Pending" | "Completed" | "Failed";
+  paymentAmount?: number;
+  paymentDate?: Date;
+  transactionId?: string;
+  memberId?: string;
+  needAccommodation?: boolean;
+  dietaryRequirements?: string;
+  specialAssistance?: string;
+  includeGalaDinner?: boolean;
+  registrationStatus?: "Pending" | "Confirmed";
+  registrationCode?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
