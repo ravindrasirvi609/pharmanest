@@ -21,7 +21,7 @@ const AbstractFormPage: React.FC = () => {
       <div className="max-w-7xl mx-auto bg-[#F2F2F2] rounded-lg shadow-2xl overflow-hidden">
         <div className="p-6 sm:p-10">
           <h1 className="text-3xl font-extrabold text-[#021373] text-center mb-8">
-            Pharmanecia 4.E International Research Conference
+            PharmaNEST International Research Conference
           </h1>
           <h2 className="text-2xl font-bold text-[#022873] text-center mb-6">
             &quot;Recent Advances in Artificial Intelligence and Machine
@@ -149,7 +149,7 @@ const AbstractFormPage: React.FC = () => {
                     be provided upon acceptance of the abstract.
                   </li>
                   <li>
-                    Presenters must be registered delegates of Pharmanecia 4.E.
+                    Presenters must be registered delegates of PharmaNEST.
                   </li>
                   <li>
                     The best Poster and/or Oral presentations in each category

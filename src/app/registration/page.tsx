@@ -9,15 +9,15 @@ const Registration = () => {
         <h1 className="text-4xl font-bold mb-8 text-center">Registration</h1>
         <div className="mb-12">
           <p className="text-lg leading-relaxed text-justify mb-4">
-            Registrations For Pharmanecia 4.E started from 1st August 2024.
+            Registrations For PharmaNEST started from 1st August 2024.
           </p>
           <h2 className="text-3xl font-semibold mb-4 text-secondary">
             Registration Option
           </h2>
           <p className="text-lg leading-relaxed text-justify mb-4">
             Online Registration started from 1st August 2024. Registration is
-            compulsory to participate in Pharmanecia 4.E. Online: Candidates
-            have to register online by filling the form at our website.
+            compulsory to participate in PharmaNEST. Online: Candidates have to
+            register online by filling the form at our website.
           </p>
           <h3 className="text-2xl font-semibold mb-4 text-secondary">
             Cancellation and Refund Policy
