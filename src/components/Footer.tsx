@@ -103,7 +103,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Image
-              src="/api/placeholder/150/50"
+              src="/PharmaNEST.png"
               alt="Company Logo"
               className="mb-4"
               width={150}

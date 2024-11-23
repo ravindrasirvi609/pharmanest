@@ -90,7 +90,7 @@ const KeyHighlights = () => {
                     className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300"
                   >
                     <Image
-                      src="/api/placeholder/100/100"
+                      src="/PharmaNEST.png"
                       alt={speaker.name}
                       className="w-16 h-16 rounded-full object-cover"
                       width={100}

@@ -91,7 +91,7 @@ const SponsorsPartnersSection = () => {
               <div className="flex items-center justify-center h-40 bg-gray-50 rounded-lg mb-4">
                 {/* Placeholder for sponsor logo */}
                 <Image
-                  src="/api/placeholder/200/80"
+                  src="/PharmaNEST.png"
                   alt={sponsor.name}
                   className="max-w-[200px] max-h-[80px] object-contain"
                   width={200}
@@ -128,7 +128,7 @@ const SponsorsPartnersSection = () => {
               <div className="flex items-center justify-center h-32 bg-gray-50 rounded-lg mb-3">
                 {/* Placeholder for partner logo */}
                 <Image
-                  src="/api/placeholder/160/60"
+                  src="/PharmaNEST.png"
                   alt={partner.name}
                   className="max-w-[160px] max-h-[60px] object-contain"
                   width={160}

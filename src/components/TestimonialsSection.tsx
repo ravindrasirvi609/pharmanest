@@ -13,7 +13,7 @@ const TestimonialsSection = () => {
       name: "Dr. Sarah Johnson",
       role: "AI Research Director",
       company: "Tech Innovation Labs",
-      image: "/api/placeholder/80/80",
+      image: "/PharmaNEST.png",
       quote:
         "This conference exceeded all expectations. The quality of presentations and networking opportunities were outstanding. It's a must-attend event for anyone in the tech industry.",
       rating: 5,
@@ -25,7 +25,7 @@ const TestimonialsSection = () => {
       name: "Michael Chen",
       role: "Senior Developer",
       company: "Global Software Solutions",
-      image: "/api/placeholder/80/80",
+      image: "/PharmaNEST.png",
       quote:
         "The workshops were incredibly practical and informative. I learned techniques that I'm already applying in my daily work. The networking opportunities were invaluable.",
       rating: 5,
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
       name: "Emma Rodriguez",
       role: "Product Manager",
       company: "Innovation Hub",
-      image: "/api/placeholder/80/80",
+      image: "/PharmaNEST.png",
       quote:
         "A perfectly organized event with an amazing lineup of speakers. The interactive sessions and panel discussions were particularly enlightening.",
       rating: 5,
@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
       name: "Prof. David Kim",
       role: "Department Head",
       company: "University of Technology",
-      image: "/api/placeholder/80/80",
+      image: "/PharmaNEST.png",
       quote:
         "The academic track was exceptional this year. The blend of theoretical and practical sessions created the perfect learning environment for students and professionals alike.",
       rating: 5,
