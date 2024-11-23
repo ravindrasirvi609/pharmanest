@@ -1,13 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
 import AbstractModel from "@/Model/AbstractModel";
 
 connect();
+
 export async function GET(
-  request: Request,
-  { params }: { params: { code: string } }
+  request: NextRequest,
+  context: { params: { code: string } }
 ) {
-  const { code } = params;
+  const { code } = context.params;
 
   try {
     const abstract = await AbstractModel.findOne({

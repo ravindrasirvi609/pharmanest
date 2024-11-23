@@ -37,7 +37,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
   const [isAbstractFetching, setIsAbstractFetching] = useState(false);
   const [abstractSubmitted, setAbstractSubmitted] = useState(false);
   const [abstractCode, setAbstractCode] = useState("");
-  const [abstractDetails, setAbstractDetails] = useState(null);
 
   const handleAbstractSubmission = async () => {
     setIsAbstractFetching(true);
@@ -45,7 +44,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
     try {
       const response = await axios.get(`/api/abstract/${abstractCode}`);
       if (response.data) {
-        setAbstractDetails(response.data);
         // Pre-fill form data
         onInputChange({
           target: { name: "email", value: response.data.email },

@@ -274,6 +274,7 @@ const RegistrationPlans: React.FC = () => {
         },
       };
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const paymentObject = new (window as any).Razorpay(options);
       paymentObject.open();
     } catch (error) {
