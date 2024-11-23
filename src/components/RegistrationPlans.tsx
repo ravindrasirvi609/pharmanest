@@ -309,7 +309,7 @@ const RegistrationPlans: React.FC = () => {
 
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
     <div className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <div className="bg-primary text-white py-4 px-6">
+      <div className="bg-[#4CAF50] text-white py-4 px-6">
         <h3 className="text-2xl font-semibold">{plan.name}</h3>
       </div>
       <div className="p-6">
@@ -324,7 +324,7 @@ const RegistrationPlans: React.FC = () => {
         <div className="mt-6">
           <button
             onClick={() => openModal(plan)}
-            className="w-full bg-accent text-white font-semibold py-3 px-4 rounded-md hover:bg-secondary transition duration-300"
+            className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300"
           >
             Register Now
           </button>
@@ -334,7 +334,7 @@ const RegistrationPlans: React.FC = () => {
   );
 
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-r from-green-50 via-yellow-50 to-red-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-center text-primary">
           Registration Plans
@@ -344,7 +344,7 @@ const RegistrationPlans: React.FC = () => {
             <RegistrationCard key={index} plan={plan} />
           ))}
           <div className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-            <div className="bg-primary text-white py-4 px-6">
+            <div className="bg-[#4CAF50] text-white py-4 px-6">
               <h3 className="text-2xl font-semibold">Accompanying Person</h3>
             </div>
             <div className="p-6">
@@ -356,7 +356,7 @@ const RegistrationPlans: React.FC = () => {
               <PriceDisplay label="Spot" price={1500} />
               <div className="mt-6">
                 <Link href={"https://rzp.io/l/g60dnQz"}>
-                  <button className="w-full bg-accent text-white font-semibold py-3 px-4 rounded-md hover:bg-secondary transition duration-300">
+                  <button className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300">
                     Register Now
                   </button>
                 </Link>
@@ -366,7 +366,7 @@ const RegistrationPlans: React.FC = () => {
         </div>
         <div className="flex justify-center items-center py-8">
           <Link href="/Contact">
-            <button className="bg-orange-500 text-white text-2xl font-bold py-4 px-8 rounded-md hover:bg-primary transition duration-300">
+            <button className="bg-[#c12b23] text-white text-2xl font-bold py-4 px-8 rounded-md hover:bg-primary transition duration-300">
               For Group Registration, Please Contact Us
             </button>
           </Link>
@@ -420,7 +420,7 @@ const RegistrationPlans: React.FC = () => {
                   className={`w-full font-bold py-3 px-6 rounded-md transition duration-300 ${
                     isSubmitting
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-accent text-white hover:bg-secondary"
+                      : "bg-[#4CAF50] text-white hover:bg-red-700"
                   }`}
                 >
                   {isSubmitting ? (

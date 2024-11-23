@@ -23,17 +23,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Phone size={18} className="text-[#1e8f26]" />
-                <span className="text-gray-600">+1 (555) 123-4567</span>
+                <span className="text-gray-600">+91 94609-71652</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={18} className="text-[#1e8f26]" />
-                <span className="text-gray-600">contact@example.com</span>
+                <span className="text-gray-600">conferences@opf.org.in</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} className="text-[#1e8f26]" />
-                <span className="text-gray-600">
-                  123 Business Street, Suite 100
-                </span>
+                <span className="text-gray-600">CHIPS, Guntur</span>
               </div>
             </div>
           </div>
