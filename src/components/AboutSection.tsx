@@ -25,13 +25,15 @@ const AboutSection = () => {
               className="text-2xl font-semibold mb-4"
               style={{ color: "#1e8f26" }}
             >
-              PharmaNest 2024
+              Accelerating Drug Discovery and Development Through AI
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Welcome to PharmaNest, a pioneering conference dedicated to
-              exploring the intersection of pharmaceutical sciences and
-              cutting-edge technology. Our focus this year centers on the
-              revolutionary impact of AI and ML in drug discovery.
+              Welcome to our conference, a transformative event dedicated to
+              highlighting the pivotal role of Artificial Intelligence (AI) in
+              revolutionizing drug discovery and development. This event brings
+              together global leaders, researchers, and innovators from
+              academia, industry, and regulatory bodies to share groundbreaking
+              insights and breakthroughs.
             </p>
             <div className="mt-6">
               <h4
@@ -41,8 +43,8 @@ const AboutSection = () => {
                 Theme
               </h4>
               <p className="text-gray-700 italic">
-                &quot;Recent Advances in Artificial Intelligence and Machine
-                Learning-Driven Drug Discovery&quot;
+                &quot;Accelerating Drug Discovery and Development Through
+                Artificial Intelligence&quot;
               </p>
             </div>
           </div>
@@ -59,7 +61,7 @@ const AboutSection = () => {
                   <h4 className="font-semibold mb-2">Organized By</h4>
                   <p className="text-gray-600">
                     Operant Pharmacy Federation & Chebrolu Hanumaiah Institute
-                    Of Pharmaceutical Sciences, Guntur
+                    of Pharmaceutical Sciences, Guntur
                   </p>
                 </div>
               </CardContent>
@@ -74,8 +76,9 @@ const AboutSection = () => {
                 <div>
                   <h4 className="font-semibold mb-2">Innovation Focus</h4>
                   <p className="text-gray-600">
-                    Exploring breakthrough technologies in AI and ML
-                    applications for pharmaceutical research and development
+                    Highlighting AI-driven tools and techniques for target
+                    identification, lead optimization, and clinical trial
+                    advancements in drug development.
                   </p>
                 </div>
               </CardContent>
@@ -90,9 +93,9 @@ const AboutSection = () => {
                 <div>
                   <h4 className="font-semibold mb-2">Collaboration</h4>
                   <p className="text-gray-600">
-                    Bringing together researchers, industry experts, and
-                    innovators to foster meaningful partnerships in
-                    pharmaceutical advancement
+                    Bridging the gap between AI developers, pharmaceutical
+                    professionals, and regulatory bodies to foster
+                    interdisciplinary partnerships and innovation.
                   </p>
                 </div>
               </CardContent>

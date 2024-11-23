@@ -8,34 +8,36 @@ import {
   ArrowRight,
   FileText,
 } from "lucide-react";
+import Link from "next/link";
 
 const CallForAbstracts = () => {
   const topics = [
-    "AI-Driven Drug Discovery Methods",
-    "Machine Learning in Pharmaceutical Research",
-    "Deep Learning Applications in Drug Development",
+    "AI-Driven Drug Discovery Techniques",
+    "Innovative Machine Learning Applications in Pharma",
+    "Deep Learning and Predictive Models for Drug Development",
     "Natural Language Processing in Medical Research",
-    "Computational Drug Design",
-    "Predictive Analytics in Pharma",
+    "Advanced Computational Drug Design Strategies",
+    "Big Data and Predictive Analytics in Pharmaceutical Sciences",
   ];
 
   const guidelines = [
     {
       icon: <FileText className="w-6 h-6" style={{ color: "#1e8f26" }} />,
-      title: "Format",
+      title: "Abstract Format",
       description:
-        "Maximum 300 words, structured format including objectives, methods, results, and conclusions",
+        "Ensure your abstract is concise, up to 300 words, and follows a structured format: Objectives, Methods, Results, and Conclusions.",
     },
     {
       icon: <Calendar className="w-6 h-6" style={{ color: "#c12b23" }} />,
-      title: "Deadline",
-      description: "Submit your abstract by December 15, 2024",
+      title: "Submission Deadline",
+      description:
+        "Submit your abstract by **December 15, 2024**, to qualify for review and participation.",
     },
     {
       icon: <Award className="w-6 h-6" style={{ color: "#eacf34" }} />,
-      title: "Recognition",
+      title: "Recognition Opportunities",
       description:
-        "Best abstract awards in multiple categories with publication opportunities",
+        "Top submissions will receive awards across various categories and publication opportunities in reputed journals.",
     },
   ];
 
@@ -52,14 +54,15 @@ const CallForAbstracts = () => {
             style={{ backgroundColor: "#c12b23" }}
           ></div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Share your research at PharmaNest 2024. We invite submissions
-            exploring the intersection of artificial intelligence, machine
-            learning, and pharmaceutical sciences.
+            We invite you to share groundbreaking research and insights at
+            PharmaNest 2024. Submit your work and contribute to the advancement
+            of AI, machine learning, and pharmaceutical sciences.
           </p>
         </div>
 
+        {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Left Side - Topics */}
+          {/* Left Side - Research Topics */}
           <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
@@ -87,7 +90,7 @@ const CallForAbstracts = () => {
             </CardContent>
           </Card>
 
-          {/* Right Side - Guidelines */}
+          {/* Right Side - Submission Guidelines */}
           <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
@@ -129,22 +132,27 @@ const CallForAbstracts = () => {
                 Ready to Submit Your Abstract?
               </h3>
               <p className="text-gray-700 mb-6">
-                Join leading researchers and share your innovations with the
-                pharmaceutical community.
+                Become a part of PharmaNest 2024. Showcase your work, connect
+                with experts, and make an impact in the pharmaceutical research
+                community.
               </p>
               <div className="space-x-4">
-                <button
-                  className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
-                  style={{ backgroundColor: "#1e8f26" }}
-                >
-                  Submit Abstract
-                </button>
-                <button
-                  className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
-                  style={{ backgroundColor: "#c12b23" }}
-                >
-                  View Guidelines
-                </button>
+                <Link href="/abstractForm">
+                  <button
+                    className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
+                    style={{ backgroundColor: "#1e8f26" }}
+                  >
+                    Submit Abstract
+                  </button>
+                </Link>
+                <Link href="/abstractForm">
+                  <button
+                    className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
+                    style={{ backgroundColor: "#c12b23" }}
+                  >
+                    View Guidelines
+                  </button>
+                </Link>
               </div>
             </CardContent>
           </Card>

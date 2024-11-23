@@ -14,20 +14,20 @@ const KeyHighlights = () => {
   const speakers = [
     {
       name: "Dr. Sarah Chen",
-      role: "AI Research Director",
-      specialty: "Drug Discovery & ML",
+      role: "Director of AI Research",
+      specialty: "Revolutionizing Drug Discovery",
       institution: "PharmaTech Institute",
     },
     {
       name: "Prof. James Wilson",
-      role: "Head of Innovation",
-      specialty: "ML in Pharmaceutical Research",
+      role: "Innovation Leader",
+      specialty: "Machine Learning Applications in Pharma",
       institution: "Global Pharma Labs",
     },
     {
       name: "Dr. Maria Rodriguez",
-      role: "Lead Data Scientist",
-      specialty: "AI Applications in Medicine",
+      role: "Chief Data Scientist",
+      specialty: "AI Integration in Medical Research",
       institution: "BioTech Solutions",
     },
   ];
@@ -36,23 +36,30 @@ const KeyHighlights = () => {
     {
       title: "AI in Drug Discovery",
       description:
-        "Latest advancements in AI-powered drug discovery platforms and methodologies",
+        "Explore cutting-edge AI technologies revolutionizing the drug discovery process.",
     },
     {
-      title: "ML Applications in Pharma",
+      title: "Machine Learning in Pharma",
       description:
-        "Practical applications of machine learning in pharmaceutical research and development",
+        "Uncover practical applications of ML in pharmaceutical development and research.",
     },
     {
       title: "Future Innovations",
       description:
-        "Emerging trends and future directions in AI/ML-driven pharmaceutical research",
+        "Gain insights into upcoming breakthroughs in AI/ML-driven pharmaceutical advancements.",
     },
     {
-      title: "Data Analytics in Healthcare",
+      title: "Big Data in Healthcare",
       description:
-        "Leveraging big data for improved drug development and patient outcomes",
+        "Learn how big data analytics is transforming drug development and patient care.",
     },
+  ];
+
+  const networkingBenefits = [
+    "Professional networking opportunities with industry experts",
+    "Dedicated roundtable discussions on cutting-edge topics",
+    "Collaborative research sessions with thought leaders",
+    "Career advancement workshops and guidance",
   ];
 
   return (
@@ -71,7 +78,7 @@ const KeyHighlights = () => {
 
         {/* Grid Container */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Keynote Speakers Section */}
+          {/* Keynote Speakers */}
           <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center mb-6">
@@ -120,7 +127,7 @@ const KeyHighlights = () => {
             </CardContent>
           </Card>
 
-          {/* Topics Section */}
+          {/* Critical Topics */}
           <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center mb-6">
@@ -147,7 +154,7 @@ const KeyHighlights = () => {
             </CardContent>
           </Card>
 
-          {/* Networking Section */}
+          {/* Networking Opportunities */}
           <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center mb-6">
@@ -159,7 +166,6 @@ const KeyHighlights = () => {
                   Networking Opportunities
                 </h3>
               </div>
-
               <div className="space-y-6">
                 <div className="p-4 rounded-lg bg-gray-50">
                   <div className="flex items-center mb-3">
@@ -170,34 +176,29 @@ const KeyHighlights = () => {
                     <h4 className="font-semibold">Interactive Sessions</h4>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Engage in dynamic discussions with industry leaders and
-                    peers
+                    Participate in dynamic, small-group discussions led by
+                    industry experts.
                   </p>
                 </div>
-
                 <div className="p-4 rounded-lg bg-gray-50">
                   <div className="flex items-center mb-3">
                     <Calendar
                       className="w-6 h-6 mr-2"
                       style={{ color: "#c12b23" }}
                     />
-                    <h4 className="font-semibold">Scheduled Networking</h4>
+                    <h4 className="font-semibold">
+                      Scheduled Networking Events
+                    </h4>
                   </div>
-                  <p className="text-gray-600 mb-4">
-                    Dedicated time slots for one-on-one meetings and group
-                    discussions
+                  <p className="text-gray-600">
+                    Exclusive time slots for one-on-one and group collaborations
+                    to foster impactful connections.
                   </p>
                 </div>
-
                 <div className="mt-6">
                   <h4 className="font-semibold mb-4">What to Expect:</h4>
                   <ul className="space-y-3">
-                    {[
-                      "Professional networking events",
-                      "Industry expert roundtables",
-                      "Research collaboration opportunities",
-                      "Career development sessions",
-                    ].map((item, index) => (
+                    {networkingBenefits.map((benefit, index) => (
                       <li
                         key={index}
                         className="flex items-center text-gray-600"
@@ -206,7 +207,7 @@ const KeyHighlights = () => {
                           className="w-4 h-4 mr-2"
                           style={{ color: "#1e8f26" }}
                         />
-                        {item}
+                        {benefit}
                       </li>
                     ))}
                   </ul>

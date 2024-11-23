@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +21,8 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Registration", href: "/registration" },
-    { name: "Contact", href: "/contact" },
     { name: "Abstract", href: "/abstractForm" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -50,7 +51,8 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <Link
+                href={item.href}
                 key={item.name}
                 onClick={() => setActiveItem(item.name)}
                 className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${
@@ -65,7 +67,7 @@ const Header = () => {
                     activeItem === item.name ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -98,7 +100,8 @@ const Header = () => {
           <div className="p-6">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <button
+                <Link
+                  href={item.href}
                   key={item.name}
                   onClick={() => {
                     setActiveItem(item.name);
@@ -118,7 +121,7 @@ const Header = () => {
                         : ""
                     }`}
                   />
-                </button>
+                </Link>
               ))}
             </nav>
           </div>
