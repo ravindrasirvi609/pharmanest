@@ -16,6 +16,7 @@
     "clsx": "^2.1.1",
     "firebase": "^11.0.2",
     "framer-motion": "^11.11.17",
+    "html2canvas": "^1.4.1",
     "lucide-react": "^0.460.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.2",
@@ -29,6 +30,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/html2canvas": "^1.0.0",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18",
