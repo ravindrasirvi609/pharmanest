@@ -1,9 +1,7 @@
 import AboutSection from "@/components/AboutSection";
 import CallForAbstracts from "@/components/CallForAbstracts";
-import EventScheduleTeaser from "@/components/EventScheduleTeaser";
 import HeroSection from "@/components/HeroSection";
 import KeyHighlights from "@/components/KeyHighlights";
-import SponsorsPartnersSection from "@/components/SponsorsPartnersSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
@@ -13,8 +11,8 @@ export default function Home() {
       <AboutSection />
       <KeyHighlights />
       <CallForAbstracts />
-      <EventScheduleTeaser />
-      <SponsorsPartnersSection />
+      {/* <EventScheduleTeaser /> */}
+      {/* <SponsorsPartnersSection /> */}
       <TestimonialsSection />
     </main>
   );

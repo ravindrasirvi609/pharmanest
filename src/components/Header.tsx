@@ -1,15 +1,13 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -28,41 +26,53 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
+          : "bg-gradient-to-r from-white/50 to-white/30 backdrop-blur-sm py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Image
-              src="/PharmaNEST.png"
-              alt="PharmaNEST"
-              className="w-32 h-32"
-              width={32}
-              height={32}
-            />
-          </Link>
+          <div className="flex items-center space-x-2">
+            <div className="w-32 h-12 rounded-lg overflow-hidden">
+              <Image
+                src="/PharmaNEST.png"
+                alt="Logo"
+                className="w-full h-full object-cover"
+                width={128}
+                height={48}
+              />
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-[#1e8f26] transition-colors relative group py-2"
+                onClick={() => setActiveItem(item.name)}
+                className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${
+                  activeItem === item.name
+                    ? "text-black"
+                    : "text-gray-800 hover:text-black"
+                }`}
               >
-                <span>{item.name}</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#1e8f26] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-              </Link>
+                {item.name}
+                <span
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform transition-transform duration-300 ${
+                    activeItem === item.name ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
+              </button>
             ))}
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100/50 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -76,33 +86,42 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
+        className={`md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute top-full left-0 w-full bg-white/90 backdrop-blur-lg shadow-lg py-4">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-[#1e8f26] transition-colors"
-              >
-                <span>{item.name}</span>
-                <ChevronRight className="h-4 w-4" />
-              </Link>
-            ))}
-            <Link
-              href="/get-started"
-              onClick={() => setIsOpen(false)}
-              className="bg-gradient-to-r from-[#1e8f26] to-[#c12b23] text-white p-3 rounded-lg text-center hover:shadow-lg transition-all duration-300 mt-4"
-            >
-              Get Started
-            </Link>
-          </nav>
+        <div
+          className={`absolute right-0 top-0 h-full w-64 bg-white shadow-2xl transition-transform duration-300 ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="p-6">
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setActiveItem(item.name);
+                    setIsOpen(false);
+                  }}
+                  className={`flex items-center justify-between p-3 rounded-lg transition-colors ${
+                    activeItem === item.name
+                      ? "bg-emerald-50 text-black"
+                      : "text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  <span className="font-bold">{item.name}</span>
+                  <ChevronRight
+                    className={`h-4 w-4 transition-transform ${
+                      activeItem === item.name
+                        ? "text-emerald-600 translate-x-1"
+                        : ""
+                    }`}
+                  />
+                </button>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>
