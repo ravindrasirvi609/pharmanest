@@ -3,12 +3,12 @@ import { connect } from "@/dbConfig/dbConfig";
 import AbstractModel from "@/Model/AbstractModel";
 
 connect();
-
 export async function GET(
   request: NextRequest,
-  context: { params: { code: string } }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { params }: any
 ) {
-  const { code } = context.params;
+  const { code } = params;
 
   try {
     const abstract = await AbstractModel.findOne({
