@@ -1,10 +1,13 @@
-import Header from "@/components/Header";
+import AboutSection from "@/components/AboutSection";
+import HeroSection from "@/components/HeroSection";
+import KeyHighlights from "@/components/KeyHighlights";
 
 export default function Home() {
   return (
     <main>
-      <Header />
-      {/* Rest of your page content */}
+      <HeroSection />
+      <AboutSection />
+      <KeyHighlights />
     </main>
   );
 }
