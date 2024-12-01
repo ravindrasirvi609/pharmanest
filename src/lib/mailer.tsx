@@ -52,6 +52,8 @@ export const sendEmail = async ({
       }
       submissionDetailsUrl = `${baseUrl}/abstractForm/${registration._id}`;
       EMAIL = registration.email;
+
+      console.log("registration", registration);
     } else {
       abstract = await AbstractModel.findOne({ _id });
       if (!abstract) {
@@ -196,7 +198,7 @@ export const sendEmail = async ({
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "psc@pharmanecia.org",
+        from: "conferences@opf.org.in",
         to: EMAIL,
         subject: subject,
         html: emailHtml,

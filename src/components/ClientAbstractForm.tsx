@@ -429,10 +429,10 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
           <p>
             For any queries, please contact our support team at{" "}
             <a
-              href="mailto:psc@pharmanecia.org"
+              href="mailto:conferences@opf.org.in"
               className="text-danger hover:underline"
             >
-              psc@pharmanecia.org
+              conferences@opf.org.in
             </a>
           </p>
         </div>
