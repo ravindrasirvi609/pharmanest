@@ -42,17 +42,19 @@ export async function POST(req: NextRequest) {
       { new: true, sort: { createdAt: -1 } } // Assuming 'createdAt' is the field to sort by. Use 'updatedAt' if that's more appropriate.
     );
 
-    try {
-      await AbstractModel.findByIdAndUpdate(updatedRegistration.abstractId, {
-        registrationCompleted: true,
-        registrationCode: updatedRegistration.registrationCode,
-      });
-    } catch (error) {
-      console.error("Failed to update Abstract Model:", error);
-      return NextResponse.json(
-        { error: "Failed to update Abstract" },
-        { status: 500 }
-      );
+    if (updatedRegistration && updatedRegistration.abstractId) {
+      try {
+        await AbstractModel.findByIdAndUpdate(updatedRegistration.abstractId, {
+          registrationCompleted: true,
+          registrationCode: updatedRegistration.registrationCode,
+        });
+      } catch (error) {
+        console.error("Failed to update Abstract Model:", error);
+        return NextResponse.json(
+          { error: "Failed to update Abstract" },
+          { status: 500 }
+        );
+      }
     }
 
     if (!updatedRegistration) {

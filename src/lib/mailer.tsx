@@ -1,8 +1,8 @@
 import { render } from "@react-email/render";
 import { Text } from "@react-email/components";
+import EmailTemplate from "./EmailTemplate";
 import AbstractModel from "@/Model/AbstractModel";
 import RegistrationModel from "@/Model/RegistrationModel";
-import EmailTemplate from "./EmailTemplate";
 
 type EmailType = "SUBMITTED" | "UPDATE_STATUS" | "REGISTRATION_SUCCESS";
 
@@ -11,16 +11,13 @@ interface SendEmailParams {
   emailType: EmailType;
 }
 
-interface EmailResponse {
-  id: string;
-  status: string;
-}
-
 export const sendEmail = async ({
   _id,
   emailType,
-}: SendEmailParams): Promise<EmailResponse> => {
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+SendEmailParams): Promise<any> => {
   try {
+    // Validate email type
     if (
       !["SUBMITTED", "UPDATE_STATUS", "REGISTRATION_SUCCESS"].includes(
         emailType
@@ -31,6 +28,7 @@ export const sendEmail = async ({
       );
     }
 
+    // Check Resend API key
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       throw new Error(
@@ -38,6 +36,7 @@ export const sendEmail = async ({
       );
     }
 
+    // Set base URL
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     let abstract;
@@ -45,6 +44,7 @@ export const sendEmail = async ({
     let submissionDetailsUrl: string;
     let EMAIL: string;
 
+    // Fetch registration or abstract based on email type
     if (emailType === "REGISTRATION_SUCCESS") {
       registration = await RegistrationModel.findOne({ _id });
       if (!registration) {
@@ -52,8 +52,6 @@ export const sendEmail = async ({
       }
       submissionDetailsUrl = `${baseUrl}/abstractForm/${registration._id}`;
       EMAIL = registration.email;
-
-      console.log("registration", registration);
     } else {
       abstract = await AbstractModel.findOne({ _id });
       if (!abstract) {
@@ -63,10 +61,12 @@ export const sendEmail = async ({
       EMAIL = abstract.email;
     }
 
+    // Prepare email content based on email type
     let content: React.ReactNode;
     let subject: string = "";
     let buttonText: string = "";
     let buttonUrl: string = "";
+
     if (emailType === "SUBMITTED") {
       content = (
         <>
@@ -89,6 +89,7 @@ export const sendEmail = async ({
       let codeToShow = abstract.temporyAbstractCode;
       const statusForSubject =
         abstract.Status === "Revision" ? "Revision required" : abstract.Status;
+
       if (abstract.Status === "Accepted") {
         codeToShow = abstract.AbstractCode;
         statusSpecificContent = (
@@ -109,10 +110,10 @@ export const sendEmail = async ({
           <>
             <Text>
               We regret to inform you that your abstract does not fully comply
-              with the PharmaNEST International Research Conference guidelines.
-              Kindly revise your abstract according to the provided guidelines
-              and reviewer comments. Please resubmit the abstract by clicking
-              View Submission Details.
+              with the Pharmanecia 4.E International Research Conference
+              guidelines. Kindly revise your abstract according to the provided
+              guidelines and reviewer comments. Please resubmit the abstract by
+              clicking View Submission Details.
             </Text>
             <Text>
               <strong>
@@ -181,7 +182,8 @@ export const sendEmail = async ({
       buttonUrl = submissionDetailsUrl;
     }
 
-    const emailHtml = render(
+    // IMPORTANT: Await the render to get a string
+    const emailHtml = await render(
       <EmailTemplate
         content={content}
         subject={subject}
@@ -191,6 +193,22 @@ export const sendEmail = async ({
       />
     );
 
+    // Validate email
+    if (!EMAIL) {
+      throw new Error("Email address is empty or undefined");
+    }
+
+    if (!validateEmail(EMAIL)) {
+      throw new Error(`Invalid email address: ${EMAIL}`);
+    }
+
+    // Simple email validation function
+    function validateEmail(email: string): boolean {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Send email via Resend API
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -198,17 +216,25 @@ export const sendEmail = async ({
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "conferences@opf.org.in",
+        from: "admin@opf.org.in",
         to: EMAIL,
         subject: subject,
-        html: emailHtml,
+        html: emailHtml, // Now this is definitely a string
       }),
     });
 
+    // Handle response errors
     if (!response.ok) {
-      throw new Error(`Error sending email: ${response.status}`);
+      const errorBody = await response.text();
+      console.error("Full Error Response:", {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorBody,
+      });
+      throw new Error(`Error sending email: ${response.status} - ${errorBody}`);
     }
 
+    // Return parsed response
     return await response.json();
   } catch (error) {
     console.error("Error sending email:", error);
