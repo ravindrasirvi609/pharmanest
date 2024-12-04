@@ -116,7 +116,6 @@ export const subjectOptions = [
 export const designationOptions = [
   { value: "UG", label: "Undergraduate Student(UG)" },
   { value: "PG", label: "Postgraduate Student(PG)" },
-
   {
     value: "RC",
     label: "Research Scholer/PhD Scholar",
