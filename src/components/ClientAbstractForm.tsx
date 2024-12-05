@@ -5,7 +5,6 @@ import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
 import { useDropzone } from "react-dropzone";
 import { formatDate } from "@/lib/utils";
 import { RegistrationInfo } from "@/lib/interface";
-import IdCard from "@/components/idCard";
 
 interface ClientProps {
   id: string;
@@ -163,16 +162,6 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                 <p className="mt-2 text-sm text-center text-gray-600">
                   Scan to check abstract updates
                 </p>
-              </div>
-
-              <div className="mt-8">
-                {registration && (
-                  <IdCard
-                    name={registration.name ?? ""}
-                    imageUrl={registration?.imageUrl ?? ""}
-                    affiliation={registration.affiliation}
-                  />
-                )}
               </div>
             </div>
 
