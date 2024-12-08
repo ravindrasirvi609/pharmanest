@@ -3,40 +3,74 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4" style={{ color: "#1e8f26" }}>
-            About Us
-          </h1>
-          <div
-            className="w-24 h-1 mx-auto rounded mb-6"
-            style={{ backgroundColor: "#c12b23" }}
-          ></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-4 text-green-700">About Us</h1>
+          <div className="w-32 h-1 mx-auto rounded mb-6 bg-red-600"></div>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Learn more about the{" "}
             <strong>Operant Pharmacy Federation (OPF)</strong> and the
-            initiatives we proudly support, including our breakthrough platform,
-            Learn more about the{" "}
-            <strong>Operant Pharmacy Federation (OPF) </strong>and the{" "}
+            initiatives we proudly support, including our breakthrough platform,{" "}
             <strong>CHIPS</strong>.
           </p>
+        </div>
+
+        {/* About Chips Section */}
+        <div className="mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="relative order-last lg:order-first">
+              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/chips.png"
+                  alt="About Chips"
+                  className="object-cover"
+                  width={340}
+                  height={360}
+                />
+              </div>
+            </div>
+            <div>
+              <h2 className="text-4xl font-semibold mb-4 text-red-600">
+                About CHIPS
+              </h2>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                <strong>
+                  Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
+                  (CHIPS)
+                </strong>{" "}
+                was established in 2005 by the Nagarjuna Education Society
+                (NES). Offering B.Pharmacy, M.Pharmacy, Pharm.D, and Ph.D
+                programs, CHIPS has a student strength of 648 and boasts
+                excellent infrastructure.
+              </p>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                The institution is recognized by UGC and accredited by NAAC with
+                a B++ grade. It has received Autonomous Status from UGC and is
+                ISO certified. CHIPS has a strong research focus, with 47 Ph.D.
+                scholars and over 300 published research papers.
+              </p>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                With a dedicated faculty, CHIPS ensures quality education,
+                achieving an average pass percentage of over 95%. Approximately
+                70% of students secure placements through the Training and
+                Placement Cell.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* About OPF Section */}
         <div className="mb-16">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2
-                className="text-3xl font-semibold mb-4"
-                style={{ color: "#1e8f26" }}
-              >
+              <h2 className="text-4xl font-semibold mb-4 text-green-700">
                 About Operant Pharmacy Federation (OPF)
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Operant Pharmacy Federation (OPF) is committed to advancing the
-                <strong> pharmacy profession </strong> by hosting exhibitions,
+                Operant Pharmacy Federation (OPF) is committed to advancing the{" "}
+                <strong>pharmacy profession</strong> by hosting exhibitions,
                 conferences, workshops, and more. With an international
                 reputation in biomedical and pharmaceutical studies, OPF serves
                 as a hub for high-quality research, education forums, ethical
@@ -71,72 +105,13 @@ const About = () => {
           </div>
         </div>
 
-        {/* About Chips Section */}
-        <div className="mb-16">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="relative order-last lg:order-first">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/chips.png"
-                  alt="About Chips"
-                  className="object-cover"
-                  width={640}
-                  height={360}
-                />
-              </div>
-            </div>
-            <div>
-              <h2
-                className="text-3xl font-semibold mb-4"
-                style={{ color: "#c12b23" }}
-              >
-                About CHIPS
-              </h2>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                <strong>
-                  CHIPS (Collaborative Healthcare Innovations and Pharmaceutical
-                  Solutions)
-                </strong>{" "}
-                is a flagship initiative by OPF, designed to accelerate
-                innovation in healthcare and pharmaceuticals. CHIPS serves as a
-                collaborative platform for{" "}
-                <strong>
-                  researchers, healthcare professionals, and industry leaders
-                </strong>
-                to share knowledge and drive advancements in pharmaceutical
-                sciences.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                The platform offers tools and resources to support{" "}
-                <strong>AI-driven drug discovery </strong>,{" "}
-                <strong>machine learning models</strong>, and{" "}
-                <strong>data analytics</strong>
-                for enhanced decision-making. By connecting professionals across
-                disciplines, CHIPS ensures a future of smarter, more efficient
-                healthcare solutions.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Through CHIPS, we aim to make research more accessible and
-                actionable, encouraging breakthroughs that improve lives
-                worldwide.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Why Choose Us Section */}
         <div className="bg-gradient-to-r from-green-50 via-yellow-50 to-red-50 py-12 px-6 rounded-lg shadow-md">
           <div className="text-center mb-8">
-            <h2
-              className="text-3xl font-bold mb-4"
-              style={{ color: "#1e8f26" }}
-            >
+            <h2 className="text-4xl font-bold mb-4 text-green-700">
               Why Choose OPF?
             </h2>
-            <div
-              className="w-16 h-1 mx-auto rounded mb-6"
-              style={{ backgroundColor: "#eacf34" }}
-            ></div>
+            <div className="w-16 h-1 mx-auto rounded mb-6 bg-yellow-500"></div>
           </div>
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
