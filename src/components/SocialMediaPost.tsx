@@ -32,7 +32,7 @@ const SocialMediaPost = ({
             fontWeight: "bold",
           }}
         >
-          Pharmanecia 4.E
+          PharmaNEST
         </h1>
 
         <p
@@ -113,7 +113,7 @@ const SocialMediaPost = ({
           margin: "0",
         }}
       >
-        Hey! I&apos;m Attending Pharmanecia 4.E
+        Hey! I&apos;m Attending PharmaNEST 2025
       </p>
 
       <div
@@ -135,8 +135,7 @@ const SocialMediaPost = ({
           marginTop: "20px",
         }}
       >
-        #Pharmanecia4E #AIinDrugDiscovery #MachineLearning
-        #PharmaceuticalSciences
+        #PharmaNEST #AIinDrugDiscovery #MachineLearning #PharmaceuticalSciences
       </p>
     </div>
   );

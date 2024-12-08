@@ -29,7 +29,7 @@ const AbstractFormPage: React.FC = () => {
           </h2>
           <section className="mt-8 bg-[#D94814] p-6 my-2 rounded-lg shadow-md text-white">
             <p className="mb-4">
-              The Pharmanecia Scientific Committee (PSC) invites delegates to
+              The PharmaNEST Scientific Committee (PSC) invites delegates to
               submit their original scientific work as abstracts for
               presentation during the Congress as Poster and/or Oral
               presentations.
@@ -116,7 +116,7 @@ const AbstractFormPage: React.FC = () => {
                     href="https://docs.google.com/document/d/1XNRgI2o0S6oaC0quxcxj0Aw0CVV93Ft3/edit?usp=sharing&ouid=108384988200604232400&rtpof=true&sd=true"
                     className="text-[#034C8C] hover:text-[#000000] font-bold underline transition duration-300"
                   >
-                    PHARMANECIA MODEL ABSTRACT
+                    PHARMANEST MODEL ABSTRACT
                   </a>
                 </div>
               </section>
