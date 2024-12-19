@@ -31,7 +31,7 @@ const CallForAbstracts = () => {
       icon: <Calendar className="w-6 h-6" style={{ color: "#c12b23" }} />,
       title: "Submission Deadline",
       description:
-        "Submit your abstract by **December 15, 2024**, to qualify for review and participation.",
+        "Submit your abstract by January 15, 2025, to qualify for review and participation.",
     },
     {
       icon: <Award className="w-6 h-6" style={{ color: "#eacf34" }} />,
