@@ -4,37 +4,30 @@ export const plans: Plan[] = [
   {
     name: "OPF/OBRF Members",
     description: "Includes entry to all sessions and conference kit.",
-    earlyBird: 1770,
-    regular: 2000,
-    spot: 2500,
+    earlyBird: 700,
+    regular: 850,
+    spot: 1000,
   },
   {
-    name: "Students (UG /PG)",
+    name: "Students (UG /PG), Research Scholars & Faculties, Industry Professionals - Offline Mode ",
     description: "Includes entry to all sessions and conference kit.",
-    earlyBird: 2124,
-    regular: 2200,
-    spot: 2600,
+    earlyBird: 750,
+    regular: 850,
+    spot: 1000,
   },
   {
-    name: "Research Scholars & Faculties",
+    name: "Students (UG /PG), Research Scholars & Faculties, Industry Professionals - Online Mode ",
     description: "Includes entry to all sessions, conference kit, and lunch.",
-    earlyBird: 2784,
-    regular: 2950,
-    spot: 3550,
-  },
-  {
-    name: "Industry Professionals",
-    description: "Includes entry to all sessions, conference kit, and lunch.",
-    earlyBird: 3550,
-    regular: 4130,
-    spot: 4720,
+    earlyBird: 500,
+    regular: 650,
+    spot: 800,
   },
   {
     name: "International Delegates",
     description: "Includes entry to all sessions, conference kit, and lunch.",
-    earlyBird: 130 * 83, // Assuming 1 USD = 83 INR
-    regular: 150 * 83,
-    spot: 180 * 83,
+    earlyBird: 60 * 83, // Assuming 1 USD = 83 INR
+    regular: 75 * 83,
+    spot: 100 * 83,
   },
 ];
 
