@@ -24,8 +24,7 @@ const AbstractFormPage: React.FC = () => {
             PharmaNEST International Research Conference
           </h1>
           <h2 className="text-2xl font-bold text-[#022873] text-center mb-6">
-            &quot;Recent Advances in Artificial Intelligence and Machine
-            Learning Driven Drug Discovery&quot;
+            &quot; Accelerating Drug Discovery and Development Through AI&quot;
           </h2>
           <section className="mt-8 bg-[#D94814] p-6 my-2 rounded-lg shadow-md text-white">
             <p className="mb-4">
@@ -106,7 +105,7 @@ const AbstractFormPage: React.FC = () => {
                     into the designated space on the submission portal.
                   </li>
                   <li>Abstracts must be submitted online only.</li>
-                  <li>The deadline for submission is 15 November, 2024.</li>
+                  <li>The deadline for submission is 15 January, 2025.</li>
                   <li>
                     A model abstract is available for reference on the website.
                   </li>
