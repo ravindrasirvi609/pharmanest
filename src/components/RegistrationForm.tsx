@@ -23,8 +23,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
   onInputChange,
   onImageUpload,
   errors,
-  includeGalaDinner,
-  handleGalaDinnerChange,
+
   selectedPlanName,
 }) => {
   const {
@@ -332,7 +331,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
         </p>
       </div>
 
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <label className="flex items-center mb-2">
           <input
             type="checkbox"
@@ -344,7 +343,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
           />
           Include Networking Cum Gala Dinner (Additional ₹1000)
         </label>
-      </div>
+      </div> */}
 
       <div className="mb-4">
         <label className="block mb-2">Aadhar Number</label>
