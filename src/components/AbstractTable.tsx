@@ -256,8 +256,8 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
                 <span
                   className={`py-1 px-3 rounded-full text-xs ${
                     abstract.registrationCompleted
-                      ? "bg-green text-white"
-                      : "bg-red text-white"
+                      ? "bg-green-500 text-black"
+                      : "bg-red-500 text-white"
                   }`}
                 >
                   {abstract.registrationCompleted ? "Complete" : "Incomplete"}
@@ -270,9 +270,9 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
                 <span
                   className={`py-1 px-3 rounded-full text-xs ${
                     abstract.Status === "Accepted"
-                      ? "bg-green text-white"
+                      ? "bg-green-500 text-white"
                       : abstract.Status === "Revision"
-                      ? "bg-red text-white"
+                      ? "bg-red-500 text-white"
                       : abstract.Status === "InReview"
                       ? "bg-blue-500 text-white"
                       : "bg-yellow-200 text-yellow-800"
@@ -285,7 +285,7 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
                 <div className="flex item-center justify-center">
                   <button
                     onClick={() => handleDownload(abstract)}
-                    className="bg-green hover:bg-green text-white rounded-full p-2 mx-1"
+                    className="bg-green-500 hover:bg-green-700 text-white rounded-full p-2 mx-1"
                     title="Download"
                   >
                     <Download size={16} />
