@@ -1,36 +1,34 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  UserSquare2,
   Network,
   BrainCircuit,
   Users,
   ArrowRight,
   Calendar,
 } from "lucide-react";
-import Image from "next/image";
 
 const KeyHighlights = () => {
-  const speakers = [
-    {
-      name: "Dr. Sarah Chen",
-      role: "Director of AI Research",
-      specialty: "Revolutionizing Drug Discovery",
-      institution: "PharmaTech Institute",
-    },
-    {
-      name: "Prof. James Wilson",
-      role: "Innovation Leader",
-      specialty: "Machine Learning Applications in Pharma",
-      institution: "Global Pharma Labs",
-    },
-    {
-      name: "Dr. Maria Rodriguez",
-      role: "Chief Data Scientist",
-      specialty: "AI Integration in Medical Research",
-      institution: "BioTech Solutions",
-    },
-  ];
+  // const speakers = [
+  //   {
+  //     name: "Dr. Sarah Chen",
+  //     role: "Director of AI Research",
+  //     specialty: "Revolutionizing Drug Discovery",
+  //     institution: "PharmaTech Institute",
+  //   },
+  //   {
+  //     name: "Prof. James Wilson",
+  //     role: "Innovation Leader",
+  //     specialty: "Machine Learning Applications in Pharma",
+  //     institution: "Global Pharma Labs",
+  //   },
+  //   {
+  //     name: "Dr. Maria Rodriguez",
+  //     role: "Chief Data Scientist",
+  //     specialty: "AI Integration in Medical Research",
+  //     institution: "BioTech Solutions",
+  //   },
+  // ];
 
   const topics = [
     {
@@ -79,7 +77,7 @@ const KeyHighlights = () => {
         {/* Grid Container */}
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Keynote Speakers */}
-          <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+          {/* <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center mb-6">
                 <UserSquare2
@@ -125,7 +123,7 @@ const KeyHighlights = () => {
                 ))}
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Critical Topics */}
           <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
