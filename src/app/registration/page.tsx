@@ -105,7 +105,7 @@ const Registration = () => {
             style={{ color: "#1e8f26" }}
           >
             <strong>Early Bird Offer:</strong> Valid until{" "}
-            <strong>November 30, 2024</strong>.
+            <strong>January 25, 2025</strong>.
           </p>
           <p className="text-lg leading-relaxed text-justify mb-4">
             All prices mentioned are <strong>inclusive of GST</strong>.
