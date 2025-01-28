@@ -283,6 +283,7 @@ const RegistrationPlans: React.FC = () => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const openModal = (plan: Plan) => {
     setSelectedPlan(plan);
     setShowModal(true);
@@ -322,12 +323,12 @@ const RegistrationPlans: React.FC = () => {
         />
         <PriceDisplay label="Spot" price={plan.spot} className="line-through" />
         <div className="mt-6">
-          <button
+          {/* <button
             onClick={() => openModal(plan)}
             className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300"
           >
             Register Now
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
@@ -354,13 +355,13 @@ const RegistrationPlans: React.FC = () => {
               <PriceDisplay label="Early Bird" price={1200} />
               <PriceDisplay label="Regular" price={1200} />
               <PriceDisplay label="Spot" price={1500} />
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <Link href={"https://rzp.io/l/g60dnQz"}>
                   <button className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300">
                     Register Now
                   </button>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
