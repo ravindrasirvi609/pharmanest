@@ -2,25 +2,25 @@ import { Plan } from "@/lib/interface";
 
 export const plans: Plan[] = [
   {
-    name: "OPF/OBRF Members",
+    name: "UG & PG Students",
     description: "Includes entry to all sessions and conference kit.",
-    earlyBird: 700,
-    regular: 850,
-    spot: 1000,
+    earlyBird: 1250,
+    regular: 1500,
+    spot: 1500,
   },
   {
-    name: "Students (UG /PG), Research Scholars & Faculties, Industry Professionals - Offline Mode ",
+    name: "Research Scholars & Faculty",
     description: "Includes entry to all sessions and conference kit.",
-    earlyBird: 750,
-    regular: 850,
-    spot: 1000,
+    earlyBird: 1500,
+    regular: 2000,
+    spot: 2000,
   },
   {
-    name: "Students (UG /PG), Research Scholars & Faculties, Industry Professionals - Online Mode ",
-    description: "Includes entry to all sessions, conference kit, and lunch.",
-    earlyBird: 500,
-    regular: 650,
-    spot: 800,
+    name: "Industry Professionals",
+    description: "Includes entry to all sessions and conference kit.",
+    earlyBird: 2000,
+    regular: 2500,
+    spot: 2500,
   },
   {
     name: "International Delegates",

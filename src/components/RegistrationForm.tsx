@@ -23,7 +23,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
   onInputChange,
   onImageUpload,
   errors,
-
+  includeGalaDinner,
+  handleGalaDinnerChange,
   selectedPlanName,
 }) => {
   const {
@@ -110,59 +111,116 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
     multiple: false,
   });
 
-  return (
-    <form className="max-w-2xl mx-auto">
-      <h3 className="text-2xl font-semibold mb-4">Registration Form</h3>
+  const FormField = ({
+    label,
+    name,
+    type = "text",
+    value,
+    onChange,
+    required = false,
+    error,
+    maxLength,
+    note,
+    children,
+  }: {
+    label: string;
+    name: string;
+    type?: string;
+    value: string;
+    onChange: (
+      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => void;
+    required?: boolean;
+    error?: string;
+    maxLength?: number;
+    note?: string;
+    children?: React.ReactNode;
+  }) => (
+    <div className="mb-5">
+      <label className="block text-white font-medium mb-2">{label}</label>
+      {children || (
+        <input
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
+          maxLength={maxLength}
+          className={`w-full px-4 py-3 rounded-xl ${
+            error
+              ? "bg-red-900/20 border border-red-500/50"
+              : "bg-white/5 border border-white/10"
+          } text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm`}
+        />
+      )}
+      {error && (
+        <p className="text-red-400 text-sm mt-1 flex items-center">
+          <span className="mr-1">⚠</span> {error}
+        </p>
+      )}
+      {note && <p className="text-gray-400 text-sm mt-1">{note}</p>}
+    </div>
+  );
 
+  return (
+    <div className="space-y-6">
       {/* Image Uploader */}
       <div className="mb-6">
-        <label className="block mb-2">Profile Picture</label>
+        <label className="block text-white font-medium mb-2">
+          Profile Picture
+        </label>
         <div
           {...getRootProps()}
-          className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
+          className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
             isDragActive
-              ? "border-accent bg-accent bg-opacity-10"
-              : "border-gray-300 hover:border-accent"
+              ? "border-[#00CCFF] bg-[#00CCFF]/10"
+              : "border-white/20 hover:border-[#00CCFF]/50"
           }`}
         >
           <input {...getInputProps()} />
           {imageFile ? (
             <div className="flex flex-col items-center">
-              <Image
-                src={URL.createObjectURL(imageFile)}
-                alt="Profile preview"
-                className="w-32 h-32 object-cover rounded-full mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-sm text-gray-600">{imageFile.name}</p>
+              <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-[#00CCFF] mb-4">
+                <Image
+                  src={URL.createObjectURL(imageFile)}
+                  alt="Profile preview"
+                  className="w-full h-full object-cover"
+                  width={128}
+                  height={128}
+                />
+              </div>
+              <p className="text-sm text-gray-300">{imageFile.name}</p>
             </div>
           ) : (
             <div>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Drag & drop an image here, or click to select one
               </p>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-gray-400 mt-2">
                 (JPEG, JPG, or PNG, max 5MB)
               </p>
             </div>
           )}
         </div>
         {uploadError && (
-          <p className="text-danger text-sm mt-2">{uploadError}</p>
+          <p className="text-red-400 text-sm mt-2 flex items-center">
+            <span className="mr-1">⚠</span> {uploadError}
+          </p>
         )}
         {errors.imageUrl && (
-          <p className="text-danger text-sm mt-1">{errors.imageUrl}</p>
+          <p className="text-red-400 text-sm mt-1 flex items-center">
+            <span className="mr-1">⚠</span> {errors.imageUrl}
+          </p>
         )}
         {isUploading && (
           <div className="mt-2">
-            <div className="bg-gray-200 rounded-full h-2.5">
+            <div className="bg-white/10 rounded-full h-2.5">
               <div
-                className="bg-accent h-2.5 rounded-full"
+                className="bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] h-2.5 rounded-full"
                 style={{ width: `${uploadProgress}%` }}
               ></div>
             </div>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-300 mt-1">
               Uploading: {uploadProgress}%
             </p>
           </div>
@@ -171,328 +229,272 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
 
       {/* Abstract Submission */}
       <div className="mb-6">
-        <label className="flex items-center mb-2">
+        <label className="flex items-center mb-2 text-white">
           <input
             type="checkbox"
             checked={abstractSubmitted}
             onChange={(e) => setAbstractSubmitted(e.target.checked)}
-            className="mr-2"
+            className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
           />
           I have submitted an abstract
         </label>
         {abstractSubmitted && (
-          <div>
+          <div className="mt-3 space-y-3">
             <input
               type="text"
               value={abstractCode}
               onChange={(e) => setAbstractCode(e.target.value)}
               placeholder="Enter your abstract code"
-              className="w-full p-2 border rounded mb-2"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
             />
 
             <button
               type="button"
               onClick={handleAbstractSubmission}
               disabled={isAbstractFetching}
-              className={`bg-accent text-light px-4 py-2 rounded-md hover:bg-secondary transition duration-300 ${
-                isAbstractFetching ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`px-5 py-2.5 rounded-full ${
+                isAbstractFetching
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-semibold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
+              } transition-all duration-300`}
             >
               {isAbstractFetching ? "Fetching..." : "Fetch Abstract Details"}
             </button>
             {abstractError && (
-              <p className="text-danger mt-2">{abstractError}</p>
+              <p className="text-red-400 text-sm mt-1 flex items-center">
+                <span className="mr-1">⚠</span> {abstractError}
+              </p>
             )}
           </div>
         )}
       </div>
 
       {selectedPlanName === "OPF/OBRF Members" && (
-        <div className="mb-4">
-          <label className="block mb-2">OPF/OBRF Member Id</label>
-          <input
-            type="text"
-            name="memberId"
-            value={formData.memberId || ""}
-            onChange={onInputChange}
-            required
-            className="w-full p-2 border rounded"
-          />
-          <p className="text-sm text-gray-600 mt-1">
-            Enter Correct Membership No., Incorrect membership No is subjected
-            to Rejection of Registration & payment will be nonrefundable.
-          </p>
-          {errors.memberId && (
-            <p className="text-danger text-sm mt-1">{errors.memberId}</p>
-          )}
-        </div>
+        <FormField
+          label="OPF/OBRF Member ID"
+          name="memberId"
+          value={formData.memberId || ""}
+          onChange={onInputChange}
+          required
+          error={errors.memberId}
+          note="Enter correct Membership No. Incorrect membership No. is subject to rejection of registration & payment will be non-refundable."
+        />
       )}
 
       {/* Personal Information */}
-      <div className="mb-4">
-        <label className="block mb-2">Salutation</label>
+      <div className="mb-5">
+        <label className="block text-white font-medium mb-2">Salutation</label>
         <select
           name="Salutations"
           value={formData.Salutations}
           onChange={onInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
         >
-          <option value="Mr.">Mr.</option>
-          <option value="Ms.">Ms.</option>
-          <option value="Mrs.">Mrs.</option>
-          <option value="Dr.">Dr.</option>
-          <option value="Prof.">Prof.</option>
+          <option value="Mr." className="bg-[#070B39]">
+            Mr.
+          </option>
+          <option value="Ms." className="bg-[#070B39]">
+            Ms.
+          </option>
+          <option value="Mrs." className="bg-[#070B39]">
+            Mrs.
+          </option>
+          <option value="Dr." className="bg-[#070B39]">
+            Dr.
+          </option>
+          <option value="Prof." className="bg-[#070B39]">
+            Prof.
+          </option>
         </select>
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Full Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.name && (
-          <p className="text-danger text-sm mt-1">{errors.name}</p>
-        )}
-        <p className="text-sm text-gray-600 mt-1">
-          Spelling should be correct. The same name will be printed on the
-          certificate and cannot be changed after submission.
-        </p>
-      </div>
+      <FormField
+        label="Full Name"
+        name="name"
+        value={formData.name}
+        onChange={onInputChange}
+        required
+        error={errors.name}
+        note="Spelling should be correct. The same name will be printed on the certificate and cannot be changed after submission."
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.email && (
-          <p className="text-danger text-sm mt-1">{errors.email}</p>
-        )}
-      </div>
+      <FormField
+        label="Email"
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={onInputChange}
+        required
+        error={errors.email}
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">WhatsApp Number</label>
-        <input
-          type="tel"
-          name="whatsappNumber"
-          value={formData.whatsappNumber}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-          maxLength={10}
-        />
-        {errors.whatsappNumber && (
-          <p className="text-danger text-sm mt-1">{errors.whatsappNumber}</p>
-        )}
-      </div>
+      <FormField
+        label="WhatsApp Number"
+        name="whatsappNumber"
+        type="tel"
+        value={formData.whatsappNumber}
+        onChange={onInputChange}
+        required
+        error={errors.whatsappNumber}
+        maxLength={10}
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">Gender</label>
+      <div className="mb-5">
+        <label className="block text-white font-medium mb-2">Gender</label>
         <select
           name="gender"
           value={formData.gender}
           onChange={onInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
         >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
+          <option value="Male" className="bg-[#070B39]">
+            Male
+          </option>
+          <option value="Female" className="bg-[#070B39]">
+            Female
+          </option>
+          <option value="Other" className="bg-[#070B39]">
+            Other
+          </option>
         </select>
         {errors.gender && (
-          <p className="text-danger text-sm mt-1">{errors.gender}</p>
+          <p className="text-red-400 text-sm mt-1 flex items-center">
+            <span className="mr-1">⚠</span> {errors.gender}
+          </p>
         )}
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Date of Birth</label>
-        <input
-          type="date"
-          name="dob"
-          value={formData.dob}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.dob && <p className="text-danger text-sm mt-1">{errors.dob}</p>}
-        <p className="text-sm text-gray-600 mt-1">
-          Kindly enter correct Date of Birth to receive E-Certificate of
-          conference on your Digilocker account linked with your Aadhar.
-        </p>
-      </div>
+      <FormField
+        label="Date of Birth"
+        name="dob"
+        type="date"
+        value={formData.dob}
+        onChange={onInputChange}
+        required
+        error={errors.dob}
+        note="Kindly enter correct Date of Birth to receive E-Certificate of conference on your Digilocker account linked with your Aadhar."
+      />
 
-      {/* <div className="mb-6">
-        <label className="flex items-center mb-2">
+      <div className="mb-6">
+        <label className="flex items-center mb-2 text-white">
           <input
             type="checkbox"
             name="includeGalaDinner"
             checked={includeGalaDinner}
             onChange={handleGalaDinnerChange}
             value={includeGalaDinner ? "true" : "false"}
-            className="mr-2"
+            className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
           />
           Include Networking Cum Gala Dinner (Additional ₹1000)
         </label>
-      </div> */}
-
-      <div className="mb-4">
-        <label className="block mb-2">Aadhar Number</label>
-        <input
-          type="text"
-          name="AadharNumber"
-          value={formData.AadharNumber}
-          onChange={onInputChange}
-          className="w-full p-2 border rounded"
-          maxLength={12}
-        />
-        {errors.AadharNumber && (
-          <p className="text-danger text-sm mt-1">{errors.AadharNumber}</p>
-        )}
-
-        <p className="text-sm text-gray-600 mt-1">
-          Kindly enter correct Aadhar Number to receive E-Certificate of
-          conference on your Digilocker account linked with your Aadhar.
-        </p>
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">
-          Affiliation/Organization/Institution
-        </label>
-        <input
-          type="text"
-          name="affiliation"
-          value={formData.affiliation}
-          onChange={onInputChange}
-          className="w-full p-2 border rounded"
-        />
-        {errors.affiliation && (
-          <p className="text-danger text-sm mt-1">{errors.affiliation}</p>
-        )}
-      </div>
+      <FormField
+        label="Aadhar Number"
+        name="AadharNumber"
+        value={formData.AadharNumber}
+        onChange={onInputChange}
+        error={errors.AadharNumber}
+        maxLength={12}
+        note="Kindly enter correct Aadhar Number to receive E-Certificate of conference on your Digilocker account linked with your Aadhar."
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">Designation</label>
-        <input
-          type="text"
-          name="designation"
-          value={formData.designation}
-          onChange={onInputChange}
-          className="w-full p-2 border rounded"
-        />
-        {errors.designation && (
-          <p className="text-danger text-sm mt-1">{errors.designation}</p>
-        )}
-      </div>
+      <FormField
+        label="Affiliation/Organization/Institution"
+        name="affiliation"
+        value={formData.affiliation}
+        onChange={onInputChange}
+        required
+        error={errors.affiliation}
+      />
+
+      <FormField
+        label="Designation"
+        name="designation"
+        value={formData.designation}
+        onChange={onInputChange}
+        required
+        error={errors.designation}
+      />
 
       {/* Address Information */}
-      <div className="mb-4">
-        <label className="block mb-2">Address</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.address && (
-          <p className="text-danger text-sm mt-1">{errors.address}</p>
-        )}
-      </div>
+      <FormField
+        label="Address"
+        name="address"
+        value={formData.address}
+        onChange={onInputChange}
+        required
+        error={errors.address}
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">City</label>
-        <input
-          type="text"
-          name="city"
-          value={formData.city}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.city && (
-          <p className="text-danger text-sm mt-1">{errors.city}</p>
-        )}
-      </div>
+      <FormField
+        label="City"
+        name="city"
+        value={formData.city}
+        onChange={onInputChange}
+        required
+        error={errors.city}
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">State</label>
+      <div className="mb-5">
+        <label className="block text-white font-medium mb-2">State</label>
         <select
           name="state"
           value={formData.state}
           onChange={onInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
         >
-          <option value="" disabled>
+          <option value="" disabled className="bg-[#070B39]">
             Select your state
           </option>
           {indianStates.map((state) => (
-            <option key={state} value={state}>
+            <option key={state} value={state} className="bg-[#070B39]">
               {state}
             </option>
           ))}
         </select>
         {errors.state && (
-          <p className="text-danger text-sm mt-1">{errors.state}</p>
+          <p className="text-red-400 text-sm mt-1 flex items-center">
+            <span className="mr-1">⚠</span> {errors.state}
+          </p>
         )}
       </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Pincode</label>
-        <input
-          type="text"
-          name="pincode"
-          value={formData.pincode}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-          maxLength={6}
-        />
-        {errors.pincode && (
-          <p className="text-danger text-sm mt-1">{errors.pincode}</p>
-        )}
-      </div>
+      <FormField
+        label="Pincode"
+        name="pincode"
+        value={formData.pincode}
+        onChange={onInputChange}
+        required
+        error={errors.pincode}
+        maxLength={6}
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2">Country</label>
-        <input
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={onInputChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        {errors.country && (
-          <p className="text-danger text-sm mt-1">{errors.country}</p>
-        )}
-      </div>
+      <FormField
+        label="Country"
+        name="country"
+        value={formData.country}
+        onChange={onInputChange}
+        required
+        error={errors.country}
+      />
 
-      <div className="mb-4">
-        <label className="flex items-center">
+      <div className="mb-5">
+        <label className="flex items-center text-white">
           <input
             type="checkbox"
             name="needAccommodation"
             checked={formData.needAccommodation}
             onChange={onInputChange}
-            className="mr-2"
+            className="mr-2 rounded border-white/20 text-[#00CCFF] focus:ring-[#00CCFF]"
           />
           Need Accommodation
         </label>
       </div>
-    </form>
+    </div>
   );
 };
 

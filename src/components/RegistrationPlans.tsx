@@ -196,6 +196,8 @@ const RegistrationPlans: React.FC = () => {
       setSubmitError(
         "Failed to submit registration. Please check the form and try again."
       );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -263,7 +265,6 @@ const RegistrationPlans: React.FC = () => {
             console.error("Failed to save transaction:", error);
           } finally {
             setIsProcessingTransaction(false);
-
             closeModal();
           }
         },
@@ -283,7 +284,6 @@ const RegistrationPlans: React.FC = () => {
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const openModal = (plan: Plan) => {
     setSelectedPlan(plan);
     setShowModal(true);
@@ -303,102 +303,124 @@ const RegistrationPlans: React.FC = () => {
     className?: string;
   }) => (
     <div className="flex justify-between items-center mb-2">
-      <span className="text-sm font-medium">{label}:</span>
-      <span className={`text-lg font-bold ${className}`}>₹{price}</span>
+      <span className="text-white font-medium">{label}:</span>
+      <span className={`text-lg font-bold ${className || "text-white"}`}>
+        ₹{price}
+      </span>
     </div>
   );
 
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
-    <div className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <div className="bg-[#4CAF50] text-white py-4 px-6">
-        <h3 className="text-2xl font-semibold">{plan.name}</h3>
+    <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)]">
+      <div className="bg-gradient-to-r from-[#00FFCC]/30 to-[#00CCFF]/30 border-b border-white/10 py-4 px-6">
+        <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+          {plan.name}
+        </h3>
       </div>
       <div className="p-6">
-        <p className="text-gray-600 mb-4">{plan.description}</p>
+        <p className="text-gray-300 mb-6">{plan.description}</p>
         <PriceDisplay label="Early Bird" price={plan.earlyBird} />
         <PriceDisplay
           label="Regular"
           price={plan.regular}
-          className="line-through"
+          className="text-gray-400 line-through"
         />
-        <PriceDisplay label="Spot" price={plan.spot} className="line-through" />
+        <PriceDisplay
+          label="Spot"
+          price={plan.spot}
+          className="text-gray-400 line-through"
+        />
         <div className="mt-6">
-          {/* <button
+          <button
             onClick={() => openModal(plan)}
-            className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300"
+            className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-bold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)] transition-all duration-300"
           >
             Register Now
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
   );
 
   return (
-    <div className="bg-gradient-to-r from-green-50 via-yellow-50 to-red-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8 text-center text-primary">
-          Registration Plans
+    <div className="relative min-h-screen overflow-hidden bg-[#070B39] py-16 px-4 md:px-8">
+      {/* Animated Background Elements */}
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-[#00FFCC]/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/2 -right-40 w-80 h-80 bg-[#00CCFF]/20 rounded-full blur-[100px] animate-blob"></div>
+      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#9900FF]/10 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
+
+      <div className="container mx-auto relative z-10 max-w-6xl">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+            Registration Plans
+          </span>
         </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, index) => (
             <RegistrationCard key={index} plan={plan} />
           ))}
-          <div className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-            <div className="bg-[#4CAF50] text-white py-4 px-6">
-              <h3 className="text-2xl font-semibold">Accompanying Person</h3>
+
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(153,0,255,0.2)]">
+            <div className="bg-gradient-to-r from-[#9900FF]/30 to-[#FF66CC]/30 border-b border-white/10 py-4 px-6">
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9900FF] to-[#FF66CC]">
+                Accompanying Person
+              </h3>
             </div>
             <div className="p-6">
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-300 mb-6">
                 Access Food Area and lunch, No Entry for scientific session
               </p>
               <PriceDisplay label="Early Bird" price={1200} />
-              <PriceDisplay label="Regular" price={1200} />
-              <PriceDisplay label="Spot" price={1500} />
-              {/* <div className="mt-6">
+              <PriceDisplay
+                label="Regular"
+                price={1200}
+                className="text-gray-400"
+              />
+              <PriceDisplay
+                label="Spot"
+                price={1500}
+                className="text-gray-400"
+              />
+              <div className="mt-6">
                 <Link href={"https://rzp.io/l/g60dnQz"}>
-                  <button className="w-full bg-[#c12b23] text-white font-semibold py-3 px-4 rounded-md hover:bg-[#FF5722] transition duration-300">
+                  <button className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#9900FF] to-[#FF66CC] text-[#070B39] font-bold hover:shadow-[0_0_20px_rgba(153,0,255,0.5)] transition-all duration-300">
                     Register Now
                   </button>
                 </Link>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center py-8">
+
+        <div className="flex justify-center py-8">
           <Link href="/contact">
-            <button className="bg-[#c12b23] text-white text-2xl font-bold py-4 px-8 rounded-md hover:bg-primary transition duration-300">
+            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-[#FF3366] to-[#FF9966] text-[#070B39] text-xl font-bold hover:shadow-[0_0_20px_rgba(255,51,102,0.5)] transition-all duration-300">
               For Group Registration, Please Contact Us
             </button>
           </Link>
         </div>
       </div>
 
+      {/* Modal Dialog */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="backdrop-blur-lg bg-[#070B39]/90 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-white">
             {isProcessingTransaction ? (
-              <div className="flex flex-col items-center justify-center h-64 p-6 bg-white shadow-lg rounded-lg">
-                <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-primary mb-4"></div>
-                <p className="mt-2 text-xl font-semibold text-primary">
-                  Processing your transaction... Thank you for your patience! 🙏
+              <div className="flex flex-col items-center justify-center p-8">
+                <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-[#00CCFF] mb-6"></div>
+                <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mb-4">
+                  Processing your transaction...
                 </p>
-                <p className="mt-1 text-md font-medium text-gray-600">
-                  Please wait for{" "}
-                  <span id="countdown" className="font-bold">
-                    {countdown}
-                  </span>{" "}
+                <p className="text-gray-300 text-center">
+                  Thank you for your patience! Please wait for{" "}
+                  <span className="font-bold text-[#00CCFF]">{countdown}</span>{" "}
                   seconds...
                 </p>
-                <div className="mt-4">
-                  <span className="text-lg font-semibold text-primary">
-                    {countdown}
-                  </span>
-                </div>
               </div>
             ) : (
-              <>
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="p-8">
+                <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
                   Register for {selectedPlan?.name}
                 </h2>
                 <RegistrationForm
@@ -411,53 +433,59 @@ const RegistrationPlans: React.FC = () => {
                   selectedPlanName={selectedPlan?.name}
                 />
                 {submitError && (
-                  <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                  <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-200 rounded-xl">
                     {submitError}
                   </div>
                 )}
-                <button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className={`w-full font-bold py-3 px-6 rounded-md transition duration-300 ${
-                    isSubmitting
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#4CAF50] text-white hover:bg-red-700"
-                  }`}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <svg
-                        className="animate-spin h-5 w-5 mr-3 text-white"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                          fill="none"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Submitting...
-                    </div>
-                  ) : (
-                    `Register and Pay (₹${selectedPlan?.earlyBird})`
-                  )}
-                </button>
-                <button
-                  onClick={closeModal}
-                  className="mt-4 w-full bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-md hover:bg-gray-400 transition duration-300"
-                >
-                  Close
-                </button>
-              </>
+                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
+                    className={`flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 ${
+                      isSubmitting
+                        ? "bg-gray-600 cursor-not-allowed"
+                        : "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] hover:shadow-[0_0_20px_rgba(0,204,255,0.5)]"
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <svg
+                          className="animate-spin h-5 w-5 mr-3 text-[#070B39]"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            fill="none"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        Submitting...
+                      </div>
+                    ) : (
+                      `Register and Pay (₹${
+                        includeGalaDinner
+                          ? (selectedPlan?.earlyBird || 0) + 1000
+                          : selectedPlan?.earlyBird
+                      })`
+                    )}
+                  </button>
+                  <button
+                    onClick={closeModal}
+                    className="flex-1 py-3 px-6 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all duration-300"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>

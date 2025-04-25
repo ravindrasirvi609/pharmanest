@@ -11,17 +11,10 @@ const HeroSection = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     const countdownDate = new Date("2025-01-30T00:00:00").getTime();
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -44,7 +37,6 @@ const HeroSection = () => {
 
     return () => {
       clearInterval(interval);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -54,22 +46,26 @@ const HeroSection = () => {
   };
 
   return (
-    <div
-      className={`relative overflow-hidden bg-gradient-to-br from-[#1e8f26] via-black to-[#c12b23] ${
-        isScrolled ? "scrolled" : ""
-      }`}
-    >
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 bg-[url('/college.jpg')] bg-center opacity-10 animate-pulse"></div>
+    <div className="relative overflow-hidden min-h-screen">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-[url('/college.jpg')] bg-cover bg-center opacity-10"></div>
+
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div
+          className="absolute bottom-0 left-[10%] w-[40vw] h-[40vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          style={{ animationDelay: "-5s" }}
+        ></div>
+      </div>
 
       {/* Main content */}
-      <div className="relative min-h-screen flex flex-col justify-center">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
           {/* Alert for registration */}
           {showAlert && (
             <div className="fixed top-4 right-4 z-50">
-              <Alert className="bg-[#eacf34] text-white border-none animate-slideIn">
-                <AlertDescription>
+              <Alert className="glassmorphism border-none animate-slideIn">
+                <AlertDescription className="text-white">
                   Registration process initiated! Check your email.
                 </AlertDescription>
               </Alert>
@@ -78,11 +74,11 @@ const HeroSection = () => {
 
           {/* Conference badge */}
           <div className="flex items-center space-x-4 mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-[#eacf34] rounded-full text-black font-semibold transform hover:scale-105 transition-transform cursor-pointer">
-              <Clock className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center px-4 py-2 glassmorphism rounded-full text-white font-semibold transform hover:scale-105 transition-transform cursor-pointer">
+              <Clock className="w-4 h-4 mr-2 text-[#00FFCC]" />
               <span>Conference 2025</span>
             </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-[#eacf34] to-transparent"></div>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#00FFCC] to-transparent"></div>
           </div>
 
           {/* Main content grid */}
@@ -90,22 +86,25 @@ const HeroSection = () => {
             <div className="space-y-8">
               {/* Title with gradient text */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#eacf34] to-white">
-                  Accelerating Drug Discovery and Development
-                </span>
+                <span className="text-gradient">PharmaNEST 6.E</span>
                 <br />
-                <span className="text-white">Through AI!</span>
+                <span className="text-white mt-2 block">
+                  Revolutionizing Healthcare
+                </span>
+                <span className="text-gradient-alt block mt-2">
+                  Through AI & Pharma Innovation
+                </span>
               </h1>
 
               {/* Event details with hover effects */}
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center space-x-3 bg-black bg-opacity-20 p-3 rounded-lg hover:bg-opacity-30 transition-all">
-                    <Calendar className="w-5 h-5 text-[#eacf34]" />
+                  <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
+                    <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     <span className="text-white">30-31 January, 2025</span>
                   </div>
-                  <div className="flex items-center space-x-3 bg-black bg-opacity-20 p-3 rounded-lg hover:bg-opacity-30 transition-all">
-                    <MapPin className="w-5 h-5 text-[#eacf34]" />
+                  <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
+                    <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     <span className="text-white">CHIPS, Guntur</span>
                   </div>
                 </div>
@@ -116,19 +115,19 @@ const HeroSection = () => {
                 <Link href="/registration">
                   <button
                     onClick={handleRegisterClick}
-                    className="group relative px-6 py-3 bg-[#eacf34] text-black font-semibold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-[#eacf34]/20"
+                    className="group relative px-6 py-3 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-[#00FFCC]/30"
                   >
                     <span className="relative z-10 flex items-center">
                       Register Now
                       <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    <div className="absolute inset-0 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                   </button>
                 </Link>
 
                 <Link href="/abstractForm">
-                  <button className="px-6 py-3 bg-[#1e8f26] text-white font-semibold rounded-lg hover:bg-opacity-90 transition-colors flex items-center">
-                    <Download className="w-5 h-5 mr-2" />
+                  <button className="px-6 py-3 glassmorphism text-white font-semibold rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-colors flex items-center group">
+                    <Download className="w-5 h-5 mr-2 text-[#00FFCC] group-hover:scale-110 transition-transform" />
                     Submit Abstract
                   </button>
                 </Link>
@@ -136,8 +135,8 @@ const HeroSection = () => {
             </div>
 
             {/* Countdown section with glass morphism effect */}
-            <div className="backdrop-blur-lg bg-white bg-opacity-5 rounded-2xl p-8 border border-white border-opacity-10">
-              <h2 className="text-2xl font-semibold text-white text-center mb-8">
+            <div className="glassmorphism-card rounded-2xl p-8">
+              <h2 className="text-2xl font-bold text-gradient text-center mb-8">
                 Conference Begins In
               </h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -146,25 +145,48 @@ const HeroSection = () => {
                   { label: "Hours", value: timeLeft.hours },
                   { label: "Minutes", value: timeLeft.minutes },
                   { label: "Seconds", value: timeLeft.seconds },
-                ].map((item) => (
+                ].map((item, index) => (
                   <div
                     key={item.label}
-                    className="flex flex-col items-center p-4 bg-[#eacf34] bg-opacity-10 rounded-lg border border-[#eacf34] border-opacity-20"
+                    className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg border border-[#00FFCC]/20 hover:border-[#00FFCC]/40 transition-all hover:transform hover:scale-105 duration-300"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <span className="text-4xl font-bold text-white mb-2">
                       {String(item.value).padStart(2, "0")}
                     </span>
-                    <span className="text-sm text-[#eacf34]">{item.label}</span>
+                    <span className="text-sm text-[#00FFCC]">{item.label}</span>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-8 p-4 glassmorphism rounded-lg border border-[#00FFCC]/20">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  What&apos;s New in 6.E
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-[#00FFCC] mr-2">•</span>
+                    <span className="text-white text-sm">
+                      Advanced AI in Pharmaceutical Research
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#00FFCC] mr-2">•</span>
+                    <span className="text-white text-sm">
+                      Personalized Medicine Breakthroughs
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#00FFCC] mr-2">•</span>
+                    <span className="text-white text-sm">
+                      Global Healthcare Innovation Showcase
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1e8f26] rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#c12b23] rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
       </div>
     </div>
   );

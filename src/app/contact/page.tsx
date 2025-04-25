@@ -1,6 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { AlertTriangle, CheckCircle } from "lucide-react";
+import {
+  AlertTriangle,
+  CheckCircle,
+  User,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
 
 const AnimatedInput = ({
   type,
@@ -22,10 +28,7 @@ const AnimatedInput = ({
   icon?: React.ComponentType<{ className?: string }>;
 }) => (
   <div className="relative mb-6">
-    <label
-      htmlFor={name}
-      className="block text-sm font-medium text-gray-700 mb-2"
-    >
+    <label htmlFor={name} className="block text-sm font-medium text-white mb-2">
       {label}
     </label>
     <div className="relative">
@@ -41,11 +44,11 @@ const AnimatedInput = ({
         value={value}
         onChange={onChange}
         placeholder={`Enter your ${label.toLowerCase()}`}
-        className={`w-full pl-10 pr-3 py-3 border-2 rounded-lg shadow-sm ${
+        className={`w-full pl-10 pr-3 py-3 rounded-xl ${
           error
             ? "border-red-500 focus:ring-red-300"
-            : "border-gray-300 focus:border-blue-500 focus:ring-blue-300"
-        } focus:outline-none focus:ring-2`}
+            : "bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC]"
+        } focus:outline-none backdrop-blur-sm`}
       />
       {error && (
         <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -116,77 +119,146 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Get in Touch with Us</h1>
-          <p className="text-lg">
-            We are here to answer your questions and provide support.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-[#070B39] bg-opacity-90 relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-1/3 right-10 w-72 h-72 bg-gradient-to-r from-[#FF3366] to-[#FF9966] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-10 left-1/3 w-72 h-72 bg-gradient-to-r from-[#9900FF] to-[#FF66CC] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-6">Contact Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Send a Message</h3>
-              {isSubmitted ? (
-                <div className="p-6 bg-green-100 text-center">
-                  <CheckCircle className="w-12 h-12 mx-auto text-green-500 mb-4" />
-                  <p>Message sent successfully!</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <AnimatedInput
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    label="Full Name"
-                    error={errors.name}
-                  />
-                  <AnimatedInput
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    label="Email Address"
-                    error={errors.email}
-                  />
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your Message"
-                    rows={4}
-                    className="w-full border-2 rounded-lg p-4"
-                  />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="py-3 px-6 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+            Get in Touch with Us
+          </span>
+        </h1>
+        <p className="text-gray-300 text-xl text-center mb-16 max-w-3xl mx-auto">
+          We&apos;re here to help! Don&apos;t hesitate to reach out with any
+          questions or concerns.
+        </p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
+            <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+              Send a Message
+            </h3>
+
+            {isSubmitted ? (
+              <div className="p-8 backdrop-blur-lg bg-[#0A192F]/70 border border-[#00FFCC]/20 rounded-2xl text-center">
+                <CheckCircle className="w-16 h-16 mx-auto text-[#00FFCC] mb-4" />
+                <p className="text-xl font-semibold text-white mb-2">
+                  Message Sent Successfully!
+                </p>
+                <p className="text-gray-300">
+                  Thank you for reaching out. We&apos;ll get back to you
+                  shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <AnimatedInput
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  label="Full Name"
+                  error={errors.name}
+                  icon={User}
+                />
+                <AnimatedInput
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  label="Email Address"
+                  error={errors.email}
+                  icon={Mail}
+                />
+
+                <div className="relative mb-6">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-white mb-2"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
-                </form>
-              )}
+                    Your Message
+                  </label>
+                  <div className="relative">
+                    <div className="absolute top-3 left-3 pointer-events-none">
+                      <MessageSquare className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Type your message here..."
+                      rows={4}
+                      className="w-full pl-10 pr-3 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+                    />
+                  </div>
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                      <AlertTriangle className="w-4 h-4 mr-2" />{" "}
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 px-6 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-semibold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)] transition-all duration-300 disabled:opacity-50"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="space-y-8">
+            <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
+              <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+                Our Location
+              </h3>
+              <div className="rounded-xl overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149224.96671255704!2d80.17231959726561!3d16.2526181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a76e3229a1b83%3A0xb859ed4d0357991e!2sChebrolu%20Hanumaiah%20Institute%20Of%20Pharmaceutical%20Sciences%20(Autonomous)!5e1!3m2!1sen!2sin!4v1733415175167!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                ></iframe>
+              </div>
             </div>
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Our Location</h3>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149224.96671255704!2d80.17231959726561!3d16.2526181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a76e3229a1b83%3A0xb859ed4d0357991e!2sChebrolu%20Hanumaiah%20Institute%20Of%20Pharmaceutical%20Sciences%20(Autonomous)!5e1!3m2!1sen!2sin!4v1733415175167!5m2!1sen!2sin"
-                width="100%"
-                height="300"
-                className="rounded-lg"
-              ></iframe>
+
+            <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
+              <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+                Contact Information
+              </h3>
+              <div className="space-y-4 text-gray-300">
+                <p>
+                  <span className="text-white font-semibold">Address:</span>{" "}
+                  Chebrolu Hanumaiah Institute of Pharmaceutical Sciences,
+                  Chowdavaram, Guntur, Andhra Pradesh - 522019
+                </p>
+                <p>
+                  <span className="text-white font-semibold">Email:</span>{" "}
+                  info@pharmanest.org
+                </p>
+                <p>
+                  <span className="text-white font-semibold">Phone:</span> +91
+                  99999 99999
+                </p>
+                <p>
+                  <span className="text-white font-semibold">
+                    Office Hours:
+                  </span>{" "}
+                  Monday to Friday, 9:00 AM - 5:00 PM
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

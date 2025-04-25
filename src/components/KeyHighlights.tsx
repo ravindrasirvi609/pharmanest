@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -6,6 +7,10 @@ import {
   Users,
   ArrowRight,
   Calendar,
+  Bot,
+  Dna,
+  Lightbulb,
+  Database,
 } from "lucide-react";
 
 const KeyHighlights = () => {
@@ -32,46 +37,60 @@ const KeyHighlights = () => {
 
   const topics = [
     {
-      title: "AI in Drug Discovery",
+      icon: <Bot className="w-6 h-6 text-[#00FFCC]" />,
+      title: "AI-Driven Drug Discovery",
       description:
-        "Explore cutting-edge AI technologies revolutionizing the drug discovery process.",
+        "Cutting-edge AI models accelerating identification of novel therapeutic targets and compounds.",
     },
     {
-      title: "Machine Learning in Pharma",
+      icon: <Dna className="w-6 h-6 text-[#00FFCC]" />,
+      title: "Personalized Medicine",
       description:
-        "Uncover practical applications of ML in pharmaceutical development and research.",
+        "Machine learning approaches for tailoring treatments to individual genetic profiles.",
     },
     {
-      title: "Future Innovations",
+      icon: <Lightbulb className="w-6 h-6 text-[#00FFCC]" />,
+      title: "Quantum Computing in Pharma",
       description:
-        "Gain insights into upcoming breakthroughs in AI/ML-driven pharmaceutical advancements.",
+        "Revolutionary quantum algorithms for simulating molecular interactions at unprecedented scale.",
     },
     {
-      title: "Big Data in Healthcare",
+      icon: <Database className="w-6 h-6 text-[#00FFCC]" />,
+      title: "Healthcare Data Science",
       description:
-        "Learn how big data analytics is transforming drug development and patient care.",
+        "Advanced analytics transforming clinical trials, patient outcomes, and drug optimization.",
     },
   ];
 
   const networkingBenefits = [
-    "Professional networking opportunities with industry experts",
-    "Dedicated roundtable discussions on cutting-edge topics",
-    "Collaborative research sessions with thought leaders",
-    "Career advancement workshops and guidance",
+    "Connect with leading AI and pharmaceutical researchers",
+    "Participate in specialized innovation workshops",
+    "Join collaborative cross-disciplinary sessions",
+    "Explore partnership and funding opportunities",
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-20 bg-background relative">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 left-[20%] w-[30vw] h-[30vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div
+          className="absolute bottom-20 right-[20%] w-[25vw] h-[25vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          style={{ animationDelay: "-5s" }}
+        ></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: "#1e8f26" }}>
+          <h2 className="text-4xl font-bold mb-4 text-gradient">
             Key Highlights
           </h2>
-          <div
-            className="w-24 h-1 mx-auto rounded"
-            style={{ backgroundColor: "#c12b23" }}
-          ></div>
+          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Explore the groundbreaking features of PharmaNEST 6.E that make it
+            the premier conference for AI and pharmaceutical innovation
+          </p>
         </div>
 
         {/* Grid Container */}
@@ -126,26 +145,34 @@ const KeyHighlights = () => {
           </Card> */}
 
           {/* Critical Topics */}
-          <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-6">
-              <div className="flex items-center mb-6">
-                <BrainCircuit
-                  className="w-8 h-8 mr-3"
-                  style={{ color: "#c12b23" }}
-                />
-                <h3 className="text-2xl font-semibold">Critical Topics</h3>
+          <Card className="col-span-3 lg:col-span-2">
+            <CardContent className="p-8">
+              <div className="flex items-center mb-8">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
+                  <BrainCircuit className="w-6 h-6 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Pioneering Topics
+                </h3>
               </div>
-              <div className="space-y-4">
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {topics.map((topic, index) => (
                   <div
                     key={index}
-                    className="p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 border-l-4"
-                    style={{
-                      borderLeftColor: index % 2 === 0 ? "#1e8f26" : "#eacf34",
-                    }}
+                    className="glassmorphism rounded-xl p-5 transition-all duration-300 hover:border hover:border-[#00FFCC]/30 group"
                   >
-                    <h4 className="font-semibold mb-2">{topic.title}</h4>
-                    <p className="text-gray-600 text-sm">{topic.description}</p>
+                    <div className="flex items-center mb-3">
+                      <div className="p-2 bg-[#00FFCC]/10 rounded-lg mr-3 group-hover:bg-[#00FFCC]/20 transition-colors">
+                        {topic.icon}
+                      </div>
+                      <h4 className="font-bold text-white group-hover:text-gradient transition-colors duration-500">
+                        {topic.title}
+                      </h4>
+                    </div>
+                    <p className="text-gray-300 text-sm pl-2 border-l border-[#00FFCC]/30">
+                      {topic.description}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -153,59 +180,58 @@ const KeyHighlights = () => {
           </Card>
 
           {/* Networking Opportunities */}
-          <Card className="col-span-1 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-6">
-              <div className="flex items-center mb-6">
-                <Network
-                  className="w-8 h-8 mr-3"
-                  style={{ color: "#eacf34" }}
-                />
-                <h3 className="text-2xl font-semibold">
-                  Networking Opportunities
+          <Card className="col-span-3 lg:col-span-1">
+            <CardContent className="p-8">
+              <div className="flex items-center mb-8">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
+                  <Network className="w-6 h-6 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Connect & Collaborate
                 </h3>
               </div>
+
               <div className="space-y-6">
-                <div className="p-4 rounded-lg bg-gray-50">
+                <div className="glassmorphism rounded-xl p-5">
                   <div className="flex items-center mb-3">
-                    <Users
-                      className="w-6 h-6 mr-2"
-                      style={{ color: "#1e8f26" }}
-                    />
-                    <h4 className="font-semibold">Interactive Sessions</h4>
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    Participate in dynamic, small-group discussions led by
-                    industry experts.
-                  </p>
-                </div>
-                <div className="p-4 rounded-lg bg-gray-50">
-                  <div className="flex items-center mb-3">
-                    <Calendar
-                      className="w-6 h-6 mr-2"
-                      style={{ color: "#c12b23" }}
-                    />
-                    <h4 className="font-semibold">
-                      Scheduled Networking Events
+                    <Users className="w-5 h-5 text-[#00FFCC] mr-3" />
+                    <h4 className="font-bold text-white">
+                      Global Innovation Network
                     </h4>
                   </div>
-                  <p className="text-gray-600">
-                    Exclusive time slots for one-on-one and group collaborations
-                    to foster impactful connections.
+                  <p className="text-gray-300 text-sm">
+                    Join an exclusive community of innovators, researchers, and
+                    industry leaders from around the world.
                   </p>
                 </div>
-                <div className="mt-6">
-                  <h4 className="font-semibold mb-4">What to Expect:</h4>
+
+                <div className="glassmorphism rounded-xl p-5">
+                  <div className="flex items-center mb-3">
+                    <Calendar className="w-5 h-5 text-[#00FFCC] mr-3" />
+                    <h4 className="font-bold text-white">
+                      Strategic Networking Events
+                    </h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Curated opportunities for meaningful connections through
+                    targeted sessions and digital matchmaking.
+                  </p>
+                </div>
+
+                <div className="mt-6 glassmorphism rounded-xl p-5">
+                  <h4 className="font-bold text-white mb-4">
+                    PharmaNEST 6.E Advantages:
+                  </h4>
                   <ul className="space-y-3">
                     {networkingBenefits.map((benefit, index) => (
                       <li
                         key={index}
-                        className="flex items-center text-gray-600"
+                        className="flex items-center text-gray-300 group"
                       >
-                        <ArrowRight
-                          className="w-4 h-4 mr-2"
-                          style={{ color: "#1e8f26" }}
-                        />
-                        {benefit}
+                        <ArrowRight className="w-4 h-4 mr-2 text-[#00FFCC] group-hover:translate-x-1 transition-transform" />
+                        <span className="group-hover:text-white transition-colors">
+                          {benefit}
+                        </span>
                       </li>
                     ))}
                   </ul>

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -7,83 +8,85 @@ import {
   Award,
   ArrowRight,
   FileText,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 
 const CallForAbstracts = () => {
   const topics = [
-    "AI-Driven Drug Discovery Techniques",
-    "Innovative Machine Learning Applications in Pharma",
-    "Deep Learning and Predictive Models for Drug Development",
-    "Natural Language Processing in Medical Research",
-    "Advanced Computational Drug Design Strategies",
-    "Big Data and Predictive Analytics in Pharmaceutical Sciences",
+    "AI-Driven Drug Discovery & Development",
+    "Machine Learning Applications in Clinical Research",
+    "Deep Learning for Precision Medicine",
+    "Natural Language Processing in Medical Literature",
+    "Quantum Computing in Drug Design",
+    "Digital Biomarkers & Predictive Analytics",
   ];
 
   const guidelines = [
     {
-      icon: <FileText className="w-6 h-6" style={{ color: "#1e8f26" }} />,
+      icon: <FileText className="w-6 h-6 text-[#00FFCC]" />,
       title: "Abstract Format",
       description:
-        "Ensure your abstract is concise, up to 300 words, and follows a structured format: Objectives, Methods, Results, and Conclusions.",
+        "Submit a concise abstract of up to 300 words with clear structure: Objectives, Methods, Results, and Conclusions.",
     },
     {
-      icon: <Calendar className="w-6 h-6" style={{ color: "#c12b23" }} />,
+      icon: <Calendar className="w-6 h-6 text-[#00FFCC]" />,
       title: "Submission Deadline",
       description:
-        "Submit your abstract by January 15, 2025, to qualify for review and participation.",
+        "All abstracts must be submitted by January 15, 2025, for review and consideration.",
     },
     {
-      icon: <Award className="w-6 h-6" style={{ color: "#eacf34" }} />,
+      icon: <Award className="w-6 h-6 text-[#00FFCC]" />,
       title: "Recognition Opportunities",
       description:
-        "Top submissions will receive awards across various categories and publication opportunities in reputed journals.",
+        "Outstanding submissions will receive awards and be featured in leading scientific journals and publications.",
     },
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-16 bg-background relative">
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-[#00FFCC] opacity-5 rounded-full filter blur-[100px] animate-pulse"></div>
+      <div className="absolute bottom-20 left-10 w-72 h-72 bg-[#CC00FF] opacity-5 rounded-full filter blur-[100px] animate-pulse"></div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: "#1e8f26" }}>
+          <h2 className="text-4xl font-bold mb-4 text-gradient">
             Call for Abstracts
           </h2>
-          <div
-            className="w-24 h-1 mx-auto rounded mb-6"
-            style={{ backgroundColor: "#c12b23" }}
-          ></div>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            We invite you to share groundbreaking research and insights at
-            PharmaNest 2024. Submit your work and contribute to the advancement
-            of AI, machine learning, and pharmaceutical sciences.
+          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            We invite researchers and innovators to share cutting-edge work at
+            PharmaNEST 6.E. Submit your abstract to contribute to the revolution
+            in AI-driven pharmaceutical sciences.
           </p>
         </div>
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Left Side - Research Topics */}
-          <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
-                <BookCopy
-                  className="w-8 h-8 mr-3"
-                  style={{ color: "#1e8f26" }}
-                />
-                <h3 className="text-2xl font-semibold">Research Topics</h3>
+                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
+                  <BookCopy className="w-6 h-6 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Research Topics
+                </h3>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {topics.map((topic, index) => (
                   <div
                     key={index}
-                    className="flex items-center p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                    className="flex items-center p-4 rounded-lg glassmorphism hover:border hover:border-[#00FFCC]/30 transition-all duration-300 group"
                   >
-                    <ArrowRight
-                      className="w-5 h-5 mr-2 flex-shrink-0"
-                      style={{ color: index % 2 === 0 ? "#1e8f26" : "#c12b23" }}
-                    />
-                    <span className="text-gray-700">{topic}</span>
+                    <ArrowRight className="w-5 h-5 mr-3 flex-shrink-0 text-[#00FFCC] group-hover:translate-x-1 transition-transform" />
+                    <span className="text-gray-300 group-hover:text-white transition-colors">
+                      {topic}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -91,14 +94,13 @@ const CallForAbstracts = () => {
           </Card>
 
           {/* Right Side - Submission Guidelines */}
-          <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
-                <FileCheck
-                  className="w-8 h-8 mr-3"
-                  style={{ color: "#c12b23" }}
-                />
-                <h3 className="text-2xl font-semibold">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] mr-4">
+                  <FileCheck className="w-6 h-6 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
                   Submission Guidelines
                 </h3>
               </div>
@@ -107,12 +109,16 @@ const CallForAbstracts = () => {
                 {guidelines.map((guideline, index) => (
                   <div
                     key={index}
-                    className="flex items-start p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                    className="flex items-start p-4 rounded-lg glassmorphism hover:border hover:border-[#00FFCC]/30 transition-all duration-300"
                   >
-                    <div className="mr-4 mt-1">{guideline.icon}</div>
+                    <div className="p-2 bg-[#00FFCC]/10 rounded-full mr-4">
+                      {guideline.icon}
+                    </div>
                     <div>
-                      <h4 className="font-semibold mb-1">{guideline.title}</h4>
-                      <p className="text-gray-600">{guideline.description}</p>
+                      <h4 className="font-semibold mb-1 text-white">
+                        {guideline.title}
+                      </h4>
+                      <p className="text-gray-300">{guideline.description}</p>
                     </div>
                   </div>
                 ))}
@@ -123,33 +129,27 @@ const CallForAbstracts = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Card className="inline-block bg-gradient-to-r from-green-50 to-yellow-50 shadow-xl">
+          <Card className="inline-block glassmorphism-card border-none">
             <CardContent className="p-8">
-              <h3
-                className="text-2xl font-bold mb-4"
-                style={{ color: "#1e8f26" }}
-              >
-                Ready to Submit Your Abstract?
+              <div className="flex justify-center mb-4">
+                <Sparkles className="w-8 h-8 text-[#00FFCC]" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gradient">
+                Ready to Submit Your Research?
               </h3>
-              <p className="text-gray-700 mb-6">
-                Become a part of PharmaNest 2024. Showcase your work, connect
-                with experts, and make an impact in the pharmaceutical research
-                community.
+              <p className="text-gray-300 mb-6">
+                Join the PharmaNEST 6.E scientific community. Share your
+                innovations, connect with global experts, and help shape the
+                future of pharmaceutical sciences.
               </p>
-              <div className="space-x-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/abstractForm">
-                  <button
-                    className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
-                    style={{ backgroundColor: "#1e8f26" }}
-                  >
+                  <button className="px-8 py-3 rounded-lg font-semibold text-black bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] transition-all duration-300 hover:shadow-lg hover:shadow-[#00FFCC]/30 hover:scale-105">
                     Submit Abstract
                   </button>
                 </Link>
                 <Link href="/abstractForm">
-                  <button
-                    className="px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 hover:scale-105"
-                    style={{ backgroundColor: "#c12b23" }}
-                  >
+                  <button className="px-8 py-3 rounded-lg font-semibold text-white glassmorphism border border-[#00FFCC]/20 hover:border-[#00FFCC]/50 transition-all duration-300 hover:scale-105">
                     View Guidelines
                   </button>
                 </Link>

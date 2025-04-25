@@ -11,50 +11,50 @@ const TestimonialsSection = () => {
     {
       id: 1,
       name: "Dr. Sarah Johnson",
-      role: "AI Research Director",
-      company: "Tech Innovation Labs",
+      role: "Director of AI Research",
+      company: "PharmaInnovate Labs",
       image: "/PharmaNEST.png",
       quote:
-        "This conference exceeded all expectations. The quality of presentations and networking opportunities were outstanding. It's a must-attend event for anyone in the tech industry.",
+        "PharmaNEST continues to be the premier event for showcasing the intersection of AI and pharmaceutical research. The latest advancements presented this year will transform drug discovery as we know it.",
       rating: 5,
       type: "Speaker",
-      year: "2023",
+      year: "2024",
     },
     {
       id: 2,
       name: "Michael Chen",
-      role: "Senior Developer",
-      company: "Global Software Solutions",
+      role: "Lead Data Scientist",
+      company: "BioTech Innovations",
       image: "/PharmaNEST.png",
       quote:
-        "The workshops were incredibly practical and informative. I learned techniques that I'm already applying in my daily work. The networking opportunities were invaluable.",
+        "The collaborative atmosphere at PharmaNEST fostered connections that led to two major research partnerships. The workshops on machine learning applications in clinical trials were particularly valuable.",
       rating: 5,
       type: "Attendee",
-      year: "2023",
+      year: "2024",
     },
     {
       id: 3,
-      name: "Emma Rodriguez",
-      role: "Product Manager",
-      company: "Innovation Hub",
+      name: "Dr. Emma Rodriguez",
+      role: "Healthcare AI Specialist",
+      company: "MedTech Solutions",
       image: "/PharmaNEST.png",
       quote:
-        "A perfectly organized event with an amazing lineup of speakers. The interactive sessions and panel discussions were particularly enlightening.",
+        "As both a presenter and attendee, I was impressed by the caliber of research and the seamless integration of theoretical concepts with practical applications. The quantum computing session was groundbreaking.",
       rating: 5,
-      type: "Attendee",
-      year: "2023",
+      type: "Speaker",
+      year: "2024",
     },
     {
       id: 4,
       name: "Prof. David Kim",
-      role: "Department Head",
-      company: "University of Technology",
+      role: "Head of Computational Biology",
+      company: "Global Medical University",
       image: "/PharmaNEST.png",
       quote:
-        "The academic track was exceptional this year. The blend of theoretical and practical sessions created the perfect learning environment for students and professionals alike.",
+        "PharmaNEST has consistently provided a platform where academia and industry converge to address healthcare challenges. This year's focus on personalized medicine through AI was particularly inspiring.",
       rating: 5,
       type: "Speaker",
-      year: "2023",
+      year: "2024",
     },
   ];
 
@@ -90,7 +90,7 @@ const TestimonialsSection = () => {
         <Star
           key={index}
           className={`w-4 h-4 ${
-            index < rating ? "fill-[#eacf34] text-[#eacf34]" : "text-gray-300"
+            index < rating ? "fill-[#00FFCC] text-[#00FFCC]" : "text-gray-500"
           }`}
         />
       ))}
@@ -98,56 +98,68 @@ const TestimonialsSection = () => {
   );
 
   return (
-    <div className="w-full bg-gradient-to-br from-gray-50 to-gray-100 py-16">
-      <div className="max-w-6xl mx-auto px-4">
+    <div className="w-full bg-background py-20 relative">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-[#00FFCC] opacity-5 blur-[100px] animate-pulse"></div>
+        <div
+          className="absolute bottom-[20%] left-[10%] w-[25vw] h-[25vw] rounded-full bg-[#CC00FF] opacity-5 blur-[100px] animate-pulse"
+          style={{ animationDelay: "-3s" }}
+        ></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">What Attendees Say</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear from our past speakers and attendees about their experiences at
-            our conference.
+          <h2 className="text-4xl font-bold mb-4 text-gradient">
+            Voices of Innovation
+          </h2>
+          <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Insights from leading researchers and professionals who have
+            experienced the transformative impact of PharmaNEST.
           </p>
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="relative bg-white rounded-2xl shadow-xl p-8 mb-12">
+        <div className="relative glassmorphism-card rounded-2xl p-8 mb-12">
           <div className="absolute top-0 left-0 transform -translate-x-4 -translate-y-4">
-            <Quote className="w-12 h-12 text-[#1e8f26] opacity-20" />
+            <Quote className="w-12 h-12 text-[#00FFCC] opacity-20" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Testimonial Content */}
             <div className="space-y-6">
               <div className="relative">
-                <p className="text-xl leading-relaxed text-gray-700 italic">
+                <p className="text-xl leading-relaxed text-white italic">
                   &quot;{testimonials[activeIndex].quote}&quot;
                 </p>
               </div>
 
               <div className="flex items-center space-x-4">
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200">
+                  <div className="w-16 h-16 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
                     <Image
                       src={testimonials[activeIndex].image}
                       alt={testimonials[activeIndex].name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-full"
                       width={64}
                       height={64}
                     />
                   </div>
-                  <div className="absolute -bottom-2 -right-2 bg-[#c12b23] text-white text-xs px-2 py-1 rounded-full">
+                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black text-xs px-2 py-1 rounded-full font-bold">
                     {testimonials[activeIndex].type}
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-lg">
+                  <h4 className="font-bold text-lg text-white">
                     {testimonials[activeIndex].name}
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     {testimonials[activeIndex].role}
                   </p>
-                  <p className="text-sm text-[#1e8f26]">
+                  <p className="text-sm text-[#00FFCC]">
                     {testimonials[activeIndex].company}
                   </p>
                 </div>
@@ -155,8 +167,8 @@ const TestimonialsSection = () => {
 
               <div className="flex items-center justify-between">
                 <RatingStars rating={testimonials[activeIndex].rating} />
-                <span className="text-sm text-gray-500">
-                  Conference {testimonials[activeIndex].year}
+                <span className="text-sm text-gray-400">
+                  PharmaNEST {testimonials[activeIndex].year}
                 </span>
               </div>
             </div>
@@ -170,7 +182,7 @@ const TestimonialsSection = () => {
                   return (
                     <div
                       key={testimonial.id}
-                      className={`absolute w-full p-6 bg-white border rounded-xl shadow-lg transition-all duration-500 ${
+                      className={`absolute w-full p-6 glassmorphism rounded-xl transition-all duration-500 ${
                         isActive
                           ? "opacity-100 z-20 transform scale-100"
                           : offset === 1
@@ -181,23 +193,25 @@ const TestimonialsSection = () => {
                       }`}
                     >
                       <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
                           <Image
                             src={testimonial.image}
                             alt={testimonial.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-full"
                             width={48}
                             height={48}
                           />
                         </div>
                         <div>
-                          <h4 className="font-semibold">{testimonial.name}</h4>
-                          <p className="text-sm text-gray-600">
+                          <h4 className="font-bold text-white">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-sm text-gray-300">
                             {testimonial.company}
                           </p>
                         </div>
                       </div>
-                      <p className="text-gray-600 text-sm line-clamp-3">
+                      <p className="text-gray-300 text-sm line-clamp-3">
                         &quot;{testimonial.quote}&quot;
                       </p>
                     </div>
@@ -212,10 +226,10 @@ const TestimonialsSection = () => {
         <div className="flex justify-center items-center space-x-4">
           <button
             onClick={handlePrevious}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors duration-300"
+            className="p-3 glassmorphism rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
             aria-label="Previous testimonial"
           >
-            <ArrowLeft className="w-6 h-6 text-[#1e8f26]" />
+            <ArrowLeft className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[-2px] transition-transform" />
           </button>
 
           <div className="flex space-x-2">
@@ -226,10 +240,10 @@ const TestimonialsSection = () => {
                   setIsAutoPlaying(false);
                   setActiveIndex(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? "bg-[#1e8f26] w-6"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] w-8"
+                    : "bg-gray-700 hover:bg-gray-600 w-2"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -238,10 +252,10 @@ const TestimonialsSection = () => {
 
           <button
             onClick={handleNext}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors duration-300"
+            className="p-3 glassmorphism rounded-full hover:bg-[#00FFCC]/10 transition-colors duration-300 group"
             aria-label="Next testimonial"
           >
-            <ArrowRight className="w-6 h-6 text-[#1e8f26]" />
+            <ArrowRight className="w-6 h-6 text-[#00FFCC] group-hover:translate-x-[2px] transition-transform" />
           </button>
         </div>
       </div>

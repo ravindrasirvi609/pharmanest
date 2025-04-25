@@ -16,8 +16,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PharmaNEST 5.E",
-  description: "The 5th edition of PharmaNEST conference",
+  title: "PharmaNEST 6.E",
+  description:
+    "The 6th edition of PharmaNEST conference - Accelerating Drug Discovery and Development Through AI",
 };
 
 export default function RootLayout({
@@ -30,9 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <div className="pt-20">{children}</div>
-        <Footer />
+        <div className="glassmorphism-container min-h-screen">
+          <Header />
+          <div className="pt-20">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
