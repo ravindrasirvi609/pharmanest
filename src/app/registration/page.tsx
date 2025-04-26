@@ -25,10 +25,10 @@ const Registration = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
             <span className="text-white font-semibold">
-              Registrations for PharmaNEST 2024
+              Registrations for PharmaNEST 2025
             </span>{" "}
             began on{" "}
-            <span className="text-white font-semibold">1st December 2024</span>.
+            <span className="text-white font-semibold">1st May 2025</span>.
           </p>
 
           {/* Registration Option */}
@@ -103,7 +103,7 @@ const Registration = () => {
           <p className="text-lg leading-relaxed mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] font-bold">
             <span className="text-white font-semibold">Early Bird Offer:</span>{" "}
             Valid until{" "}
-            <span className="text-white font-semibold">January 25, 2025</span>.
+            <span className="text-white font-semibold">30th June 2025</span>.
           </p>
           <p className="text-gray-300 text-lg leading-relaxed mb-4">
             All prices mentioned are{" "}
