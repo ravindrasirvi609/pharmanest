@@ -12,46 +12,68 @@ interface Speaker {
 const speakers: Speaker[] = [
   {
     id: 1,
-    name: "Dr. Montukumar M. Patel",
-    designation: "President, Pharmacy Council of India",
-    image: "/speakers/montukumar-patel.jpg",
+    name: "Dr. Noohu Abdulla Khan",
+    designation:
+      "Department of Clinical Pharmacy, College of Pharmacy, King Khalid University, Abha Kingdom of Saudi Arabia",
+    image: "/speakers/Dr. Noohu Abdulla Khan.jpeg",
   },
   {
     id: 2,
-    name: "Dr. T. V. Narayana",
+    name: "Dr. Prabhakar Reddy V.",
     designation:
-      "President, AP Private Pharmacy Colleges Managements Association & Imm. Past President, Indian Pharmaceutical Association",
-    image: "/speakers/tv-narayana.jpg",
+      "University College of Pharmaceutical Sciences, Palamuru University, Mahabubnagar, Telangana",
+    image: "/speakers/prabhakar.png",
   },
   {
     id: 3,
-    name: "Dr. M. Venkata Ramana",
-    designation: "EC Member, Pharmacy Council of India",
-    image: "/speakers/venkata-ramana.jpg",
+    name: "Dr. A K Gnanchandran",
+    designation:
+      "Pranav Institute of Pharmaceutical Sciences, Gwalior, Madhya Pradesh",
+    image: "",
   },
   {
     id: 4,
-    name: "Dr. M. Niranjan Babu",
-    designation: "Member, Pharmacy Council of India",
-    image: "/speakers/niranjan-babu.jpg",
+    name: "Dr. Anbazhagan S",
+    designation: "Surya School of Pharmacy, Villupuram, Tamil Nadu",
+    image: "/speakers/Dr ANBAZHAGAN S.jpg",
   },
   {
     id: 5,
-    name: "Dr. S. L. N. Prasada Reddy",
-    designation: "Member, Pharmacy Council of India",
-    image: "/speakers/prasada-reddy.jpg",
+    name: "Dr. Boby Johns G",
+    designation: "St.Joseph's College of Pharmacy, Cherthala, Kerala",
+    image: "",
   },
   {
     id: 6,
-    name: "Dr. M. Radha Krishna Murthy",
-    designation: "Member, Pharmacy Council of India",
-    image: "/speakers/radha-krishna.jpg",
+    name: "Dr. Arup Kumar Misra",
+    designation:
+      "Associate Professor, Department of Pharmacology, AIIMS, Manglagiri",
+    image: "",
   },
   {
     id: 7,
-    name: "Dr. William Carey",
-    designation: "Registrar, AP Pharmacy Council",
-    image: "/speakers/william-carey.jpg",
+    name: "Dr. Rajesh Ramasamy",
+    designation: "Universiti Putra Malaysia",
+    image: "",
+  },
+  {
+    id: 8,
+    name: "Dr. R. Kalirajan",
+    designation: "Associate Professor, JSS College of Pharmacy, Ooty",
+    image: "",
+  },
+  {
+    id: 9,
+    name: "Dr. Srinivasa Reddy Bonam",
+    designation: "Senior Scientist, CSIR-IICT Hyderabad",
+    image: "",
+  },
+  {
+    id: 10,
+    name: "Dr. Dharmendra Ahuja",
+    designation:
+      "Principal Mentor, Bureau For Health & Education Status Upliftment (India)",
+    image: "",
   },
 ];
 
