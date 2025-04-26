@@ -8,6 +8,50 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
+// Updated subject options
+export const subjectOptions = [
+  { value: "pharmaceuticalTechnology", label: "Pharmaceutical Technology" },
+  { value: "medChem", label: "Pharmaceutical / Medicinal Chemistry" },
+  {
+    value: "pharmacognosy",
+    label:
+      "Pharmacognosy, Indigenous Drugs, Herbal Formulations, and Phytochemistry",
+  },
+  {
+    value: "pharmacologyToxicology",
+    label: "Pharmacology and Toxicology, Clinical Research & Pharmacovigilance",
+  },
+  {
+    value: "pharmaceuticalAnalysis",
+    label: "Pharmaceutical Analysis and Quality Assurance",
+  },
+  {
+    value: "biopharmaceutics",
+    label: "Biopharmaceutics, Pharmacokinetics & Drug Metabolism",
+  },
+  { value: "biotechnology", label: "Biotechnology and Biotherapeutics" },
+  {
+    value: "clinicalPharmacy",
+    label: "Hospital, Community, and Clinical Pharmacy",
+  },
+  {
+    value: "pharmaceuticalEducation",
+    label: "Pharmaceutical Education and Professional Pharmacy",
+  },
+  {
+    value: "drugRegulatoryAffairs",
+    label: "Drug Regulatory Affairs & Pharmaceutical Management",
+  },
+  {
+    value: "pharmacoeconomics",
+    label: "Pharmacoeconomics and Pharmacoepidemiology",
+  },
+  {
+    value: "aiBioinformatics",
+    label: "Artificial Intelligence / Bioinformatics / Data Analytics",
+  },
+];
+
 export default function AbstractFormPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -98,14 +142,9 @@ export default function AbstractFormPage() {
                   Areas of Specialization
                 </h3>
                 <ul className="list-disc text-gray-300 ml-5 space-y-2">
-                  <li>Pharmaceutics and Drug Delivery Systems</li>
-                  <li>Pharmaceutical Chemistry and Natural Products</li>
-                  <li>Pharmacology and Toxicology</li>
-                  <li>Pharmacy Practice and Clinical Pharmacy</li>
-                  <li>Pharmaceutical Analysis and Quality Assurance</li>
-                  <li>Pharmaceutical Technology and Biotechnology</li>
-                  <li>Pharmacognosy and Herbal Medicine</li>
-                  <li>Regulatory Affairs and Intellectual Property Rights</li>
+                  {subjectOptions.map((option) => (
+                    <li key={option.value}>{option.label}</li>
+                  ))}
                 </ul>
               </div>
 
@@ -237,30 +276,15 @@ export default function AbstractFormPage() {
                     <option value="" className="bg-[#070B39]">
                       Select an area
                     </option>
-                    <option value="pharmaceutics" className="bg-[#070B39]">
-                      Pharmaceutics and Drug Delivery Systems
-                    </option>
-                    <option value="chemistry" className="bg-[#070B39]">
-                      Pharmaceutical Chemistry and Natural Products
-                    </option>
-                    <option value="pharmacology" className="bg-[#070B39]">
-                      Pharmacology and Toxicology
-                    </option>
-                    <option value="practice" className="bg-[#070B39]">
-                      Pharmacy Practice and Clinical Pharmacy
-                    </option>
-                    <option value="analysis" className="bg-[#070B39]">
-                      Pharmaceutical Analysis and Quality Assurance
-                    </option>
-                    <option value="technology" className="bg-[#070B39]">
-                      Pharmaceutical Technology and Biotechnology
-                    </option>
-                    <option value="pharmacognosy" className="bg-[#070B39]">
-                      Pharmacognosy and Herbal Medicine
-                    </option>
-                    <option value="regulatory" className="bg-[#070B39]">
-                      Regulatory Affairs and Intellectual Property Rights
-                    </option>
+                    {subjectOptions.map((option) => (
+                      <option
+                        key={option.value}
+                        value={option.value}
+                        className="bg-[#070B39]"
+                      >
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -313,6 +337,38 @@ export default function AbstractFormPage() {
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
                     placeholder="Enter your institution or affiliation"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="mobile"
+                    className="block text-white font-medium"
+                  >
+                    Mobile Number <span className="text-[#FF3366]">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
+                    placeholder="Enter your mobile number"
+                  />
+                </div>
+
+                <div className="space-y-2 flex items-center">
+                  <div className="flex items-center h-full pt-8">
+                    <input
+                      type="checkbox"
+                      id="isWhatsApp"
+                      className="h-5 w-5 rounded border-gray-300 text-[#00FFCC] focus:ring-[#00FFCC]"
+                    />
+                    <label
+                      htmlFor="isWhatsApp"
+                      className="ml-2 block text-white"
+                    >
+                      This is also my WhatsApp number
+                    </label>
+                  </div>
                 </div>
               </div>
 
