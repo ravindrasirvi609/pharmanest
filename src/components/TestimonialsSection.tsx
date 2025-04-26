@@ -182,7 +182,7 @@ const TestimonialsSection = () => {
                   return (
                     <div
                       key={testimonial.id}
-                      className={`absolute w-full p-6 glassmorphism rounded-xl transition-all duration-500 ${
+                      className={`absolute w-full p-6 bg-[#0a182f] border border-[#1e2a45] rounded-xl transition-all duration-500 ${
                         isActive
                           ? "opacity-100 z-20 transform scale-100"
                           : offset === 1
