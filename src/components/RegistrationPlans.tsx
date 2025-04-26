@@ -369,7 +369,8 @@ const RegistrationPlans: React.FC = () => {
             </div>
             <div className="p-6">
               <p className="text-gray-300 mb-6">
-                Access Food Area and lunch, No Entry for scientific session
+                Access Food Area and lunch, No Kit and Entry for scientific
+                session
               </p>
               <PriceDisplay label="Early Bird" price={1200} />
               <PriceDisplay

@@ -35,9 +35,9 @@ export default function AbstractFormPage() {
           </DialogHeader>
           <div className="space-y-4">
             <DialogDescription className="text-sm text-gray-300">
-              Welcome to the PharmaNEST Conference Abstract Submission portal.
-              Before proceeding, please carefully read the following
-              instructions:
+              Welcome to the PharmaNEST 6.E Internatinal Conference Abstract
+              Submission portal. Before proceeding, please carefully read the
+              following instructions:
             </DialogDescription>
 
             <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-300">
@@ -45,20 +45,19 @@ export default function AbstractFormPage() {
                 Abstracts must be original and not previously published or
                 presented.
               </li>
-              <li>
-                Abstract length should be between 250-300 words (excluding
-                title).
-              </li>
+              <li>Abstract length should be between 250-300 words.</li>
               <li>
                 Include 3-5 keywords that best represent your research topic.
               </li>
-              <li>All submissions will undergo peer review.</li>
+              <li>
+                All submissions will undergo double-blind peer review process.
+              </li>
               <li>
                 Notification of acceptance will be sent within 2-3 weeks after
                 submission.
               </li>
               <li>
-                At least one author must register for the conference to present
+                Presenting author must register for the conference to present
                 the accepted abstract.
               </li>
             </ol>
@@ -82,8 +81,9 @@ export default function AbstractFormPage() {
           </span>
         </h1>
         <p className="text-gray-300 text-lg md:text-xl text-center mb-16 max-w-3xl mx-auto">
-          Submit your research abstract for the PharmaNEST Conference. All
-          submissions will be reviewed by our committee of experts.
+          Submit your research abstract for the PharmaNEST 6.E Internatinal
+          Conference. All submissions will be reviewed by our committee of
+          experts.
         </p>
 
         {!isFormSubmitted ? (
@@ -151,10 +151,7 @@ export default function AbstractFormPage() {
                   <li>
                     Complete all required fields in the submission form below
                   </li>
-                  <li>
-                    Abstract text should be between 250-300 words (excluding
-                    title)
-                  </li>
+                  <li>Abstract text should be between 250-300 words</li>
                   <li>Format: Times New Roman, 12-point font, single-spaced</li>
                   <li>
                     Include all authors and their affiliations in the correct
@@ -173,7 +170,7 @@ export default function AbstractFormPage() {
                   Scientific Committee. Abstracts will be evaluated based on
                   originality, methodology, relevance, scientific value, and
                   adherence to the submission guidelines. Notification of
-                  acceptance will be sent via email.
+                  acceptance will be sent via register email.
                 </p>
               </div>
 
@@ -188,13 +185,15 @@ export default function AbstractFormPage() {
                 <ul className="list-disc text-gray-300 ml-5 space-y-2">
                   <li>
                     <strong className="text-white">Oral Presentations:</strong>{" "}
-                    10-minute presentation followed by 5-minute Q&A
+                    8-minute presentation followed by 2-3-minute Q&A
                   </li>
                   <li>
                     <strong className="text-white">
                       Poster Presentations:
                     </strong>{" "}
-                    Standard size 90cm × 120cm in portrait orientation
+                    Standard size height 4 Feet X Width 3 Feet in portrait
+                    orientation, further Guideline we will share the along with
+                    Acceptane mail
                   </li>
                 </ul>
               </div>
@@ -270,7 +269,7 @@ export default function AbstractFormPage() {
                     htmlFor="author-name"
                     className="block text-white font-medium"
                   >
-                    Corresponding Author Name{" "}
+                    Presenting Author Name{" "}
                     <span className="text-[#FF3366]">*</span>
                   </label>
                   <input
@@ -287,7 +286,7 @@ export default function AbstractFormPage() {
                     htmlFor="author-email"
                     className="block text-white font-medium"
                   >
-                    Corresponding Author Email{" "}
+                    Presenting Author Email{" "}
                     <span className="text-[#FF3366]">*</span>
                   </label>
                   <input
@@ -314,34 +313,6 @@ export default function AbstractFormPage() {
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
                     placeholder="Enter your institution or affiliation"
                   />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="presentation-type"
-                    className="block text-white font-medium"
-                  >
-                    Preferred Presentation Type{" "}
-                    <span className="text-[#FF3366]">*</span>
-                  </label>
-                  <select
-                    id="presentation-type"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#00FFCC] focus:ring-1 focus:ring-[#00FFCC] focus:outline-none backdrop-blur-sm"
-                  >
-                    <option value="" className="bg-[#070B39]">
-                      Select presentation type
-                    </option>
-                    <option value="oral" className="bg-[#070B39]">
-                      Oral Presentation
-                    </option>
-                    <option value="poster" className="bg-[#070B39]">
-                      Poster Presentation
-                    </option>
-                    <option value="either" className="bg-[#070B39]">
-                      Either
-                    </option>
-                  </select>
                 </div>
               </div>
 

@@ -242,7 +242,7 @@ const ContactPage: React.FC = () => {
                 </p>
                 <p>
                   <span className="text-white font-semibold">Email:</span>{" "}
-                  info@pharmanest.org
+                  conferences@opf.org.in
                 </p>
                 <p>
                   <span className="text-white font-semibold">Phone:</span> +91
