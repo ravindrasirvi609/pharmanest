@@ -14,7 +14,7 @@ const HeroSection = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    const countdownDate = new Date("2025-01-30T00:00:00").getTime();
+    const countdownDate = new Date("2025-07-17T00:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
