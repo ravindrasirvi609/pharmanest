@@ -33,13 +33,14 @@ export default function AbstractFormPage() {
               Important Instructions for Abstract Submission
             </DialogTitle>
           </DialogHeader>
-          <DialogDescription className="text-gray-300 space-y-4">
-            <p>
+          <div className="space-y-4">
+            <DialogDescription className="text-sm text-gray-300">
               Welcome to the PharmaNEST Conference Abstract Submission portal.
               Before proceeding, please carefully read the following
               instructions:
-            </p>
-            <ol className="list-decimal pl-5 space-y-2">
+            </DialogDescription>
+
+            <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-300">
               <li>
                 Abstracts must be original and not previously published or
                 presented.
@@ -70,7 +71,7 @@ export default function AbstractFormPage() {
                 I Understand, Proceed to Submit
               </button>
             </div>
-          </DialogDescription>
+          </div>
         </DialogContent>
       </Dialog>
 
