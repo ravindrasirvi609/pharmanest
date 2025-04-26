@@ -38,12 +38,10 @@ const AboutSection = () => {
               efficiency in healthcare.
             </p>
             <div className="mt-6 p-4 glassmorphism rounded-xl">
-              <h4 className="text-xl font-semibold mb-2 text-white">
-                2025 Theme
-              </h4>
+              <h4 className="text-xl font-semibold mb-2 text-white">Theme</h4>
               <p className="text-[#00FFCC] italic font-medium">
-                &quot;Artificial Intelligence and machine learning: A Game
-                changer in the Pharma field&quot;
+                &quot;Artificial Intelligence and Machine Learning: A Game
+                Changer in the Healthcare&quot;
               </p>
             </div>
 
@@ -71,8 +69,12 @@ const AboutSection = () => {
                   <Building2 className="w-6 h-6 text-black" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-2 text-white">Organized By</h4>
-                  <p className="text-gray-300">Vellalar College of Pharmacy</p>
+                  <h4 className="font-bold mb-2 text-white">
+                    Jointly Organized By
+                  </h4>
+                  <p className="text-gray-300">
+                    Vellalar College of Pharmacy & Operant Pharmacy Federation
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -87,9 +89,10 @@ const AboutSection = () => {
                     Conference Highlights
                   </h4>
                   <p className="text-gray-300">
-                    Keynote sessions by industry pioneers, workshops on AI
-                    tools, poster presentations, networking sessions, and
-                    in-depth discussions on AI-driven healthcare innovations.
+                    Keynote sessions by industry pioneers, Real Time
+                    Applications of AI Tools, poster presentations, networking
+                    sessions, and in-depth discussions on AI-driven healthcare
+                    innovations.
                   </p>
                 </div>
               </CardContent>

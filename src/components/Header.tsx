@@ -40,7 +40,7 @@ const Header = () => {
               <Image
                 src="/PharmaNEST.png"
                 alt="PharmaNEST 6.E"
-                className="w-full h-full object-contain transition-all duration-300 group-hover:scale-105"
+                className="w-full h-full object-contain transition-all duration-300 group-hover:scale-105 bg-white"
                 width={160}
                 height={48}
               />

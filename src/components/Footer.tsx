@@ -215,7 +215,7 @@ const Footer = () => {
               reserved.
             </p>
             <p className="text-gray-400 text-sm">
-              Designed by{" "}
+              Designed & Developed by{" "}
               <span className="text-gradient font-semibold">
                 Ravindra Choudhary
               </span>

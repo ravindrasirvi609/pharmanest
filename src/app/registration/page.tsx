@@ -40,8 +40,8 @@ const Registration = () => {
             <span className="text-white font-semibold">
               registration is mandatory
             </span>{" "}
-            to participate in PharmaNEST. Candidates must register by filling
-            out the online form available on our official website.
+            to participate in PharmaNEST 6.E. Candidates must register by
+            filling out the online form available on our official website.
           </p>
 
           {/* Cancellation Policy */}
@@ -76,7 +76,7 @@ const Registration = () => {
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
             All payments must be made online through our secure{" "}
             <span className="text-white font-semibold">
-              website payment gateway
+              website payment gateway Only.
             </span>
             .
           </p>
@@ -95,7 +95,7 @@ const Registration = () => {
               href="mailto:conferences@opf.org.in"
               className="text-[#00FFCC] hover:text-[#00CCFF] underline transition-colors"
             >
-              conferences@opf.org.in
+              vcpconferences@gmail.com
             </Link>
           </p>
 
@@ -107,7 +107,7 @@ const Registration = () => {
           </p>
           <p className="text-gray-300 text-lg leading-relaxed mb-4">
             All prices mentioned are{" "}
-            <span className="text-white font-semibold">inclusive of GST</span>.
+            <span className="text-white font-semibold">exclusive of GST</span>.
           </p>
         </div>
 

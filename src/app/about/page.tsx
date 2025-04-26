@@ -20,7 +20,7 @@ const About = () => {
             </span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
-            Learn more about{" "}
+            Know more about{" "}
             <span className="text-white font-semibold">
               Vellalar College of Pharmacy
             </span>{" "}
@@ -176,7 +176,7 @@ const About = () => {
                 <Image
                   src="/opflogo.png"
                   alt="About OPF"
-                  className="object-cover w-full"
+                  className="object-cover w-full bg-white"
                   width={540}
                   height={360}
                 />
@@ -189,7 +189,7 @@ const About = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#9900FF] to-[#FF66CC]">
-              Programs Offered
+              Programs Offered by Vellalar College of Pharmacy
             </h2>
           </div>
 

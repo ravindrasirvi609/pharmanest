@@ -88,11 +88,9 @@ const HeroSection = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="text-gradient">PharmaNEST 6.E</span>
                 <br />
-                <span className="text-white mt-2 block">
-                  AI & Machine Learning:
-                </span>
+                <span className="text-white mt-2 block">AI & ML:</span>
                 <span className="text-gradient-alt block mt-2">
-                  A Game Changer in the Pharma Field
+                  A Game Changer in the Healthcare
                 </span>
               </h1>
 
@@ -101,7 +99,7 @@ const HeroSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">30-31 January, 2025</span>
+                    <span className="text-white">17-18 July, 2025</span>
                   </div>
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
@@ -163,13 +161,13 @@ const HeroSection = () => {
 
               <div className="mt-8 p-4 glassmorphism rounded-lg border border-[#00FFCC]/20">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  What&apos;s New in 6.E
+                  What&apos;s New in PharmaNEST 6.E
                 </h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-[#00FFCC] mr-2">•</span>
                     <span className="text-white text-sm">
-                      Advanced AI in Pharmaceutical Research
+                      Advanced Applications of AI in Pharmaceutical Research
                     </span>
                   </li>
                   <li className="flex items-start">
