@@ -5,6 +5,8 @@ import HeroSection from "@/components/HeroSection";
 import KeyHighlights from "@/components/KeyHighlights";
 import SponsorsPartnersSection from "@/components/SponsorsPartnersSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import OrganizingCommittee from "@/components/OrganizingCommittee";
+import CollegeInfo from "@/components/CollegeInfo";
 
 export default function Home() {
   return (
@@ -21,6 +23,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#00FFCC] opacity-[0.03] pointer-events-none" />
             <KeyHighlights />
           </div>
+
+          <CollegeInfo />
+
+          <OrganizingCommittee />
 
           <CallForAbstracts />
 

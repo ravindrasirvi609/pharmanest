@@ -89,10 +89,10 @@ const HeroSection = () => {
                 <span className="text-gradient">PharmaNEST 6.E</span>
                 <br />
                 <span className="text-white mt-2 block">
-                  Revolutionizing Healthcare
+                  AI & Machine Learning:
                 </span>
                 <span className="text-gradient-alt block mt-2">
-                  Through AI & Pharma Innovation
+                  A Game Changer in the Pharma Field
                 </span>
               </h1>
 
@@ -105,7 +105,9 @@ const HeroSection = () => {
                   </div>
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">CHIPS, Guntur</span>
+                    <span className="text-white">
+                      Vellalar College of Pharmacy
+                    </span>
                   </div>
                 </div>
               </div>

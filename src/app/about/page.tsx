@@ -20,23 +20,26 @@ const About = () => {
             </span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
-            Learn more about the{" "}
+            Learn more about{" "}
+            <span className="text-white font-semibold">
+              Vellalar College of Pharmacy
+            </span>{" "}
+            and{" "}
             <span className="text-white font-semibold">
               Operant Pharmacy Federation (OPF)
             </span>{" "}
-            and the initiatives we proudly support, including our breakthrough
-            platform, <span className="text-white font-semibold">CHIPS</span>.
+            that we proudly support.
           </p>
         </div>
 
-        {/* About Chips Section */}
+        {/* About College Section */}
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div className="order-2 lg:order-1">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg transform transition-transform duration-500 hover:scale-105">
                 <Image
-                  src="/chips.png"
-                  alt="About Chips"
+                  src="/college.jpg"
+                  alt="Vellalar College of Pharmacy"
                   className="object-cover w-full"
                   width={540}
                   height={360}
@@ -45,31 +48,77 @@ const About = () => {
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF3366] to-[#FF9966]">
-                About CHIPS
+                About Vellalar College of Pharmacy
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
                   <span className="text-white font-semibold">
-                    Chebrolu Hanumaiah Institute of Pharmaceutical Sciences
-                    (CHIPS)
+                    Vellalar College of Pharmacy
                   </span>{" "}
-                  was established in 2005 by the Nagarjuna Education Society
-                  (NES). Offering B.Pharmacy, M.Pharmacy, Pharm.D, and Ph.D
-                  programs, CHIPS has a student strength of 648 and boasts
-                  excellent infrastructure.
+                  was established in the year 2018 by Vellalar Educational Trust
+                  under the dynamic leadership of Mr. C. Jayakumar B.A., B.L,
+                  President, and S.D Chandrasekar, Secretary cum correspondence,
+                  renowned Educationalists and Industrialists having more than
+                  five decades of rich experience in promoting and administering
+                  Professional colleges.
                 </p>
                 <p className="leading-relaxed">
-                  The institution is recognized by UGC and accredited by NAAC
-                  with a B++ grade. It has received Autonomous Status from UGC
-                  and is ISO certified. CHIPS has a strong research focus, with
-                  47 Ph.D. scholars and over 300 published research papers.
+                  The institution is committed to provide quality education in
+                  pharmacy to cater to the needs of the society in the
+                  healthcare sector. The college is approved by Directorate of
+                  Medical Education, PCI and affiliated with The TN Dr. MGR
+                  Medical University, Chennai, Tamil Nadu.
                 </p>
                 <p className="leading-relaxed">
-                  With a dedicated faculty, CHIPS ensures quality education,
-                  achieving an average pass percentage of over 95%.
-                  Approximately 70% of students secure placements through the
-                  Training and Placement Cell.
+                  The college has a pollution-free environment, excellent
+                  academic atmosphere, well-equipped laboratories, library,
+                  hostel, and seminar halls. We have committed well-disciplined
+                  and qualified faculty with their passion in Teaching &
+                  Research in Pharmacy.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* About Vellalar Educational Trust Section */}
+        <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 mb-12 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#00CCFF]">
+                About Vellalar Educational Trust
+              </h2>
+              <div className="space-y-4 text-gray-300">
+                <p className="leading-relaxed">
+                  Vellalar Educational Trust was established in 1969 under S.no
+                  20 of Societies Registration Act XX1 of 1860, which runs a
+                  variety of educational institutions. The main motto of the
+                  trust is to emphasize on women education. Today, more than
+                  3000 faculty members instruct 15,000 Students approximately.
+                </p>
+                <p className="leading-relaxed">
+                  The institution generates financial aid programs that ensure
+                  the talented students from all economic backgrounds can afford
+                  education at Vellalar Educational Trust. A wide range of
+                  cultural, educational, athletic and social activities are
+                  available to students, faculty and other staff.
+                </p>
+                <p className="leading-relaxed">
+                  Campus life activities are built around the concepts of
+                  encouraging each member to express his or her talents and to
+                  respect all members of our pluralistic culture.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg transform transition-transform duration-500 hover:scale-105">
+                <Image
+                  src="/college.jpg"
+                  alt="Vellalar Educational Trust"
+                  className="object-cover w-full"
+                  width={540}
+                  height={360}
+                />
               </div>
             </div>
           </div>
@@ -136,25 +185,24 @@ const About = () => {
           </div>
         </div>
 
-        {/* Why Choose Us Section */}
+        {/* Programs Offered Section */}
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 md:p-10 shadow-[0_0_30px_rgba(0,204,255,0.1)]">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#9900FF] to-[#FF66CC]">
-              Why Choose OPF?
+              Programs Offered
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,204,255,0.3)]">
               <div className="w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] flex items-center justify-center mx-auto">
-                <span className="text-[#070B39] text-2xl">🌍</span>
+                <span className="text-[#070B39] text-2xl">🎓</span>
               </div>
               <h4 className="text-xl font-bold mb-3 text-center text-white">
-                Global Reach
+                B. Pharmacy
               </h4>
               <p className="text-gray-300 text-center">
-                Connecting researchers and professionals across borders to
-                collaborate and innovate.
+                4-year undergraduate program with 100 seats available.
               </p>
             </div>
 
@@ -163,24 +211,23 @@ const About = () => {
                 <span className="text-[#070B39] text-2xl">📚</span>
               </div>
               <h4 className="text-xl font-bold mb-3 text-center text-white">
-                Knowledge Sharing
+                D. Pharm
               </h4>
               <p className="text-gray-300 text-center">
-                Open access to high-quality research and resources for
-                professionals and students.
+                2-year diploma program with 60 seats available.
               </p>
             </div>
 
             <div className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,204,255,0.3)]">
               <div className="w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-[#9900FF] to-[#FF66CC] flex items-center justify-center mx-auto">
-                <span className="text-[#070B39] text-2xl">🚀</span>
+                <span className="text-[#070B39] text-2xl">🔬</span>
               </div>
               <h4 className="text-xl font-bold mb-3 text-center text-white">
-                Innovative Tools
+                Pharm.D & M.Pharmacy
               </h4>
               <p className="text-gray-300 text-center">
-                Cutting-edge solutions like CHIPS for research, analytics, and
-                drug development.
+                Advanced pharmaceutical education with specializations in
+                Pharmaceutical Analysis and Pharmaceutics.
               </p>
             </div>
           </div>

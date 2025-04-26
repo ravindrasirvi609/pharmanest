@@ -52,8 +52,8 @@ const SocialMediaPost = ({
             lineHeight: "1.4",
           }}
         >
-          &quot;Recent Advances in Artificial Intelligence and Machine Learning
-          Driven Drug Discovery&quot;
+          &quot;Artificial Intelligence and machine learning: A Game changer in
+          the Pharma field&quot;
         </h2>
 
         <p
@@ -125,8 +125,7 @@ const SocialMediaPost = ({
         <p style={{ margin: "5px 0" }}>
           Organized by Department of Pharmaceutical Chemistry,
         </p>
-        <p style={{ margin: "5px 0" }}>JSS College of Pharmacy, Ooty</p>
-        <p style={{ margin: "5px 0" }}>Hosted by Operant Pharmacy Federation</p>
+        <p style={{ margin: "5px 0" }}>Vellalar College of Pharmacy</p>
       </div>
 
       <p

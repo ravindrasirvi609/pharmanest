@@ -70,7 +70,7 @@ const Footer = () => {
                     <MapPin size={18} className="text-[#00FFCC]" />
                   </div>
                   <span className="text-gray-300 group-hover:text-white transition-colors">
-                    CHIPS, Guntur
+                    Vellalar College of Pharmacy
                   </span>
                 </div>
               </div>
@@ -211,7 +211,8 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2025 PharmaNEST 6.E. All rights reserved.
+              © 2025 PharmaNEST 6.E. Vellalar College of Pharmacy. All rights
+              reserved.
             </p>
             <p className="text-gray-400 text-sm">
               Designed by{" "}

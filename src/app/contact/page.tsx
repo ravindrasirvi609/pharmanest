@@ -222,7 +222,7 @@ const ContactPage: React.FC = () => {
               </h3>
               <div className="rounded-xl overflow-hidden border border-white/10">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149224.96671255704!2d80.17231959726561!3d16.2526181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a76e3229a1b83%3A0xb859ed4d0357991e!2sChebrolu%20Hanumaiah%20Institute%20Of%20Pharmaceutical%20Sciences%20(Autonomous)!5e1!3m2!1sen!2sin!4v1733415175167!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.0290761654753!2d77.95518391479444!3d10.428598892554952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba95bb73e095015%3A0x90f5981ac77afd3e!2sVellalar%20College%20of%20Pharmacy!5e0!3m2!1sen!2sin!4v1703432423912!5m2!1sen!2sin"
                   width="100%"
                   height="300"
                   className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
@@ -237,8 +237,8 @@ const ContactPage: React.FC = () => {
               <div className="space-y-4 text-gray-300">
                 <p>
                   <span className="text-white font-semibold">Address:</span>{" "}
-                  Chebrolu Hanumaiah Institute of Pharmaceutical Sciences,
-                  Chowdavaram, Guntur, Andhra Pradesh - 522019
+                  Vellalar College of Pharmacy, Maruthi Nagar, Thindal, Erode,
+                  Tamil Nadu - 638012
                 </p>
                 <p>
                   <span className="text-white font-semibold">Email:</span>{" "}
@@ -246,7 +246,7 @@ const ContactPage: React.FC = () => {
                 </p>
                 <p>
                   <span className="text-white font-semibold">Phone:</span> +91
-                  99999 99999
+                  94609-71652
                 </p>
                 <p>
                   <span className="text-white font-semibold">

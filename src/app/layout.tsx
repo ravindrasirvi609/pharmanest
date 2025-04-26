@@ -16,9 +16,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PharmaNEST 6.E",
+  title: "PharmaNEST 6.E | Vellalar College of Pharmacy",
   description:
-    "The 6th edition of PharmaNEST conference - Accelerating Drug Discovery and Development Through AI",
+    "Artificial Intelligence and machine learning: A Game changer in the Pharma field - Vellalar College of Pharmacy",
 };
 
 export default function RootLayout({

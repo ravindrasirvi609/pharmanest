@@ -34,8 +34,8 @@ const AboutSection = () => {
                 2025 Theme
               </h4>
               <p className="text-[#00FFCC] italic font-medium">
-                &quot;Revolutionizing Healthcare Through AI & Pharmaceutical
-                Innovation&quot;
+                &quot;Artificial Intelligence and machine learning: A Game
+                changer in the Pharma field&quot;
               </p>
             </div>
 
@@ -64,10 +64,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold mb-2 text-white">Organized By</h4>
-                  <p className="text-gray-300">
-                    Operant Pharmacy Federation & Chebrolu Hanumaiah Institute
-                    of Pharmaceutical Sciences, Guntur
-                  </p>
+                  <p className="text-gray-300">Vellalar College of Pharmacy</p>
                 </div>
               </CardContent>
             </Card>
