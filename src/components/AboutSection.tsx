@@ -19,15 +19,23 @@ const AboutSection = () => {
           {/* Left side - Main text */}
           <div className="space-y-6 glassmorphism-card rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gradient">
-              Transforming Healthcare Through AI & Pharmaceutical Innovation
+              AI & ML: Game Changers in Healthcare
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              PharmaNEST 6.E represents our most ambitious conference yet,
-              dedicated to showcasing the revolutionary impact of Artificial
-              Intelligence in pharmaceutical research and healthcare. This
-              premier event convenes leading researchers, industry pioneers, and
-              healthcare visionaries to explore cutting-edge applications that
-              are reshaping drug discovery and patient care.
+              The PharmaNEST 6.E International Conference is a premier global
+              platform dedicated to exploring the revolutionary impact of AI and
+              ML technologies across the healthcare and pharmaceutical spectrum.
+              We bring together thought leaders, researchers, industry
+              professionals, academicians, clinicians, data scientists, and
+              regulatory experts to discuss the latest trends, innovations,
+              challenges, and future prospects.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              With advancements in computational power and data analytics,
+              Artificial Intelligence and Machine Learning have become vital
+              tools in improving patient outcomes, drug discovery, diagnostics,
+              clinical decision-making, personalized medicine, and operational
+              efficiency in healthcare.
             </p>
             <div className="mt-6 p-4 glassmorphism rounded-xl">
               <h4 className="text-xl font-semibold mb-2 text-white">
@@ -76,12 +84,12 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold mb-2 text-white">
-                    Innovation Focus
+                    Conference Highlights
                   </h4>
                   <p className="text-gray-300">
-                    Pioneering AI-driven technologies for precision medicine,
-                    personalized treatments, and revolutionary approaches to
-                    drug discovery and development.
+                    Keynote sessions by industry pioneers, workshops on AI
+                    tools, poster presentations, networking sessions, and
+                    in-depth discussions on AI-driven healthcare innovations.
                   </p>
                 </div>
               </CardContent>
@@ -93,14 +101,11 @@ const AboutSection = () => {
                   <Users className="w-6 h-6 text-black" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-2 text-white">
-                    Global Collaboration
-                  </h4>
+                  <h4 className="font-bold mb-2 text-white">Key Focus Areas</h4>
                   <p className="text-gray-300">
-                    Creating powerful connections between AI specialists,
-                    pharmaceutical researchers, healthcare providers, and
-                    regulatory authorities to drive transformative healthcare
-                    solutions.
+                    AI-driven diagnostics, predictive analytics, machine
+                    learning in genomics, early disease detection, ML in drug
+                    development, and ethical considerations in AI healthcare.
                   </p>
                 </div>
               </CardContent>
