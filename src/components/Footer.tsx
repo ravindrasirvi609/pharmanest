@@ -21,9 +21,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative">
+    <footer className="">
       {/* Top curved separator */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform">
+      <div className=" top-0 left-0 w-full overflow-hidden leading-none transform">
         <svg
           className="relative block w-full h-12 sm:h-16"
           data-name="Layer 1"
