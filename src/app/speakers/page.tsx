@@ -46,19 +46,19 @@ const speakers: Speaker[] = [
     id: 6,
     name: "Dr. Manoj S Charde",
     designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
-    image: "",
+    image: "/speakers/Manoj S Charde.jpeg",
   },
   {
     id: 7,
     name: "Dr. Boby Johns G",
     designation: "St.Joseph's College of Pharmacy, Cherthala, Kerala",
-    image: "",
+    image: "/speakers/Dr. Boby Johns G.jpeg",
   },
   {
     id: 8,
     name: "Dr. Manoj S Charde",
     designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
-    image: "",
+    image: "/speakers/Manoj S Charde.jpeg",
   },
 ];
 
