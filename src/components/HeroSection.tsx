@@ -46,7 +46,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative overflow-hidden min-h-screen">
+    <div className="relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[url('/college.jpg')] bg-cover bg-center opacity-10"></div>
 
@@ -59,7 +59,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center">
+      <div className="relative z-10 flex flex-col justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
           {/* Alert for registration */}
           {showAlert && (
