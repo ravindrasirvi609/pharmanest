@@ -12,10 +12,9 @@ interface Speaker {
 const speakers: Speaker[] = [
   {
     id: 1,
-    name: "Dr. Noohu Abdulla Khan",
-    designation:
-      "Department of Clinical Pharmacy, College of Pharmacy, King Khalid University, Abha Kingdom of Saudi Arabia",
-    image: "/speakers/Dr. Noohu Abdulla Khan.jpeg",
+    name: "Dr. Sampathkumar Devarajan",
+    designation: "Axxelent Pharma Sciences Private Limited, Tamil Nadu",
+    image: "/speakers/Sampathkumar_Devarajan.jpg",
   },
   {
     id: 2,
@@ -26,53 +25,39 @@ const speakers: Speaker[] = [
   },
   {
     id: 3,
-    name: "Dr. A K Gnanchandran",
-    designation:
-      "Pranav Institute of Pharmaceutical Sciences, Gwalior, Madhya Pradesh",
-    image: "",
+    name: "Dr. R. Kalirajan",
+    designation: "Associate Professor, JSS College of Pharmacy, Ooty",
+    image: "/speakers/kalirajan.jpg",
   },
   {
     id: 4,
-    name: "Dr. Anbazhagan S",
-    designation: "Surya School of Pharmacy, Villupuram, Tamil Nadu",
-    image: "/speakers/Dr ANBAZHAGAN S.jpg",
+    name: "Dr. A K Gnanchandran",
+    designation:
+      "Pranav Institute of Pharmaceutical Sciences, Gwalior, Madhya Pradesh",
+    image: "/speakers/akgnanachandran.jpeg",
   },
   {
     id: 5,
+    name: "Dr. Prakash Muthudoss",
+    designation: "A2Z4.0 Research and Analytics Private Limited, Chennai",
+    image: "/speakers/prakash.jpg",
+  },
+  {
+    id: 6,
+    name: "Dr. Manoj S Charde",
+    designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
+    image: "",
+  },
+  {
+    id: 7,
     name: "Dr. Boby Johns G",
     designation: "St.Joseph's College of Pharmacy, Cherthala, Kerala",
     image: "",
   },
   {
-    id: 6,
-    name: "Dr. Arup Kumar Misra",
-    designation:
-      "Associate Professor, Department of Pharmacology, AIIMS, Manglagiri",
-    image: "",
-  },
-  {
-    id: 7,
-    name: "Dr. Rajesh Ramasamy",
-    designation: "Universiti Putra Malaysia",
-    image: "",
-  },
-  {
     id: 8,
-    name: "Dr. R. Kalirajan",
-    designation: "Associate Professor, JSS College of Pharmacy, Ooty",
-    image: "",
-  },
-  {
-    id: 9,
-    name: "Dr. Srinivasa Reddy Bonam",
-    designation: "Senior Scientist, CSIR-IICT Hyderabad",
-    image: "",
-  },
-  {
-    id: 10,
-    name: "Dr. Dharmendra Ahuja",
-    designation:
-      "Principal Mentor, Bureau For Health & Education Status Upliftment (India)",
+    name: "Dr. Manoj S Charde",
+    designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
     image: "",
   },
 ];
