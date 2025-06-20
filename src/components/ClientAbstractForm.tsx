@@ -143,17 +143,23 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                 <h2 className="text-2xl font-bold mb-4 text-danger">
                   Participant QR Code
                 </h2>
-                {(abstract?.qrCodeUrl || registration?.qrCodeUrl) && (
-                  <div className="flex justify-center">
-                    <Image
-                      src={abstract?.qrCodeUrl || registration?.qrCodeUrl || ""}
-                      alt="QR Code"
-                      width={150}
-                      height={150}
-                      className="rounded-lg shadow-md"
-                    />
-                  </div>
-                )}
+                {(abstract?.qrCodeUrl || registration?.qrCodeUrl) &&
+                  typeof (abstract?.qrCodeUrl || registration?.qrCodeUrl) ===
+                    "string" &&
+                  (abstract?.qrCodeUrl || registration?.qrCodeUrl) !== "" && (
+                    <div className="flex justify-center">
+                      <Image
+                        src={
+                          abstract?.qrCodeUrl ||
+                          (registration?.qrCodeUrl as string)
+                        }
+                        alt="QR Code"
+                        width={150}
+                        height={150}
+                        className="rounded-lg shadow-md"
+                      />
+                    </div>
+                  )}
                 <p className="mt-4 text-center font-semibold">
                   {abstract?.AbstractCode ||
                     abstract?.temporyAbstractCode ||

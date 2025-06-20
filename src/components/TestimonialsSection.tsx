@@ -139,13 +139,15 @@ const TestimonialsSection = () => {
               <div className="flex items-center space-x-4">
                 <div className="relative">
                   <div className="w-16 h-16 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
-                    <Image
-                      src={testimonials[activeIndex].image ?? ""}
-                      alt={testimonials[activeIndex].name ?? ""}
-                      className="w-full h-full object-cover rounded-full"
-                      width={64}
-                      height={64}
-                    />
+                    {testimonials[activeIndex].image && (
+                      <Image
+                        src={testimonials[activeIndex].image}
+                        alt={testimonials[activeIndex].name ?? ""}
+                        className="w-full h-full object-cover rounded-full"
+                        width={64}
+                        height={64}
+                      />
+                    )}
                   </div>
                   <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black text-xs px-2 py-1 rounded-full font-bold">
                     {testimonials[activeIndex].type}
@@ -194,13 +196,15 @@ const TestimonialsSection = () => {
                     >
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
-                          <Image
-                            src={testimonial.image ?? ""}
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover rounded-full"
-                            width={48}
-                            height={48}
-                          />
+                          {testimonial.image && (
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover rounded-full"
+                              width={48}
+                              height={48}
+                            />
+                          )}
                         </div>
                         <div>
                           <h4 className="font-bold text-white">
