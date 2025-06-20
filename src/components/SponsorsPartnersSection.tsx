@@ -9,7 +9,6 @@ import {
   Building,
   Globe,
 } from "lucide-react";
-import Image from "next/image";
 
 const SponsorsPartnersSection = () => {
   const [activeTab, setActiveTab] = useState<"platinum" | "gold" | "silver">(
@@ -18,7 +17,7 @@ const SponsorsPartnersSection = () => {
 
   const sponsors = {
     platinum: [
-      { id: 1, name: "PharmaInnovate Global", type: "platinum" },
+      { id: 1, name: "PharmaInnovate India", type: "platinum" },
       { id: 2, name: "BioTech Research Labs", type: "platinum" },
       { id: 3, name: "HealthAI Systems", type: "platinum" },
     ],
@@ -38,10 +37,10 @@ const SponsorsPartnersSection = () => {
   };
 
   const partners = [
-    { id: 13, name: "Global Medical University" },
+    { id: 13, name: "National Medical University" },
     { id: 14, name: "Pharmaceutical Research Institute" },
     { id: 15, name: "Healthcare Innovation Hub" },
-    { id: 16, name: "BioTech Association International" },
+    { id: 16, name: "BioTech Association of India" },
   ];
 
   const SponsorIcon: React.FC<{
@@ -117,13 +116,9 @@ const SponsorsPartnersSection = () => {
               >
                 <div className="flex items-center justify-center h-40 glassmorphism rounded-lg mb-6 p-4">
                   {/* Placeholder for sponsor logo */}
-                  <Image
-                    src="/PharmaNEST.png"
-                    alt={sponsor.name}
-                    className="max-w-[200px] max-h-[80px] object-contain"
-                    width={200}
-                    height={80}
-                  />
+                  <div className="max-w-[200px] max-h-[80px] flex items-center justify-center text-white font-bold text-lg bg-[#00FFCC]/10 rounded-lg">
+                    {sponsor.name}
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center p-3 mb-3 rounded-full bg-[#00FFCC]/10">
@@ -172,13 +167,9 @@ const SponsorsPartnersSection = () => {
               >
                 <div className="flex items-center justify-center h-32 glassmorphism-dark rounded-lg mb-4 p-3">
                   {/* Placeholder for partner logo */}
-                  <Image
-                    src="/PharmaNEST.png"
-                    alt={partner.name}
-                    className="max-w-[160px] max-h-[60px] object-contain"
-                    width={160}
-                    height={60}
-                  />
+                  <div className="max-w-[160px] max-h-[60px] flex items-center justify-center text-white font-bold text-base bg-[#00FFCC]/10 rounded-lg">
+                    {partner.name}
+                  </div>
                 </div>
                 <div className="text-center">
                   <h4 className="font-medium text-white">{partner.name}</h4>
@@ -198,7 +189,7 @@ const SponsorsPartnersSection = () => {
           </h3>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
             Join our growing ecosystem of industry partners and showcase your
-            innovations to a global audience of healthcare leaders, AI
+            innovations to a national audience of healthcare leaders, AI
             specialists, and pharmaceutical pioneers.
           </p>
           <a

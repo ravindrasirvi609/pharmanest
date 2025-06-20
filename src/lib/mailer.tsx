@@ -110,10 +110,10 @@ SendEmailParams): Promise<any> => {
           <>
             <Text>
               We regret to inform you that your abstract does not fully comply
-              with the PharmaNEST International Research Conference guidelines.
-              Kindly revise your abstract according to the provided guidelines
-              and reviewer comments. Please resubmit the abstract by clicking
-              View Submission Details.
+              with the PharmaNEST National Conference guidelines. Kindly revise
+              your abstract according to the provided guidelines and reviewer
+              comments. Please resubmit the abstract by clicking View Submission
+              Details.
             </Text>
             <Text>
               <strong>

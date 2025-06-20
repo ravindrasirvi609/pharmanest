@@ -9,7 +9,7 @@ const AboutSection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gradient">
-            About PharmaNEST 6.E
+            About the National Conference
           </h2>
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full"></div>
         </div>
@@ -22,12 +22,12 @@ const AboutSection = () => {
               AI & ML: Game Changers in Healthcare
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              The PharmaNEST 6.E International Conference is a premier global
-              platform dedicated to exploring the revolutionary impact of AI and
-              ML technologies across the healthcare and pharmaceutical spectrum.
-              We bring together thought leaders, researchers, industry
-              professionals, academicians, clinicians, data scientists, and
-              regulatory experts to discuss the latest trends, innovations,
+              The National Conference is a premier national platform dedicated
+              to exploring the revolutionary impact of AI and ML technologies
+              across the healthcare and pharmaceutical spectrum. We bring
+              together thought leaders, researchers, industry professionals,
+              academicians, clinicians, data scientists, and regulatory experts
+              from across India to discuss the latest trends, innovations,
               challenges, and future prospects.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
@@ -50,7 +50,9 @@ const AboutSection = () => {
                 <div className="bg-[#00FFCC]/10 p-3 rounded-full mb-3">
                   <Globe className="w-6 h-6 text-[#00FFCC]" />
                 </div>
-                <span className="text-white font-medium">Global Platform</span>
+                <span className="text-white font-medium">
+                  National Platform
+                </span>
               </div>
               <div className="flex flex-col items-center glassmorphism p-4 rounded-lg text-center">
                 <div className="bg-[#00FFCC]/10 p-3 rounded-full mb-3">

@@ -10,7 +10,6 @@ import {
   Linkedin,
   ArrowUp,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -88,7 +87,7 @@ const Footer = () => {
                     className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#00FFCC]/50 group-hover:bg-[#00FFCC] transition-colors"></span>
-                    About PharmaNEST 6.E
+                    About the National Conference
                   </Link>
                 </li>
                 <li>
@@ -177,13 +176,7 @@ const Footer = () => {
             {/* About Company */}
             <div className="glassmorphism-card p-6 rounded-xl">
               <div className="flex justify-center mb-4">
-                <Image
-                  src="/PharmaNEST.png"
-                  alt="PharmaNEST 6.E"
-                  className="mb-4 object-contain"
-                  width={150}
-                  height={50}
-                />
+                {/* Remove the image */}
               </div>
               <p className="text-gray-300 mb-4 text-center">
                 Empowering pharmaceutical innovation through cutting-edge
@@ -211,8 +204,8 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2025 PharmaNEST 6.E. Vellalar College of Pharmacy. All rights
-              reserved.
+              © 2025 National Conference. Vellalar College of Pharmacy. All
+              rights reserved.
             </p>
             <p className="text-gray-400 text-sm">
               Designed & Developed by{" "}

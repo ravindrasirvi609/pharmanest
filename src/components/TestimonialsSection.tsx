@@ -13,9 +13,9 @@ const TestimonialsSection = () => {
       name: "Dr. Sarah Johnson",
       role: "Director of AI Research",
       company: "PharmaInnovate Labs",
-      image: "/PharmaNEST.png",
+      image: undefined,
       quote:
-        "PharmaNEST continues to be the premier event for showcasing the intersection of AI and pharmaceutical research. The latest advancements presented this year will transform drug discovery as we know it.",
+        "This conference continues to be the premier event for showcasing the intersection of AI and pharmaceutical research. The latest advancements presented this year will transform drug discovery as we know it.",
       rating: 5,
       type: "Speaker",
       year: "2024",
@@ -25,9 +25,9 @@ const TestimonialsSection = () => {
       name: "Michael Chen",
       role: "Lead Data Scientist",
       company: "BioTech Innovations",
-      image: "/PharmaNEST.png",
+      image: undefined,
       quote:
-        "The collaborative atmosphere at PharmaNEST fostered connections that led to two major research partnerships. The workshops on machine learning applications in clinical trials were particularly valuable.",
+        "The collaborative atmosphere at the National Conference fostered connections that led to two major research partnerships. The workshops on machine learning applications in clinical trials were particularly valuable.",
       rating: 5,
       type: "Attendee",
       year: "2024",
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
       name: "Dr. Emma Rodriguez",
       role: "Healthcare AI Specialist",
       company: "MedTech Solutions",
-      image: "/PharmaNEST.png",
+      image: undefined,
       quote:
         "As both a presenter and attendee, I was impressed by the caliber of research and the seamless integration of theoretical concepts with practical applications. The quantum computing session was groundbreaking.",
       rating: 5,
@@ -48,10 +48,10 @@ const TestimonialsSection = () => {
       id: 4,
       name: "Prof. David Kim",
       role: "Head of Computational Biology",
-      company: "Global Medical University",
-      image: "/PharmaNEST.png",
+      company: "National Medical University",
+      image: undefined,
       quote:
-        "PharmaNEST has consistently provided a platform where academia and industry converge to address healthcare challenges. This year's focus on personalized medicine through AI was particularly inspiring.",
+        "This conference has consistently provided a platform where academia and industry converge to address healthcare challenges. This year's focus on personalized medicine through AI was particularly inspiring.",
       rating: 5,
       type: "Speaker",
       year: "2024",
@@ -140,8 +140,8 @@ const TestimonialsSection = () => {
                 <div className="relative">
                   <div className="w-16 h-16 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
                     <Image
-                      src={testimonials[activeIndex].image}
-                      alt={testimonials[activeIndex].name}
+                      src={testimonials[activeIndex].image ?? ""}
+                      alt={testimonials[activeIndex].name ?? ""}
                       className="w-full h-full object-cover rounded-full"
                       width={64}
                       height={64}
@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
               <div className="flex items-center justify-between">
                 <RatingStars rating={testimonials[activeIndex].rating} />
                 <span className="text-sm text-gray-400">
-                  PharmaNEST {testimonials[activeIndex].year}
+                  National Conference {testimonials[activeIndex].year}
                 </span>
               </div>
             </div>
@@ -195,7 +195,7 @@ const TestimonialsSection = () => {
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-[#00FFCC]/10 p-0.5 border border-[#00FFCC]/30">
                           <Image
-                            src={testimonial.image}
+                            src={testimonial.image ?? ""}
                             alt={testimonial.name}
                             className="w-full h-full object-cover rounded-full"
                             width={48}

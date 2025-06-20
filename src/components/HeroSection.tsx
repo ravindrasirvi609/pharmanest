@@ -86,7 +86,7 @@ const HeroSection = () => {
             <div className="space-y-8">
               {/* Title with gradient text */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gradient">PharmaNEST 6.E</span>
+                <span className="text-gradient">National Conference</span>
                 <br />
                 <span className="text-white mt-2 block">AI & ML:</span>
                 <span className="text-gradient-alt block mt-2">
@@ -161,7 +161,7 @@ const HeroSection = () => {
 
               <div className="mt-8 p-4 glassmorphism rounded-lg border border-[#00FFCC]/20">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  What&apos;s New in PharmaNEST 6.E
+                  What&apos;s New in the National Conference
                 </h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -179,7 +179,7 @@ const HeroSection = () => {
                   <li className="flex items-start">
                     <span className="text-[#00FFCC] mr-2">•</span>
                     <span className="text-white text-sm">
-                      Global Healthcare Innovation Showcase
+                      National Healthcare Innovation Showcase
                     </span>
                   </li>
                 </ul>

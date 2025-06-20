@@ -7,50 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-
-// Updated subject options
-export const subjectOptions = [
-  { value: "pharmaceuticalTechnology", label: "Pharmaceutical Technology" },
-  { value: "medChem", label: "Pharmaceutical / Medicinal Chemistry" },
-  {
-    value: "pharmacognosy",
-    label:
-      "Pharmacognosy, Indigenous Drugs, Herbal Formulations, and Phytochemistry",
-  },
-  {
-    value: "pharmacologyToxicology",
-    label: "Pharmacology and Toxicology, Clinical Research & Pharmacovigilance",
-  },
-  {
-    value: "pharmaceuticalAnalysis",
-    label: "Pharmaceutical Analysis and Quality Assurance",
-  },
-  {
-    value: "biopharmaceutics",
-    label: "Biopharmaceutics, Pharmacokinetics & Drug Metabolism",
-  },
-  { value: "biotechnology", label: "Biotechnology and Biotherapeutics" },
-  {
-    value: "clinicalPharmacy",
-    label: "Hospital, Community, and Clinical Pharmacy",
-  },
-  {
-    value: "pharmaceuticalEducation",
-    label: "Pharmaceutical Education and Professional Pharmacy",
-  },
-  {
-    value: "drugRegulatoryAffairs",
-    label: "Drug Regulatory Affairs & Pharmaceutical Management",
-  },
-  {
-    value: "pharmacoeconomics",
-    label: "Pharmacoeconomics and Pharmacoepidemiology",
-  },
-  {
-    value: "aiBioinformatics",
-    label: "Artificial Intelligence / Bioinformatics / Data Analytics",
-  },
-];
+import { subjectOptions } from "./subjectOptions";
 
 export default function AbstractFormPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(true);
@@ -79,9 +36,9 @@ export default function AbstractFormPage() {
           </DialogHeader>
           <div className="space-y-4">
             <DialogDescription className="text-sm text-gray-300">
-              Welcome to the PharmaNEST 6.E Internatinal Conference Abstract
-              Submission portal. Before proceeding, please carefully read the
-              following instructions:
+              Welcome to the National Conference Abstract Submission portal.
+              Before proceeding, please carefully read the following
+              instructions:
             </DialogDescription>
 
             <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-300">
@@ -125,9 +82,8 @@ export default function AbstractFormPage() {
           </span>
         </h1>
         <p className="text-gray-300 text-lg md:text-xl text-center mb-16 max-w-3xl mx-auto">
-          Submit your research abstract for the PharmaNEST 6.E Internatinal
-          Conference. All submissions will be reviewed by our committee of
-          experts.
+          Submit your research abstract for the National Conference. All
+          submissions will be reviewed by our committee of experts.
         </p>
 
         {!isFormSubmitted ? (

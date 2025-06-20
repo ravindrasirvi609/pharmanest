@@ -139,15 +139,15 @@ const About = () => {
                     pharmacy profession
                   </span>{" "}
                   by hosting exhibitions, conferences, workshops, and more. With
-                  an international reputation in biomedical and pharmaceutical
+                  a national reputation in biomedical and pharmaceutical
                   studies, OPF serves as a hub for high-quality research,
                   education forums, ethical discussions, and collaboration
-                  across the globe.
+                  across the country.
                 </p>
                 <p className="leading-relaxed">
                   At OPF, we prioritize{" "}
                   <span className="text-white font-semibold">
-                    global healthcare impact
+                    national healthcare impact
                   </span>{" "}
                   by fostering research, community wellness, and ethical
                   business practices. Our goal is to promote innovations in the{" "}

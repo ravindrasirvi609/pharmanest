@@ -58,8 +58,8 @@ const CallForAbstracts = () => {
           <div className="w-24 h-0.5 mx-auto bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] rounded-full mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             We invite researchers and innovators to share cutting-edge work at
-            PharmaNEST 6.E. Submit your abstract to contribute to the revolution
-            in AI-driven pharmaceutical sciences.
+            the National Conference. Submit your abstract to contribute to the
+            revolution in AI-driven pharmaceutical sciences.
           </p>
         </div>
 
@@ -138,9 +138,9 @@ const CallForAbstracts = () => {
                 Ready to Submit Your Research?
               </h3>
               <p className="text-gray-300 mb-6">
-                Join the PharmaNEST 6.E scientific community. Share your
-                innovations, connect with global experts, and help shape the
-                future of pharmaceutical sciences.
+                Join the National Conference scientific community. Share your
+                innovations, connect with national experts, and help shape the
+                future of pharmaceutical sciences in India.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/abstractForm">

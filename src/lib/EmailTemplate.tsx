@@ -37,13 +37,6 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
     <Tailwind>
       <Body className="bg-gray-100 font-sans">
         <Container className="bg-white mx-auto p-4 my-8 rounded-lg shadow-lg">
-          <Img
-            src="https://pharmanest.vercel.app/PharmaNEST.png"
-            width="170"
-            height="50"
-            alt="Pharmanecia"
-            className="mx-auto"
-          />
           <Heading className="text-3xl font-bold text-center text-[#021373] my-4">
             {subject}
           </Heading>

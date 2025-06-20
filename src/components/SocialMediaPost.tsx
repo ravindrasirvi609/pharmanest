@@ -32,7 +32,7 @@ const SocialMediaPost = ({
             fontWeight: "bold",
           }}
         >
-          PharmaNEST
+          National Conference
         </h1>
 
         <p
@@ -41,7 +41,7 @@ const SocialMediaPost = ({
             margin: "0 0 20px",
           }}
         >
-          International Research Conference on
+          National Conference on
         </p>
 
         <h2
@@ -113,7 +113,7 @@ const SocialMediaPost = ({
           margin: "0",
         }}
       >
-        Hey! I&apos;m Attending PharmaNEST 2025
+        Hey! I&apos;m Attending the National Conference 2025
       </p>
 
       <div
@@ -127,15 +127,6 @@ const SocialMediaPost = ({
         </p>
         <p style={{ margin: "5px 0" }}>Vellalar College of Pharmacy</p>
       </div>
-
-      <p
-        style={{
-          fontSize: "16px",
-          marginTop: "20px",
-        }}
-      >
-        #PharmaNEST #AIinDrugDiscovery #MachineLearning #PharmaceuticalSciences
-      </p>
     </div>
   );
 };

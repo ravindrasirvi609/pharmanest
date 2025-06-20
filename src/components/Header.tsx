@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
@@ -36,15 +35,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-40 h-12 rounded-lg overflow-hidden relative group">
-              <Image
-                src="/PharmaNEST.png"
-                alt="PharmaNEST 6.E"
-                className="w-full h-full object-contain transition-all duration-300 group-hover:scale-105 bg-white"
-                width={160}
-                height={48}
-              />
-              <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00FFCC] to-transparent opacity-70"></div>
+            <div className="w-40 h-12 rounded-lg overflow-hidden relative group flex items-center justify-center text-white font-bold text-xl">
+              National Conference
             </div>
           </div>
 
@@ -103,14 +95,8 @@ const Header = () => {
           }`}
         >
           <div className="p-6">
-            <div className="flex justify-center mb-8">
-              <Image
-                src="/PharmaNEST.png"
-                alt="PharmaNEST 6.E"
-                width={120}
-                height={40}
-                className="object-contain"
-              />
+            <div className="flex justify-center mb-8 text-white font-bold text-xl">
+              National Conference
             </div>
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
