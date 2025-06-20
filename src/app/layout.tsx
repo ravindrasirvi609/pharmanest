@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +34,10 @@ export default function RootLayout({
       >
         <div className="glassmorphism-container min-h-screen">
           <Header />
-          <div className="pt-20">{children}</div>
+          <div className="pt-20">
+            {children}
+            <Analytics />
+          </div>
           <Footer />
         </div>
       </body>
