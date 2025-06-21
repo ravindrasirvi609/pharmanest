@@ -62,7 +62,7 @@ const SocialMediaPost = ({
             margin: "0 0 40px",
           }}
         >
-          7<sup>th</sup> and 8<sup>th</sup> March, 2025
+          3<sup>rd</sup> and 4<sup>th</sup> September, 2025
         </p>
       </div>
 

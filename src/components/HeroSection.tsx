@@ -14,7 +14,7 @@ const HeroSection = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    const countdownDate = new Date("2025-07-17T00:00:00").getTime();
+    const countdownDate = new Date("2025-09-03T00:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -99,7 +99,7 @@ const HeroSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <Calendar className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
-                    <span className="text-white">17-18 July, 2025</span>
+                    <span className="text-white">3-4 September, 2025</span>
                   </div>
                   <div className="flex items-center space-x-3 glassmorphism p-3 rounded-lg hover:border-[#00FFCC]/50 hover:border transition-all group">
                     <MapPin className="w-5 h-5 text-[#00FFCC] group-hover:scale-110 transition-transform" />
