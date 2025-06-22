@@ -139,8 +139,8 @@ const RegistrationPlans: React.FC = () => {
       errors.pincode = "Pincode must be 6 digits";
     }
 
-    if (selectedPlan?.name === "OPF/OBRF Members" && !formData.memberId) {
-      errors.memberId = "Member ID is required for OPF/OBRF Members";
+    if (selectedPlan?.name === "OPF Members" && !formData.memberId) {
+      errors.memberId = "Member ID is required for OPF Members";
     }
 
     // Add more validations as needed
@@ -297,18 +297,27 @@ const RegistrationPlans: React.FC = () => {
     label,
     price,
     className,
+    planName,
   }: {
     label: string;
     price: number;
     className?: string;
-  }) => (
-    <div className="flex justify-between items-center mb-2">
-      <span className="text-white font-medium">{label}:</span>
-      <span className={`text-lg font-bold ${className || "text-white"}`}>
-        ₹{price}
-      </span>
-    </div>
-  );
+    planName?: string;
+  }) => {
+    const isInternational = planName === "International Delegates";
+    const currency = isInternational ? "$" : "₹";
+    const displayPrice = isInternational ? price / 83 : price; // Convert back to USD for display
+
+    return (
+      <div className="flex justify-between items-center mb-2">
+        <span className="text-white font-medium">{label}:</span>
+        <span className={`text-lg font-bold ${className || "text-white"}`}>
+          {currency}
+          {displayPrice}
+        </span>
+      </div>
+    );
+  };
 
   const RegistrationCard = ({ plan }: { plan: Plan }) => (
     <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,204,255,0.2)]">
@@ -319,16 +328,22 @@ const RegistrationPlans: React.FC = () => {
       </div>
       <div className="p-6">
         <p className="text-gray-300 mb-6">{plan.description}</p>
-        <PriceDisplay label="Early Bird" price={plan.earlyBird} />
+        <PriceDisplay
+          label="Early Bird"
+          price={plan.earlyBird}
+          planName={plan.name}
+        />
         <PriceDisplay
           label="Regular"
           price={plan.regular}
           className="text-gray-400 line-through"
+          planName={plan.name}
         />
         <PriceDisplay
           label="Spot"
           price={plan.spot}
           className="text-gray-400 line-through"
+          planName={plan.name}
         />
         <div className="mt-6">
           <button
@@ -372,16 +387,22 @@ const RegistrationPlans: React.FC = () => {
                 Access Food Area and lunch, No Kit and Entry for scientific
                 session
               </p>
-              <PriceDisplay label="Early Bird" price={1200} />
+              <PriceDisplay
+                label="Early Bird"
+                price={1200}
+                planName="Accompanying Person"
+              />
               <PriceDisplay
                 label="Regular"
                 price={1200}
                 className="text-gray-400"
+                planName="Accompanying Person"
               />
               <PriceDisplay
                 label="Spot"
                 price={1500}
                 className="text-gray-400"
+                planName="Accompanying Person"
               />
               <div className="mt-6">
                 <Link href={"https://rzp.io/l/g60dnQz"}>
@@ -472,9 +493,17 @@ const RegistrationPlans: React.FC = () => {
                         Submitting...
                       </div>
                     ) : (
-                      `Register and Pay (₹${
+                      `Register and Pay (${
+                        selectedPlan?.name === "International Delegates"
+                          ? "$"
+                          : "₹"
+                      }${
                         includeGalaDinner
-                          ? (selectedPlan?.earlyBird || 0) + 1000
+                          ? selectedPlan?.name === "International Delegates"
+                            ? (selectedPlan?.earlyBird || 0) / 83 + 12 // $12 for gala dinner
+                            : (selectedPlan?.earlyBird || 0) + 1000
+                          : selectedPlan?.name === "International Delegates"
+                          ? (selectedPlan?.earlyBird || 0) / 83
                           : selectedPlan?.earlyBird
                       })`
                     )}
