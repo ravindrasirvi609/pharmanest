@@ -23,8 +23,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
   onInputChange,
   onImageUpload,
   errors,
-  includeGalaDinner,
-  handleGalaDinnerChange,
   selectedPlanName,
 }) => {
   const {
@@ -377,7 +375,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
         note="Kindly enter correct Date of Birth to receive E-Certificate of conference on your Digilocker account linked with your Aadhar."
       />
 
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <label className="flex items-center mb-2 text-white">
           <input
             type="checkbox"
@@ -389,7 +387,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
           />
           Include Networking Cum Gala Dinner (Additional ₹1000)
         </label>
-      </div>
+      </div> */}
 
       <FormField
         label="Aadhar Number"
