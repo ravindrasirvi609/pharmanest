@@ -53,9 +53,11 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                 }`}
               >
                 <td className="px-4 py-2">{registration.registrationCode}</td>
-                <Link href={`/abstractForm/${registration._id}`}>
-                  <td className="px-4 py-2">{registration.name}</td>
-                </Link>
+                <td className="px-4 py-2">
+                  <Link href={`/abstractForm/${registration._id}`}>
+                    {registration.name}
+                  </Link>
+                </td>
                 <td className="px-4 py-2">{registration.email}</td>
                 <td className="px-4 py-2">{registration.registrationType}</td>
                 <td className="px-4 py-2">

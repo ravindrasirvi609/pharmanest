@@ -6,7 +6,9 @@ connect();
 
 export async function GET() {
   try {
-    const registrations = await RegistrationModel.find({}).sort({
+    const registrations = await RegistrationModel.find({
+      createdAt: { $gt: new Date("2025-06-01T00:00:00Z") },
+    }).sort({
       createdAt: -1,
     });
 

@@ -31,6 +31,11 @@ export function AbstractList() {
     try {
       setLoading(true);
       const response = await fetch(`/api/abstractList`);
+      if (response.status === 404) {
+        setAbstracts([]);
+        setError(null);
+        return;
+      }
       const data = await response.json();
 
       if (response.ok) {

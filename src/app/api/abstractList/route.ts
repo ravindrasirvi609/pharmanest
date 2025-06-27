@@ -8,9 +8,10 @@ export const revalidate = 0; // Disable caching for this route
 
 export async function GET() {
   try {
-    // Fetch abstracts from the database, excluding those with status "Delete"
+    // Fetch abstracts from the database, excluding those with status "Delete" and created after June 1, 2025
     const abstracts = await AbstractModel.find({
       status: { $ne: "Delete" },
+      createdAt: { $gt: new Date("2025-06-01T00:00:00Z") },
     }).lean();
 
     // Check if abstracts exist
