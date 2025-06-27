@@ -99,93 +99,112 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-300 to-indigo-200 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="p-8 bg-danger text-black">
-            <h1 className="text-4xl font-bold text-center">
-              Participant Information
+    <div className="min-h-screen bg-[#F7F7FA] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#E0E0E0]">
+          <div className="p-8 bg-gradient-to-r from-[#4B3F72] to-[#22223B] text-white">
+            <h1 className="text-4xl font-extrabold text-center tracking-tight">
+              Participant Dashboard
             </h1>
           </div>
-
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/3 p-8 bg-gray-50">
+          <div className="flex flex-col md:flex-row gap-8 p-8">
+            {/* Profile Card */}
+            <div className="md:w-1/3 bg-[#F7F7FA] rounded-2xl shadow-md p-6 flex flex-col items-center">
               {registration?.imageUrl && (
-                <div className="mb-8 flex justify-center">
+                <div className="mb-6 flex justify-center">
                   <Image
                     src={registration?.imageUrl}
                     alt="Participant"
-                    width={200}
-                    height={200}
-                    className="rounded-full shadow-lg border-4 border-white"
+                    width={120}
+                    height={120}
+                    className="rounded-full shadow-lg border-4 border-white object-cover"
                   />
                 </div>
               )}
-
-              <InfoItem
-                label="Name"
-                value={registration?.name || abstract?.name}
-              />
-              <InfoItem
-                label="Email"
-                value={registration?.email || abstract?.email}
-              />
-              <InfoItem
-                label="Registration Code"
-                value={registration?.registrationCode}
-              />
-              <InfoItem
-                label="Registration Type"
-                value={registration?.registrationType}
-              />
-
-              <div className="mt-8">
-                <h2 className="text-2xl font-bold mb-4 text-danger">
-                  Participant QR Code
+              <div className="w-full">
+                <InfoItem
+                  label="Name"
+                  value={registration?.name || abstract?.name}
+                />
+                <InfoItem
+                  label="Email"
+                  value={registration?.email || abstract?.email}
+                />
+                <InfoItem
+                  label="Registration Code"
+                  value={registration?.registrationCode}
+                />
+                <InfoItem
+                  label="Registration Type"
+                  value={registration?.registrationType}
+                />
+              </div>
+              <div className="mt-8 w-full">
+                <h2 className="text-lg font-bold mb-2 text-[#FF6B6B] text-center">
+                  QR Code
                 </h2>
                 {(abstract?.qrCodeUrl || registration?.qrCodeUrl) &&
                   typeof (abstract?.qrCodeUrl || registration?.qrCodeUrl) ===
                     "string" &&
                   (abstract?.qrCodeUrl || registration?.qrCodeUrl) !== "" && (
-                    <div className="flex justify-center">
+                    <div className="flex justify-center mb-2">
                       <Image
                         src={
                           abstract?.qrCodeUrl ||
                           (registration?.qrCodeUrl as string)
                         }
                         alt="QR Code"
-                        width={150}
-                        height={150}
-                        className="rounded-lg shadow-md"
+                        width={100}
+                        height={100}
+                        className="rounded-lg shadow-md border border-[#E0E0E0]"
                       />
                     </div>
                   )}
-                <p className="mt-4 text-center font-semibold">
+                <p className="text-center font-semibold text-[#4B3F72] text-sm">
                   {abstract?.AbstractCode ||
                     abstract?.temporyAbstractCode ||
                     "N/A"}
                 </p>
-                <p className="mt-2 text-sm text-center text-gray-600">
+                <p className="mt-1 text-xs text-center text-[#6D6875]">
                   Scan to check abstract updates
                 </p>
               </div>
             </div>
 
-            <div className="md:w-2/3 p-8">
+            {/* Main Content */}
+            <div className="md:w-2/3 flex flex-col gap-8">
+              {/* Abstract Card */}
               {abstract && (
-                <div className="mb-12">
-                  <h2 className="text-3xl font-bold mb-6 text-danger">
+                <div className="bg-white rounded-2xl shadow-md p-6 border border-[#E0E0E0]">
+                  <h2 className="text-2xl font-bold mb-4 text-[#4B3F72] flex items-center gap-2">
+                    <svg
+                      className="w-6 h-6 text-[#FF6B6B]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h5l2-2h5a2 2 0 012 2v12a2 2 0 01-2 2z"
+                      />
+                    </svg>
                     Scientific Abstract
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <InfoItem
                       label="Status"
                       value={
                         <span
-                          className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                          className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide shadow-sm ${
                             abstract.Status === "Pending"
-                              ? "bg-yellow-200 text-yellow-800"
-                              : "bg-green-200 text-green-800"
+                              ? "bg-[#FFD166] text-[#4B3F72]"
+                              : abstract.Status === "Revision"
+                              ? "bg-[#FF6B6B]/20 text-[#FF6B6B]"
+                              : abstract.Status === "Rejected"
+                              ? "bg-[#D7263D]/20 text-[#D7263D]"
+                              : "bg-[#38B000]/20 text-[#38B000]"
                           }`}
                         >
                           {abstract.Status}
@@ -227,13 +246,12 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                               href={abstract.abstractFileUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-blue-600 hover:text-blue-800 underline flex items-center"
+                              className="text-[#4B3F72] hover:text-[#FF6B6B] underline flex items-center gap-1 font-medium"
                             >
                               <svg
-                                className="w-4 h-4 mr-2"
+                                className="w-4 h-4"
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
                                   fillRule="evenodd"
@@ -244,7 +262,7 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                               Download Abstract
                             </a>
                           ) : (
-                            "Not uploaded"
+                            <span className="text-[#6D6875]">Not uploaded</span>
                           )
                         }
                       />
@@ -253,45 +271,42 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
 
                   {(abstract.Status === "Revision" ||
                     abstract.Status === "Rejected") && (
-                    <div className="mt-8 bg-red-50 border border-red-200 rounded-lg p-4">
-                      <h3 className="text-xl font-bold mb-2 text-danger">
+                    <div className="mt-8 bg-[#FFF0F3] border border-[#FFD6D6] rounded-lg p-4">
+                      <h3 className="text-lg font-bold mb-2 text-[#D7263D]">
                         Rejection Comment
                       </h3>
-                      <p className="text-gray-800">
+                      <p className="text-[#6D6875]">
                         {abstract.rejectionComment || "No comment provided"}
                       </p>
-
                       <div className="mt-6">
-                        <h3 className="text-xl font-bold mb-4 text-danger">
+                        <h3 className="text-lg font-bold mb-3 text-[#FF6B6B]">
                           Update Abstract File
                         </h3>
                         <div
                           {...getRootProps()}
                           className={`w-full p-6 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-200 ease-in-out ${
                             isDragActive
-                              ? "border-danger bg-red-50"
-                              : "border-gray-300 hover:border-danger hover:bg-gray-50"
+                              ? "border-[#FF6B6B] bg-[#FFF0F3]"
+                              : "border-[#E0E0E0] hover:border-[#FF6B6B] hover:bg-[#F7F7FA]"
                           }`}
                         >
                           <input {...getInputProps()} />
-                          <p className="text-gray-700">
+                          <p className="text-[#4B3F72] font-medium">
                             {isDragActive
                               ? "Drop the file here..."
                               : "Drag & drop your abstract file here, or click to select"}
                           </p>
-                          <p className="text-sm text-gray-500 mt-2">
+                          <p className="text-xs text-[#6D6875] mt-1">
                             Supported formats: .doc, .docx (Max size: 5MB)
                           </p>
                         </div>
-
                         {abstractFile && (
-                          <div className="flex items-center space-x-2 text-sm text-gray-700 mt-2">
+                          <div className="flex items-center space-x-2 text-sm text-[#38B000] mt-2">
                             <svg
-                              className="w-5 h-5 text-green-500"
+                              className="w-5 h-5"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 strokeLinecap="round"
@@ -303,34 +318,31 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                             <span>{abstractFile.name}</span>
                           </div>
                         )}
-
                         {isUploading && (
                           <div className="mt-4">
                             <div className="flex justify-between mb-1">
-                              <span className="text-sm font-medium text-gray-700">
+                              <span className="text-xs font-medium text-[#4B3F72]">
                                 Uploading
                               </span>
-                              <span className="text-sm font-medium text-gray-700">
+                              <span className="text-xs font-medium text-[#4B3F72]">
                                 {uploadProgress}%
                               </span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                            <div className="w-full bg-[#E0E0E0] rounded-full h-2.5">
                               <div
-                                className="bg-danger h-2.5 rounded-full transition-all duration-300 ease-in-out"
+                                className="bg-[#FF6B6B] h-2.5 rounded-full transition-all duration-300 ease-in-out"
                                 style={{ width: `${uploadProgress}%` }}
                               ></div>
                             </div>
                           </div>
                         )}
-
                         {uploadError && (
-                          <div className="flex items-center space-x-2 text-red-600 mt-2">
+                          <div className="flex items-center space-x-2 text-[#D7263D] mt-2">
                             <svg
                               className="w-5 h-5"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 strokeLinecap="round"
@@ -342,11 +354,10 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                             <span>{uploadError}</span>
                           </div>
                         )}
-
                         <button
                           onClick={handleFileUpload}
                           disabled={!abstractFile || isUploading}
-                          className="mt-4 w-full bg-danger text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="mt-4 w-full bg-[#FF6B6B] text-white py-2 px-4 rounded-md font-semibold hover:bg-[#D7263D] transition-colors duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed shadow"
                         >
                           {isUploading ? "Uploading..." : "Upload New Abstract"}
                         </button>
@@ -356,12 +367,26 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                 </div>
               )}
 
+              {/* Registration Card */}
               {registration && (
-                <div>
-                  <h2 className="text-3xl font-bold mb-6 text-danger">
+                <div className="bg-white rounded-2xl shadow-md p-6 border border-[#E0E0E0]">
+                  <h2 className="text-2xl font-bold mb-4 text-[#4B3F72] flex items-center gap-2">
+                    <svg
+                      className="w-6 h-6 text-[#38B000]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                     Registration Details
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <InfoItem
                       label="Salutation"
                       value={registration.Salutations}
@@ -379,7 +404,6 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                       label="Date of Birth"
                       value={registration.dob && formatDate(registration.dob)}
                     />
-
                     <InfoItem
                       label="Payment Status"
                       value={registration.paymentStatus}
@@ -403,7 +427,6 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
                       label="Need Accommodation"
                       value={registration.needAccommodation ? "Yes" : "No"}
                     />
-
                     <InfoItem label="Address" value={registration.address} />
                     <InfoItem label="City" value={registration.city} />
                     <InfoItem label="State" value={registration.state} />
@@ -419,13 +442,12 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
             </div>
           </div>
         </div>
-
-        <div className="mt-8 text-center text-gray-600">
+        <div className="mt-8 text-center text-[#6D6875]">
           <p>
             For any queries, please contact our support team at{" "}
             <a
               href="mailto:conferences@opf.org.in"
-              className="text-danger hover:underline"
+              className="text-[#FF6B6B] hover:underline font-semibold"
             >
               conferences@opf.org.in
             </a>
