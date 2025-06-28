@@ -85,12 +85,12 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-64 glassmorphism-dark transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-64 bg-[#18181b] transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -98,7 +98,7 @@ const Header = () => {
             <div className="flex justify-center mb-8 text-white font-bold text-xl">
               National Conference
             </div>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4 bg-black">
               {navItems.map((item) => (
                 <Link
                   href={item.href}
@@ -107,13 +107,13 @@ const Header = () => {
                     setActiveItem(item.name);
                     setIsOpen(false);
                   }}
-                  className={`flex items-center justify-between p-3 rounded-lg transition-colors ${
+                  className={`flex items-center justify-between p-3 rounded-lg transition-colors font-bold text-base ${
                     activeItem === item.name
-                      ? "bg-white/10 text-white"
-                      : "text-gray-300 hover:bg-white/5"
+                      ? "bg-[#23232a] text-white"
+                      : "text-gray-300 hover:bg-[#23232a] hover:text-white"
                   }`}
                 >
-                  <span className="font-bold">{item.name}</span>
+                  <span>{item.name}</span>
                   <ChevronRight
                     className={`h-4 w-4 transition-transform ${
                       activeItem === item.name

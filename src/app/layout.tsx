@@ -32,9 +32,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="glassmorphism-container min-h-screen">
+        <div className="glassmorphism-container min-h-screen flex flex-col">
           <Header />
-          <div className="pt-20">
+          <div className="pt-20 flex-1 flex flex-col">
             {children}
             <Analytics />
           </div>

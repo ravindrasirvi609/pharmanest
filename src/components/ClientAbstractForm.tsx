@@ -99,7 +99,7 @@ const ClientAbstractForm: React.FC<ClientProps> = ({ id }) => {
   );
 
   return (
-    <div className="min-h-screen bg-[#F7F7FA] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#F7F7FA] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#E0E0E0]">
           <div className="p-8 bg-gradient-to-r from-[#4B3F72] to-[#22223B] text-white">

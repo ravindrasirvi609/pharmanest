@@ -358,7 +358,7 @@ const RegistrationPlans: React.FC = () => {
   );
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#070B39] py-16 px-4 md:px-8">
+    <div className="relative overflow-hidden bg-[#070B39] py-16 px-4 md:px-8">
       {/* Animated Background Elements */}
       <div className="absolute -top-40 -left-40 w-80 h-80 bg-[#00FFCC]/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
       <div className="absolute top-1/2 -right-40 w-80 h-80 bg-[#00CCFF]/20 rounded-full blur-[100px] animate-blob"></div>
