@@ -28,16 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
       >
-        <div className="glassmorphism-container min-h-screen flex flex-col">
+        <div className="main-container min-h-screen flex flex-col relative">
           <Header />
-          <div className="pt-20 flex-1 flex flex-col">
+          <main className="pt-20 flex-1 flex flex-col relative z-10">
             {children}
             <Analytics />
-          </div>
+          </main>
           <Footer />
         </div>
       </body>

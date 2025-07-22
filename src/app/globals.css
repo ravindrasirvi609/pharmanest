@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimized body styles for better performance */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: #e6e6e6;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 @layer base {
@@ -14,50 +23,50 @@ body {
     /* Base colors */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
-    
+
     /* Card and UI elements */
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
     --card-glass-bg: rgba(255, 255, 255, 0.1);
     --card-glass-border: rgba(255, 255, 255, 0.2);
     --card-glass-shadow: rgba(0, 0, 0, 0.25);
-    
+
     /* Popover and overlay elements */
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-    
+
     /* Primary brand colors */
     --primary: 170 80% 50%;
     --primary-foreground: 222 47% 11%;
-    
+
     /* Secondary colors */
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
-    
+
     /* Muted UI elements */
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
-    
+
     /* Accent colors */
     --accent: 170 80% 30%;
     --accent-foreground: 210 40% 98%;
-    
+
     /* Destructive actions */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    
+
     /* UI borders and inputs */
     --border: 217 33% 20%;
     --input: 217 33% 20%;
     --ring: 170 80% 50%;
-    
+
     /* Chart colors */
     --chart-1: 170 80% 50%;
     --chart-2: 190 80% 50%;
     --chart-3: 210 80% 50%;
     --chart-4: 250 80% 50%;
     --chart-5: 270 80% 50%;
-    
+
     /* Border radius */
     --radius: 0.75rem;
   }
@@ -99,146 +108,89 @@ body {
   }
 }
 
-/* Glassmorphism effects */
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+/* Simple card styles without glassmorphism */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-.glassmorphism-dark {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+.card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 255, 204, 0.3);
 }
 
-.glassmorphism-card {
-  background: var(--card-glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-glass-border);
-  box-shadow: 0 8px 32px 0 var(--card-glass-shadow);
-  transition: all 0.3s ease-in-out;
-}
-
-.glassmorphism-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Animated background */
-.glassmorphism-container {
+/* Simple container without heavy animations */
+.main-container {
   position: relative;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-.glassmorphism-container::before,
-.glassmorphism-container::after {
-  content: '';
-  position: absolute;
-  width: 40vw;
-  height: 40vw;
-  border-radius: 50%;
-  z-index: -1;
-  filter: blur(100px);
-  animation: move 20s infinite alternate ease-in-out;
+/* Subtle background elements */
+.bg-accent-light {
+  background: rgba(0, 255, 204, 0.05);
 }
 
-.glassmorphism-container::before {
-  background: radial-gradient(circle, rgba(0, 255, 204, 0.15) 0%, rgba(0, 204, 255, 0.05) 100%);
-  top: -10%;
-  left: -10%;
+.bg-accent-dark {
+  background: rgba(204, 0, 255, 0.05);
 }
 
-.glassmorphism-container::after {
-  background: radial-gradient(circle, rgba(204, 0, 255, 0.15) 0%, rgba(102, 0, 204, 0.05) 100%);
-  bottom: -10%;
-  right: -10%;
-  animation-delay: -10s;
-}
-
-@keyframes move {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(10%, 10%);
-  }
-}
-
-/* Text gradients */
+/* Simplified text gradients with better performance */
 .text-gradient {
   background: linear-gradient(90deg, rgb(0, 255, 204), rgb(0, 204, 255));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient 8s ease infinite;
-  background-size: 200% auto;
 }
 
 .text-gradient-alt {
-  background: linear-gradient(90deg, rgba(204, 0, 255, 1), rgba(0, 204, 255, 1));
+  background: linear-gradient(
+    90deg,
+    rgba(204, 0, 255, 1),
+    rgba(0, 204, 255, 1)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient 8s ease infinite;
-  background-size: 200% auto;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Responsive utilities */
+/* Responsive utilities with scroll optimization */
 @media (max-width: 640px) {
-  .glassmorphism-card {
+  .card {
     padding: 1rem;
   }
-  
-  .glassmorphism-container::before,
-  .glassmorphism-container::after {
-    width: 80vw;
-    height: 80vw;
+
+  /* Optimize scroll on mobile */
+  body {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 }
 
-/* Blob animations for background */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
+/* Utility classes */
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-.animation-delay-4000 {
-  animation-delay: 4s;
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }

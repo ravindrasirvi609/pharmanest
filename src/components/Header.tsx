@@ -12,9 +12,31 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+
+    // Use passive listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [isOpen]);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -25,17 +47,24 @@ const Header = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  const handleNavClick = (itemName: string) => {
+    setActiveItem(itemName);
+    setIsOpen(false);
+  };
+
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled ? "glassmorphism-dark py-2" : "glassmorphism py-4"
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#1a1a2e]/95 backdrop-blur-sm py-2 shadow-lg border-b border-white/10"
+          : "bg-[#1a1a2e]/80 py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-40 h-12 rounded-lg overflow-hidden relative group flex items-center justify-center text-white font-bold text-xl">
+            <div className="flex items-center justify-center text-white font-bold text-xl">
               National Conference
             </div>
           </div>
@@ -46,7 +75,7 @@ const Header = () => {
               <Link
                 href={item.href}
                 key={item.name}
-                onClick={() => setActiveItem(item.name)}
+                onClick={() => handleNavClick(item.name)}
                 className={`relative px-3 py-2 text-sm font-bold transition-all duration-300 ${
                   activeItem === item.name
                     ? "text-white"
@@ -62,7 +91,7 @@ const Header = () => {
               </Link>
             ))}
             <Link href="/registration">
-              <button className="px-4 py-2 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold text-sm hover:shadow-lg hover:shadow-[#00FFCC]/20 transition-all duration-300 transform hover:translate-y-[-2px]">
+              <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-black font-semibold text-sm hover:opacity-90 hover:scale-105 transition-all duration-300">
                 Register
               </button>
             </Link>
@@ -71,7 +100,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors z-50 relative"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -85,32 +114,31 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+        onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-64 bg-[#18181b] transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-64 bg-[#16213e] border-l border-white/10 transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          } overflow-y-auto shadow-2xl`}
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6">
             <div className="flex justify-center mb-8 text-white font-bold text-xl">
               National Conference
             </div>
-            <nav className="flex flex-col space-y-4 bg-black">
+            <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   href={item.href}
                   key={item.name}
-                  onClick={() => {
-                    setActiveItem(item.name);
-                    setIsOpen(false);
-                  }}
+                  onClick={() => handleNavClick(item.name)}
                   className={`flex items-center justify-between p-3 rounded-lg transition-colors font-bold text-base ${
                     activeItem === item.name
-                      ? "bg-[#23232a] text-white"
-                      : "text-gray-300 hover:bg-[#23232a] hover:text-white"
+                      ? "bg-[#00FFCC]/20 text-white border border-[#00FFCC]/30"
+                      : "text-gray-300 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   <span>{item.name}</span>

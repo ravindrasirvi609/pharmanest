@@ -10,7 +10,7 @@ import CollegeInfo from "@/components/CollegeInfo";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <div className="relative min-h-screen w-full">
       <div className="relative">
         <HeroSection />
 
@@ -20,7 +20,7 @@ export default function Home() {
           <AboutSection />
 
           <div className="relative">
-            <div className="absolute inset-0 bg-[#00FFCC] opacity-[0.03] pointer-events-none" />
+            <div className="absolute inset-0 bg-accent-light pointer-events-none" />
             <KeyHighlights />
           </div>
 
@@ -31,7 +31,7 @@ export default function Home() {
           <CallForAbstracts />
 
           <div className="relative">
-            <div className="absolute inset-0 bg-[#CC00FF] opacity-[0.03] pointer-events-none" />
+            <div className="absolute inset-0 bg-accent-dark pointer-events-none" />
             <EventScheduleTeaser />
           </div>
 
@@ -43,6 +43,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
