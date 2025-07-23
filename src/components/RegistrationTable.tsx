@@ -17,11 +17,24 @@ interface Registration {
 
 interface RegistrationTableProps {
   registrations: Registration[];
+  onDelete?: (id: string) => void;
 }
 
 const RegistrationTable: React.FC<RegistrationTableProps> = ({
   registrations,
+  onDelete,
 }) => {
+  const handleDelete = async (id: string, paymentStatus: string) => {
+    // Prevent deletion if payment is completed
+    if (paymentStatus === "Completed") {
+      alert("Cannot delete registration with completed payment status");
+      return;
+    }
+
+    if (onDelete) {
+      onDelete(id);
+    }
+  };
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white">
@@ -35,12 +48,13 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
             <th className="px-4 py-2">College Name</th>
             <th className="px-4 py-2">Mobile No.</th>
             <th className="px-4 py-2">Regn Date</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {registrations.length === 0 ? (
             <tr>
-              <td colSpan={8} className="px-4 py-2 text-center">
+              <td colSpan={9} className="px-4 py-2 text-center">
                 No matching registrations found.
               </td>
             </tr>
@@ -73,6 +87,26 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                 <td className="px-4 py-2">{registration.whatsappNumber}</td>
                 <td className="px-4 py-2">
                   {new Date(registration.createdAt).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-2">
+                  <button
+                    onClick={() =>
+                      handleDelete(registration._id, registration.paymentStatus)
+                    }
+                    disabled={registration.paymentStatus === "Completed"}
+                    className={`px-3 py-1 rounded text-sm ${
+                      registration.paymentStatus === "Completed"
+                        ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                        : "bg-red-500 text-white hover:bg-red-600"
+                    }`}
+                    title={
+                      registration.paymentStatus === "Completed"
+                        ? "Cannot delete - Payment completed"
+                        : "Delete Registration"
+                    }
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))
