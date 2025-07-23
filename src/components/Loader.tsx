@@ -50,3 +50,6 @@ const LoadingExample = () => {
 };
 
 export default LoadingExample;
+
+// Export the LoadingSpinner component as Loader for convenience
+export { LoadingSpinner as Loader };
