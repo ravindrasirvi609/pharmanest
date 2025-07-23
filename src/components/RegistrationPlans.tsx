@@ -346,13 +346,12 @@ const RegistrationPlans: React.FC = () => {
           planName={plan.name}
         />
         <div className="mt-6">
-          {/* <button
+          <button
             onClick={() => openModal(plan)}
             className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] font-bold hover:shadow-[0_0_20px_rgba(0,204,255,0.5)] transition-all duration-300"
           >
             Register Now
-          </button> */}
-          registration will be available soon
+          </button>
         </div>
       </div>
     </div>
