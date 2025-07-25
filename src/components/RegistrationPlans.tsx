@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Plan, RegistrationFormData } from "@/lib/interface";
 import { useFirebaseStorage } from "@/app/hooks/useFirebaseStorage";
 import axios from "axios";
@@ -54,37 +54,54 @@ const RegistrationPlans: React.FC = () => {
     }
   }, [isProcessingTransaction, countdown]);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value, type } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]:
-        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
-
-  const handleGalaDinnerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIncludeGalaDinner(e.target.checked);
-    setFormData((prevState) => ({
-      ...prevState,
-      includeGalaDinner: e.target.checked,
-    }));
-  };
-
-  const handleImageUpload = async (file: File) => {
-    try {
-      const imageUrl = await uploadFile(file);
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value, type } = e.target;
       setFormData((prevState) => ({
         ...prevState,
-        imageUrl: imageUrl,
+        [name]:
+          type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
       }));
-    } catch (error) {
-      console.error("Failed to upload image:", error);
-      alert("Failed to upload image. Please try again.");
-    }
-  };
+    },
+    []
+  );
+
+  const handleBatchUpdate = useCallback(
+    (updates: Partial<RegistrationFormData>) => {
+      setFormData((prevState) => ({
+        ...prevState,
+        ...updates,
+      }));
+    },
+    []
+  );
+
+  const handleGalaDinnerChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIncludeGalaDinner(e.target.checked);
+      setFormData((prevState) => ({
+        ...prevState,
+        includeGalaDinner: e.target.checked,
+      }));
+    },
+    []
+  );
+
+  const handleImageUpload = useCallback(
+    async (file: File) => {
+      try {
+        const imageUrl = await uploadFile(file);
+        setFormData((prevState) => ({
+          ...prevState,
+          imageUrl: imageUrl,
+        }));
+      } catch (error) {
+        console.error("Failed to upload image:", error);
+        alert("Failed to upload image. Please try again.");
+      }
+    },
+    [uploadFile]
+  );
 
   const validateForm = () => {
     const errors: { [key: string]: string } = {};
@@ -453,6 +470,7 @@ const RegistrationPlans: React.FC = () => {
                   includeGalaDinner={includeGalaDinner}
                   handleGalaDinnerChange={handleGalaDinnerChange}
                   selectedPlanName={selectedPlan?.name}
+                  onBatchUpdate={handleBatchUpdate}
                 />
                 {submitError && (
                   <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-200 rounded-xl">
