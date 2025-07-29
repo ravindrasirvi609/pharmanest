@@ -216,6 +216,7 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
             <th className="py-3 px-6 text-left">Subject</th>
             <th className="py-3 px-6 text-left">Author</th>
             <th className="py-3 px-6 text-left">Email</th>
+            <th className="py-3 px-6 text-left">WhatsApp</th>
             <th className="py-3 px-6 text-left">Temporary Abstract Code</th>
             <th className="py-3 px-6 text-left">Final Abstract Code</th>
             <th className="py-3 px-6 text-left">Designation</th>
@@ -244,6 +245,24 @@ const AbstractTable: React.FC<AbstractTableProps> = ({
                 </Link>
               </td>
               <td className="py-3 px-6 text-left">{abstract.email}</td>
+              <td className="py-3 px-6 text-left">
+                {abstract.whatsappNumber ? (
+                  <a
+                    href={`https://wa.me/${abstract.whatsappNumber.replace(
+                      /\D/g,
+                      ""
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-800 font-medium underline flex items-center gap-1"
+                    title="Open WhatsApp chat"
+                  >
+                    {abstract.whatsappNumber}
+                  </a>
+                ) : (
+                  <span className="text-gray-400">Not provided</span>
+                )}
+              </td>
               <td className="py-3 px-6 text-left">
                 {abstract.temporyAbstractCode}
               </td>

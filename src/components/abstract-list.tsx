@@ -126,7 +126,9 @@ export function AbstractList() {
         (abstract) =>
           abstract.title.toLowerCase().includes(searchLower) ||
           abstract.name.toLowerCase().includes(searchLower) ||
-          abstract.email.toLowerCase().includes(searchLower)
+          abstract.email.toLowerCase().includes(searchLower) ||
+          (abstract.whatsappNumber &&
+            abstract.whatsappNumber.toLowerCase().includes(searchLower))
       );
     }
 
@@ -217,27 +219,34 @@ export function AbstractList() {
                   aria-orientation="vertical"
                   aria-labelledby="options-menu"
                 >
-                  {["createdAt", "title", "name", "email", "Status"].map(
-                    (sortOption) => (
-                      <button
-                        key={sortOption}
-                        onClick={() => {
-                          setFilters((prev) => ({
-                            ...prev,
-                            sortBy: sortOption as keyof Abstract,
-                          }));
-                          setIsSortOpen(false);
-                        }}
-                        className="block px-4 py-2 text-sm text-[#021373] hover:bg-[#F2F2F2] hover:text-[#034C8C] w-full text-left transition duration-300 ease-in-out"
-                        role="menuitem"
-                      >
-                        {sortOption === "createdAt"
-                          ? "Creation Date"
-                          : sortOption.charAt(0).toUpperCase() +
-                            sortOption.slice(1)}
-                      </button>
-                    )
-                  )}
+                  {[
+                    "createdAt",
+                    "title",
+                    "name",
+                    "email",
+                    "whatsappNumber",
+                    "Status",
+                  ].map((sortOption) => (
+                    <button
+                      key={sortOption}
+                      onClick={() => {
+                        setFilters((prev) => ({
+                          ...prev,
+                          sortBy: sortOption as keyof Abstract,
+                        }));
+                        setIsSortOpen(false);
+                      }}
+                      className="block px-4 py-2 text-sm text-[#021373] hover:bg-[#F2F2F2] hover:text-[#034C8C] w-full text-left transition duration-300 ease-in-out"
+                      role="menuitem"
+                    >
+                      {sortOption === "createdAt"
+                        ? "Creation Date"
+                        : sortOption === "whatsappNumber"
+                        ? "WhatsApp Number"
+                        : sortOption.charAt(0).toUpperCase() +
+                          sortOption.slice(1)}
+                    </button>
+                  ))}
                   <hr className="my-1 border-[#CACACA]" />
                   <button
                     onClick={() => {
