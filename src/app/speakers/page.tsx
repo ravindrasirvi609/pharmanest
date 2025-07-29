@@ -18,10 +18,9 @@ const speakers: Speaker[] = [
   },
   {
     id: 2,
-    name: "Dr. Prabhakar Reddy V.",
-    designation:
-      "University College of Pharmaceutical Sciences, Palamuru University, Mahabubnagar, Telangana",
-    image: "/speakers/prabhakar.png",
+    name: "Mr. U.MAHALINGAM,",
+    designation: "Recipharm Pharmaservices Pvt Ltd., Bangalore, Karnataka",
+    image: "/speakers/MAHALINGAM.jpeg",
   },
   {
     id: 3,
@@ -44,9 +43,9 @@ const speakers: Speaker[] = [
   },
   {
     id: 6,
-    name: "Dr. Manoj S Charde",
-    designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
-    image: "/speakers/Manoj S Charde.jpeg",
+    name: "Dr. Sangamesh P",
+    designation: "Founder and Director, Saskia Labs Pvt Limited",
+    image: "/speakers/Sangamesh.jpeg",
   },
   {
     id: 7,
@@ -56,9 +55,9 @@ const speakers: Speaker[] = [
   },
   {
     id: 8,
-    name: "Dr. Manoj S Charde",
-    designation: "Govt. Pharmacy College, Ch. Sambhaji Nagar, Maharashtra",
-    image: "/speakers/Manoj S Charde.jpeg",
+    name: "Dr. Pradeepkumar MR",
+    designation: "Ass. Prof., KLE College of Pharmacy, Hubballi, Karnataka",
+    image: "/speakers/Pradeepkumar.jpeg",
   },
 ];
 
