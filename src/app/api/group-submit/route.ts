@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
-import { sendEmail } from "@/lib/mailer";
 import RegistrationModel from "@/Model/RegistrationModel";
 import AbstractModel from "@/Model/AbstractModel";
 
@@ -72,10 +71,10 @@ export async function POST(req: NextRequest) {
     }
 
     // Send pending confirmation email (using existing email type for now)
-    sendEmail({
-      emailType: "REGISTRATION_SUCCESS", // We'll update the email template later
-      _id: savedGroupRegistration._id,
-    });
+    // sendEmail({
+    //   emailType: "REGISTRATION_SUCCESS", // We'll update the email template later
+    //   _id: savedGroupRegistration._id,
+    // });
 
     return NextResponse.json(
       {
