@@ -71,6 +71,57 @@ export default function RegistrationList() {
     }
   };
 
+  const handleConfirmGroup = async (id: string) => {
+    if (!confirm("Are you sure you want to confirm this group registration?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/confirm-group-registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ registrationId: id }),
+      });
+
+      if (response.ok) {
+        // Update the registration status in both arrays
+        setRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                }
+              : reg
+          )
+        );
+        setFilteredRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                }
+              : reg
+          )
+        );
+        alert("Group registration confirmed successfully!");
+      } else {
+        const error = await response.json();
+        alert(
+          `Failed to confirm registration: ${error.error || error.message}`
+        );
+      }
+    } catch (error) {
+      console.error("Error confirming group registration:", error);
+      alert("Failed to confirm group registration. Please try again.");
+    }
+  };
+
   if (loading)
     return (
       <div>
@@ -107,6 +158,7 @@ export default function RegistrationList() {
       <RegistrationTable
         registrations={filteredRegistrations}
         onDelete={handleDelete}
+        onConfirmGroup={handleConfirmGroup}
       />
     </div>
   );

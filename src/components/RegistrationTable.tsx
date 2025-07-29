@@ -18,11 +18,13 @@ interface Registration {
 interface RegistrationTableProps {
   registrations: Registration[];
   onDelete?: (id: string) => void;
+  onConfirmGroup?: (id: string) => void;
 }
 
 const RegistrationTable: React.FC<RegistrationTableProps> = ({
   registrations,
   onDelete,
+  onConfirmGroup,
 }) => {
   const handleDelete = async (id: string, paymentStatus: string) => {
     // Prevent deletion if payment is completed
@@ -35,6 +37,12 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
       onDelete(id);
     }
   };
+
+  const handleConfirmGroup = async (id: string) => {
+    if (onConfirmGroup) {
+      onConfirmGroup(id);
+    }
+  };
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white">
@@ -45,6 +53,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
             <th className="px-4 py-2">Email</th>
             <th className="px-4 py-2">Registration Type</th>
             <th className="px-4 py-2">Payment Status</th>
+            <th className="px-4 py-2">Registration Status</th>
             <th className="px-4 py-2">College Name</th>
             <th className="px-4 py-2">Mobile No.</th>
             <th className="px-4 py-2">Regn Date</th>
@@ -54,7 +63,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
         <tbody>
           {registrations.length === 0 ? (
             <tr>
-              <td colSpan={9} className="px-4 py-2 text-center">
+              <td colSpan={10} className="px-4 py-2 text-center">
                 No matching registrations found.
               </td>
             </tr>
@@ -66,7 +75,9 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                   registration.includeGalaDinner ? "bg-pink-200" : ""
                 }`}
               >
-                <td className="px-4 py-2">{registration.registrationCode}</td>
+                <td className="px-4 py-2">
+                  {registration.registrationCode || "Pending"}
+                </td>
                 <td className="px-4 py-2">
                   <Link href={`/abstractForm/${registration._id}`}>
                     {registration.name}
@@ -83,30 +94,54 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                     {registration.paymentStatus}
                   </span>
                 </td>
+                <td className="px-4 py-2">
+                  <span
+                    className={`px-2 py-1 rounded ${getRegistrationStatusColor(
+                      registration.registrationStatus
+                    )}`}
+                  >
+                    {registration.registrationStatus}
+                  </span>
+                </td>
                 <td className="px-4 py-2">{registration.affiliation}</td>
                 <td className="px-4 py-2">{registration.whatsappNumber}</td>
                 <td className="px-4 py-2">
                   {new Date(registration.createdAt).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2">
-                  <button
-                    onClick={() =>
-                      handleDelete(registration._id, registration.paymentStatus)
-                    }
-                    disabled={registration.paymentStatus === "Completed"}
-                    className={`px-3 py-1 rounded text-sm ${
-                      registration.paymentStatus === "Completed"
-                        ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                        : "bg-red-500 text-white hover:bg-red-600"
-                    }`}
-                    title={
-                      registration.paymentStatus === "Completed"
-                        ? "Cannot delete - Payment completed"
-                        : "Delete Registration"
-                    }
-                  >
-                    Delete
-                  </button>
+                  <div className="flex space-x-2">
+                    {registration.registrationType === "Group" &&
+                      registration.registrationStatus === "Pending" && (
+                        <button
+                          onClick={() => handleConfirmGroup(registration._id)}
+                          className="px-3 py-1 rounded text-sm bg-green-500 text-white hover:bg-green-600"
+                          title="Confirm Group Registration"
+                        >
+                          Confirm
+                        </button>
+                      )}
+                    <button
+                      onClick={() =>
+                        handleDelete(
+                          registration._id,
+                          registration.paymentStatus
+                        )
+                      }
+                      disabled={registration.paymentStatus === "Completed"}
+                      className={`px-3 py-1 rounded text-sm ${
+                        registration.paymentStatus === "Completed"
+                          ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                          : "bg-red-500 text-white hover:bg-red-600"
+                      }`}
+                      title={
+                        registration.paymentStatus === "Completed"
+                          ? "Cannot delete - Payment completed"
+                          : "Delete Registration"
+                      }
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))
@@ -125,6 +160,17 @@ function getPaymentStatusColor(status: string): string {
       return "bg-yellow-500 text-white";
     case "Failed":
       return "bg-danger text-white";
+    default:
+      return "bg-gray-500 text-white";
+  }
+}
+
+function getRegistrationStatusColor(status: string): string {
+  switch (status) {
+    case "Confirmed":
+      return "bg-green-500 text-white";
+    case "Pending":
+      return "bg-orange-500 text-white";
     default:
       return "bg-gray-500 text-white";
   }

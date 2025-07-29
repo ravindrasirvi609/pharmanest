@@ -95,7 +95,7 @@ const Registration = () => {
               href="mailto:conferences@opf.org.in"
               className="text-[#00FFCC] hover:text-[#00CCFF] underline transition-colors"
             >
-              vcpconferences@gmail.com
+              conferences@opf.org.in
             </Link>
           </p>
 

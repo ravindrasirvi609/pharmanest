@@ -432,10 +432,15 @@ const RegistrationPlans: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center py-8">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 py-8">
+          <Link href="/group-registration">
+            <button className="py-4 px-8 rounded-full bg-gradient-to-r from-[#00FFCC] to-[#00CCFF] text-[#070B39] text-xl font-bold hover:shadow-[0_0_20px_rgba(0,255,204,0.5)] transition-all duration-300">
+              Group Registration Form
+            </button>
+          </Link>
           <Link href="/contact">
             <button className="py-4 px-8 rounded-full bg-gradient-to-r from-[#FF3366] to-[#FF9966] text-[#070B39] text-xl font-bold hover:shadow-[0_0_20px_rgba(255,51,102,0.5)] transition-all duration-300">
-              For Group Registration, Please Contact Us
+              Contact Us for Help
             </button>
           </Link>
         </div>
