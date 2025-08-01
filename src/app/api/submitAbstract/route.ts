@@ -4,6 +4,7 @@ import AbstractModel from "@/Model/AbstractModel";
 import RegistrationModel from "@/Model/RegistrationModel";
 import QRCode from "qrcode";
 import { sendEmail } from "@/lib/mailer";
+import { whatsappService } from "@/lib/whatsapp";
 import { uploadQRCodeToFirebase } from "@/lib/firebase";
 
 connect();
@@ -121,6 +122,24 @@ export async function POST(req: NextRequest) {
       _id: newAbstract._id,
       emailType: "SUBMITTED",
     });
+
+    // Send WhatsApp message for abstract submission
+    try {
+      if (whatsappNumber) {
+        await whatsappService.sendAbstractSubmissionMessage(
+          whatsappNumber,
+          name,
+          temporyAbstractCode,
+          title
+        );
+      }
+    } catch (whatsappError) {
+      console.error(
+        "Failed to send WhatsApp message for abstract submission:",
+        whatsappError
+      );
+      // Don't fail the entire request if WhatsApp fails
+    }
 
     return NextResponse.json({
       message: "Abstract submitted successfully",
