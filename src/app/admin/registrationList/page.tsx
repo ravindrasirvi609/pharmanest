@@ -4,6 +4,14 @@ import RegistrationTable from "@/components/RegistrationTable";
 import { exportToExcel, Registration } from "@/lib/excelExport";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import {
+  Search,
+  Download,
+  FileText,
+  Users,
+  Calendar,
+  TrendingUp,
+} from "lucide-react";
 
 export default function RegistrationList() {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
@@ -124,42 +132,151 @@ export default function RegistrationList() {
 
   if (loading)
     return (
-      <div>
-        {" "}
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
         <LoadingExample />
       </div>
     );
 
+  // Calculate statistics
+  const totalRegistrations = registrations.length;
+  const confirmedRegistrations = registrations.filter(
+    (reg) => reg.registrationStatus === "Confirmed"
+  ).length;
+  const pendingRegistrations = registrations.filter(
+    (reg) => reg.registrationStatus === "Pending"
+  ).length;
+  const completedPayments = registrations.filter(
+    (reg) => reg.paymentStatus === "Completed"
+  ).length;
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-primary">Registration List</h1>
-        <div className="flex space-x-4">
-          <input
-            type="text"
-            placeholder="Search registrations..."
-            value={searchTerm}
-            onChange={handleSearch}
-            className="px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header Section */}
+        <div className="mb-8">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+            <div>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Registration Dashboard
+              </h1>
+              <p className="text-gray-600 mt-2 text-lg">
+                Manage and monitor all conference registrations
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href={"/admin/abstractList"}>
+                <button className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <FileText size={20} />
+                  Abstract List
+                </button>
+              </Link>
+              <button
+                onClick={handleExport}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <Download size={20} />
+                Export to Excel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Statistics Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">
+                  Total Registrations
+                </p>
+                <p className="text-3xl font-bold text-gray-900">
+                  {totalRegistrations}
+                </p>
+              </div>
+              <div className="p-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl">
+                <Users className="text-white" size={24} />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">Confirmed</p>
+                <p className="text-3xl font-bold text-green-600">
+                  {confirmedRegistrations}
+                </p>
+              </div>
+              <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl">
+                <TrendingUp className="text-white" size={24} />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">Pending</p>
+                <p className="text-3xl font-bold text-orange-600">
+                  {pendingRegistrations}
+                </p>
+              </div>
+              <div className="p-3 bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl">
+                <Calendar className="text-white" size={24} />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">
+                  Payments Completed
+                </p>
+                <p className="text-3xl font-bold text-purple-600">
+                  {completedPayments}
+                </p>
+              </div>
+              <div className="p-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl">
+                <TrendingUp className="text-white" size={24} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Search and Filters */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="relative flex-1">
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
+              <input
+                type="text"
+                placeholder="Search registrations by name, email, or any field..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-400 transition-all duration-200"
+              />
+            </div>
+            <div className="text-sm text-gray-600">
+              Showing {filteredRegistrations.length} of {registrations.length}{" "}
+              registrations
+            </div>
+          </div>
+        </div>
+
+        {/* Table Section */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <RegistrationTable
+            registrations={filteredRegistrations}
+            onDelete={handleDelete}
+            onConfirmGroup={handleConfirmGroup}
           />
-          <button
-            onClick={handleExport}
-            className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark"
-          >
-            Export to Excel
-          </button>
-          <Link href={"/admin/abstractList"}>
-            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">
-              Abstract List
-            </button>
-          </Link>
         </div>
       </div>
-      <RegistrationTable
-        registrations={filteredRegistrations}
-        onDelete={handleDelete}
-        onConfirmGroup={handleConfirmGroup}
-      />
     </div>
   );
 }
