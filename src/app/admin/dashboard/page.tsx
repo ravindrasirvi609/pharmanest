@@ -142,7 +142,7 @@ export default function AdminDashboard() {
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3 flex items-center justify-center">
                     <span className="text-white text-sm font-bold">P</span>
                   </div>
-                  PharmaNEST Dashboard
+                  Dashboard
                 </h1>
                 <p className="mt-1 text-sm text-gray-600">
                   Real-time insights and analytics for conference management
