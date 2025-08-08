@@ -7,9 +7,9 @@ const AbstractFormPage: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
 
-  const handleSubmitClick = () => {
-    setShowDialog(true);
-  };
+  // const handleSubmitClick = () => {
+  //   setShowDialog(true);
+  // };
 
   const handleDialogClose = () => {
     setShowDialog(false);
