@@ -223,7 +223,7 @@ const AbstractFormPage: React.FC = () => {
 
           {showForm && (
             <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-              <AbstractForm />
+           /*   <AbstractForm /> */
             </div>
           )}
         </div>
