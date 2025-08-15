@@ -231,7 +231,7 @@ const RegistrationPlans: React.FC = () => {
     }
 
     try {
-      totalAmount = includeGalaDinner ? plan.earlyBird + 1000 : plan.earlyBird;
+      totalAmount = includeGalaDinner ? plan.regular + 1000 : plan.regular;
 
       // Create Razorpay order
       const orderResponse = await fetch("/api/razorpay-order", {
@@ -345,14 +345,15 @@ const RegistrationPlans: React.FC = () => {
       </div>
       <div className="p-6">
         <p className="text-gray-300 mb-6">{plan.description}</p>
-        <PriceDisplay
-          label="Early Bird"
-          price={plan.earlyBird}
-          planName={plan.name}
-        />
+        {/* Regular pricing now active; Early Bird ended */}
         <PriceDisplay
           label="Regular"
           price={plan.regular}
+          planName={plan.name}
+        />
+        <PriceDisplay
+          label="Early Bird (Ended)"
+          price={plan.earlyBird}
           className="text-gray-400 line-through"
           planName={plan.name}
         />
@@ -405,29 +406,26 @@ const RegistrationPlans: React.FC = () => {
                 session
               </p>
               <PriceDisplay
-                label="Early Bird"
-                price={1200}
-                planName="Accompanying Person"
-              />
-              <PriceDisplay
                 label="Regular"
                 price={1200}
-                className="text-gray-400"
                 planName="Accompanying Person"
               />
               <PriceDisplay
-                label="Spot"
-                price={1500}
-                className="text-gray-400"
+                label="Early Bird (Ended)"
+                price={1200}
+                className="text-gray-400 line-through"
                 planName="Accompanying Person"
               />
-              <div className="mt-6">
-                <Link href={"https://rzp.io/l/g60dnQz"}>
-                  <button className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#9900FF] to-[#FF66CC] text-[#070B39] font-bold hover:shadow-[0_0_20px_rgba(153,0,255,0.5)] transition-all duration-300">
-                    Register Now
-                  </button>
-                </Link>
-              </div>
+              `Register and Pay ($
+              {selectedPlan?.name === "International Delegates" ? "$" : "₹"}$
+              {includeGalaDinner
+                ? selectedPlan?.name === "International Delegates"
+                  ? (selectedPlan?.regular || 0) / 83 + 12
+                  : (selectedPlan?.regular || 0) + 1000
+                : selectedPlan?.name === "International Delegates"
+                ? (selectedPlan?.regular || 0) / 83
+                : selectedPlan?.regular}
+              )`
             </div>
           </div>
         </div>
@@ -523,11 +521,11 @@ const RegistrationPlans: React.FC = () => {
                       }${
                         includeGalaDinner
                           ? selectedPlan?.name === "International Delegates"
-                            ? (selectedPlan?.earlyBird || 0) / 83 + 12 // $12 for gala dinner
-                            : (selectedPlan?.earlyBird || 0) + 1000
+                            ? (selectedPlan?.regular || 0) / 83 + 12
+                            : (selectedPlan?.regular || 0) + 1000
                           : selectedPlan?.name === "International Delegates"
-                          ? (selectedPlan?.earlyBird || 0) / 83
-                          : selectedPlan?.earlyBird
+                          ? (selectedPlan?.regular || 0) / 83
+                          : selectedPlan?.regular
                       })`
                     )}
                   </button>
