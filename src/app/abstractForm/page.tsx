@@ -115,6 +115,40 @@ const AbstractFormPage: React.FC = () => {
                   >
                     NATIONAL CONFERENCE MODEL ABSTRACT
                   </a>
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    <a
+                      href="https://docs.google.com/presentation/d/1L_e3SSNTSXFWkthYOO5wOk3xhSzYhPBc/edit?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-md bg-[#021373] text-white text-sm font-semibold hover:bg-[#032b7a] transition"
+                    >
+                      Model E-Poster Template
+                    </a>
+                    <a
+                      href="https://docs.google.com/presentation/d/1-lKSpS42WNShrnJqDx915MlF5_A8jlTW/edit?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-md bg-[#021373] text-white text-sm font-semibold hover:bg-[#032b7a] transition"
+                    >
+                      Model Oral Presentation Template
+                    </a>
+                    <a
+                      href="https://drive.google.com/file/d/1_wM_k-nGHpIFdUOZr8AeZY_uiJsFFrAx/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-md bg-[#021373] text-white text-sm font-semibold hover:bg-[#032b7a] transition"
+                    >
+                      E-Poster Presentation Guidelines
+                    </a>
+                    <a
+                      href="https://drive.google.com/file/d/1dSn5qBTwk1pbmXqgPydmDZ5d3ghcTios/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-md bg-[#021373] text-white text-sm font-semibold hover:bg-[#032b7a] transition"
+                    >
+                      Oral Presentation Guidelines
+                    </a>
+                  </div>
                 </div>
               </section>
 
