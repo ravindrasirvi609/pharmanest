@@ -231,7 +231,7 @@ const RegistrationPlans: React.FC = () => {
     }
 
     try {
-      totalAmount = includeGalaDinner ? plan.regular + 1000 : plan.regular;
+      totalAmount = includeGalaDinner ? plan.spot + 1000 : plan.spot;
 
       // Create Razorpay order
       const orderResponse = await fetch("/api/razorpay-order", {
@@ -345,21 +345,17 @@ const RegistrationPlans: React.FC = () => {
       </div>
       <div className="p-6">
         <p className="text-gray-300 mb-6">{plan.description}</p>
-        {/* Regular pricing now active; Early Bird ended */}
+        {/* Spot pricing now active */}
+        <PriceDisplay label="Spot" price={plan.spot} planName={plan.name} />
         <PriceDisplay
-          label="Regular"
+          label="Regular (Closed)"
           price={plan.regular}
+          className="text-gray-400 line-through"
           planName={plan.name}
         />
         <PriceDisplay
           label="Early Bird (Ended)"
           price={plan.earlyBird}
-          className="text-gray-400 line-through"
-          planName={plan.name}
-        />
-        <PriceDisplay
-          label="Spot"
-          price={plan.spot}
           className="text-gray-400 line-through"
           planName={plan.name}
         />
@@ -521,11 +517,11 @@ const RegistrationPlans: React.FC = () => {
                       }${
                         includeGalaDinner
                           ? selectedPlan?.name === "International Delegates"
-                            ? (selectedPlan?.regular || 0) / 83 + 12
-                            : (selectedPlan?.regular || 0) + 1000
+                            ? (selectedPlan?.spot || 0) / 83 + 12
+                            : (selectedPlan?.spot || 0) + 1000
                           : selectedPlan?.name === "International Delegates"
-                          ? (selectedPlan?.regular || 0) / 83
-                          : selectedPlan?.regular
+                          ? (selectedPlan?.spot || 0) / 83
+                          : selectedPlan?.spot
                       })`
                     )}
                   </button>

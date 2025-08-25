@@ -130,6 +130,67 @@ export default function RegistrationList() {
     }
   };
 
+  const handleConfirmIndividual = async (id: string) => {
+    if (
+      !confirm(
+        "Are you sure you want to confirm this individual registration with ₹1 payment?"
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/confirm-individual-registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ registrationId: id }),
+      });
+
+      if (response.ok) {
+        // Update the registration status in both arrays
+        setRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                  paymentAmount: 1,
+                }
+              : reg
+          )
+        );
+        setFilteredRegistrations((prev) =>
+          prev.map((reg) =>
+            reg._id === id
+              ? {
+                  ...reg,
+                  registrationStatus: "Confirmed",
+                  paymentStatus: "Completed",
+                  paymentAmount: 1,
+                }
+              : reg
+          )
+        );
+        alert(
+          "Individual registration confirmed successfully with ₹1 payment!"
+        );
+      } else {
+        const error = await response.json();
+        alert(
+          `Failed to confirm individual registration: ${
+            error.error || error.message
+          }`
+        );
+      }
+    } catch (error) {
+      console.error("Error confirming individual registration:", error);
+      alert("Failed to confirm individual registration. Please try again.");
+    }
+  };
+
   if (loading)
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
@@ -274,6 +335,7 @@ export default function RegistrationList() {
             registrations={filteredRegistrations}
             onDelete={handleDelete}
             onConfirmGroup={handleConfirmGroup}
+            onConfirmIndividual={handleConfirmIndividual}
           />
         </div>
       </div>

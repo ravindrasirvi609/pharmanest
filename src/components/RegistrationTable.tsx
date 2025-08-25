@@ -26,12 +26,14 @@ interface RegistrationTableProps {
   registrations: Registration[];
   onDelete?: (id: string) => void;
   onConfirmGroup?: (id: string) => void;
+  onConfirmIndividual?: (id: string) => void;
 }
 
 const RegistrationTable: React.FC<RegistrationTableProps> = ({
   registrations,
   onDelete,
   onConfirmGroup,
+  onConfirmIndividual,
 }) => {
   const handleDelete = async (id: string, paymentStatus: string) => {
     // Prevent deletion if payment is completed
@@ -48,6 +50,12 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
   const handleConfirmGroup = async (id: string) => {
     if (onConfirmGroup) {
       onConfirmGroup(id);
+    }
+  };
+
+  const handleConfirmIndividual = async (id: string) => {
+    if (onConfirmIndividual) {
+      onConfirmIndividual(id);
     }
   };
 
@@ -198,7 +206,20 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
                           title="Confirm Group Registration"
                         >
                           <CheckCircle size={12} className="mr-1" />
-                          Confirm
+                          Confirm Group
+                        </button>
+                      )}
+                    {registration.registrationType !== "Group" &&
+                      registration.registrationStatus === "Pending" && (
+                        <button
+                          onClick={() =>
+                            handleConfirmIndividual(registration._id)
+                          }
+                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 shadow-sm hover:shadow-md border border-blue-400"
+                          title="Confirm Individual Registration (₹1 Payment)"
+                        >
+                          <UserCheck size={12} className="mr-1" />
+                          Confirm Individual
                         </button>
                       )}
                     <button
